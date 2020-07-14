@@ -32,7 +32,7 @@ The project takes a tour explaining the construction of each of the artifacts of
 # KEY WORDS
 Business intelligence, data warehouse, ETL, demand, electric energy.
 
-# TOOLS
+# HERRAMIENTAS
 - SQL Server 2019
 - SQL Integation Services 2019
 - SQL Analysis Services 2019
