@@ -1,0 +1,45 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<SharedDataSet xmlns="http://schemas.microsoft.com/sqlserver/reporting/2010/01/shareddatasetdefinition" xmlns:rd="http://schemas.microsoft.com/SQLServer/reporting/reportdesigner">
+  <DataSet Name="DataSet1">
+    <Query>
+      <DataSourceReference>dsDemandaDW</DataSourceReference>
+      <CommandText>SELECT 1 AS [MonthNumber], 'Enero' AS [MonthName], 'Ene' AS [MonthNameShort]
+UNION
+SELECT 2 AS [MonthNumber], 'Febrero' AS [MonthName], 'Feb' AS [MonthNameShort]
+UNION
+SELECT 3 AS [MonthNumber], 'Marzo' AS [MonthName], 'Mar' AS [MonthNameShort]
+UNION
+SELECT 4 AS [MonthNumber], 'Abril' AS [MonthName], 'Abr' AS [MonthNameShort]
+UNION
+SELECT 5 AS [MonthNumber], 'Mayo' AS [MonthName], 'May' AS [MonthNameShort]
+UNION
+SELECT 6 AS [MonthNumber], 'Junio' AS [MonthName], 'Jun' AS [MonthNameShort]
+UNION
+SELECT 7 AS [MonthNumber], 'Julio' AS [MonthName], 'Jul' AS [MonthNameShort]
+UNION
+SELECT 8 AS [MonthNumber], 'Agosto' AS [MonthName], 'Ago' AS [MonthNameShort]
+UNION
+SELECT 9 AS [MonthNumber], 'Septiembre' AS [MonthName], 'Sep' AS [MonthNameShort]
+UNION
+SELECT 10 AS [MonthNumber], 'Octubre' AS [MonthName], 'Oct' AS [MonthNameShort]
+UNION
+SELECT 11 AS [MonthNumber], 'Noviembre' AS [MonthName], 'Nov' AS [MonthNameShort]
+UNION
+SELECT 12 AS [MonthNumber], 'Diciembre' AS [MonthName], 'Dic' AS [MonthNameShort];</CommandText>
+    </Query>
+    <Fields>
+      <Field Name="MonthNumber">
+        <DataField>MonthNumber</DataField>
+        <rd:TypeName>System.Int32</rd:TypeName>
+      </Field>
+      <Field Name="MonthName">
+        <DataField>MonthName</DataField>
+        <rd:TypeName>System.String</rd:TypeName>
+      </Field>
+      <Field Name="MonthNameShort">
+        <DataField>MonthNameShort</DataField>
+        <rd:TypeName>System.String</rd:TypeName>
+      </Field>
+    </Fields>
+  </DataSet>
+</SharedDataSet>

@@ -1,0 +1,98 @@
+﻿======================================
+Referencias de proyectos
+======================================
+NuGet:
+Microsoft.AspNetCore.Mvc.ViewFeatures
+Microsoft.AspNetCore.Mvc.Formatters.Json ??
+
+Microsoft.AspNetCore.Mvc.NewtonsoftJson
+Newtonsoft.Json
+
+
+
+Referencias
+
+======================================
+Links
+======================================
+Render an SSRS Report Asynchronously 
+https://blog.softartisans.com/2013/07/24/how-to-render-an-ssrs-report-asynchronously-using-the-asyncawait-keywords-in-c-5-0-with-net-4-5/
+
+Report Server Web Service Endpoints
+https://docs.microsoft.com/en-us/sql/reporting-services/report-server-web-service/methods/report-server-web-service-endpoints?view=sql-server-ver15
+
+ReportViewerForCore.ReportService
+http://localhost/ReportServer/ReportService2010.asmx?wsdl
+
+ReportViewerForCore.ReportExecutionService
+http://localhost/ReportServer/ReportExecution2005.asmx?wsdl  
+
+http://localhost/ReportServer/ReportService2006.asmx?wsdl 
+
+======================================
+SSRS
+======================================
+URL para consultar reporte con parametros
+http://<ssrs server>/ReportServer/Pages/ReportViewer.aspx?<folder>/<reportname>&Param1=Value1&Param2=Value2&Param2=Value3
+http://<ssrs server>/Reportserver?/<folder>/<reportname>&rc:Section=2  
+http://<ssrs server>/Reportserver?/<folder>/<reportname>&rs:Command=Render&rc:StartFind=1&rc:EndFind=5&rc:FindString=Mountain-400
+http://<ssrs server>/ReportServer?/<folder>/<reportname>&rs:Format=PDF  
+http://<your server>/ReportServer?/<folder>/<reportname>&Param1=Value1
+
+
+URL Access Parameter Reference
+https://docs.microsoft.com/en-us/sql/reporting-services/url-access-parameter-reference?view=sql-server-ver15
+
+Ocultar barra de herramientas:
+rc:Toolbar=false
+
+Comprimir barra de parámetros:
+&rc:Parameters=Collapsed
+
+Ocultar barra de parámetros:
+&rc:Parameters=false
+
+Mostrar la página 2:
+&rc:Section=2 
+
+Pasar nulo a un parámetro:
+MiParametro:isnull=true 
+
+Pasar booleano a un parámetro
+0: false
+1: true
+
+Buscar dentro del reporte
+&rc:FindString=Mountain-400 
+
+Rango de busqueda:
+&rc:StartFind=1&rc:EndFind=5&rc:FindString=Mountain-400 
+
+Dispositivo de salida:
+&rs:Format=IMAGE&rc:OutputFormat=JPEG
+
+Mostrar reporte en el browser:
+&rs:Command=Render
+
+Exportar reporte. Format:
+&rs:Format=PDF
+
+HTML5
+HTML4.0
+PPTX
+ATOM
+MHTML
+IMAGE
+EXCEL
+WORD
+CSV
+PDF
+XML
+
+
+
+
+
+
+
+

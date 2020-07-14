@@ -1,0 +1,30 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.779
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{F14B399A-7131-4C87-9E4B-1186C45EF12D}") = "DemandaBI_RS", "DemandaBI_RS\DemandaBI_RS.rptproj", "{93373335-2F4E-4F39-AFC6-7CB7404F8997}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Default = Debug|Default
+		DebugLocal|Default = DebugLocal|Default
+		Release|Default = Release|Default
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{93373335-2F4E-4F39-AFC6-7CB7404F8997}.Debug|Default.ActiveCfg = Debug
+		{93373335-2F4E-4F39-AFC6-7CB7404F8997}.Debug|Default.Build.0 = Debug
+		{93373335-2F4E-4F39-AFC6-7CB7404F8997}.Debug|Default.Deploy.0 = Debug
+		{93373335-2F4E-4F39-AFC6-7CB7404F8997}.DebugLocal|Default.ActiveCfg = DebugLocal
+		{93373335-2F4E-4F39-AFC6-7CB7404F8997}.DebugLocal|Default.Build.0 = DebugLocal
+		{93373335-2F4E-4F39-AFC6-7CB7404F8997}.Release|Default.ActiveCfg = Release
+		{93373335-2F4E-4F39-AFC6-7CB7404F8997}.Release|Default.Build.0 = Release
+		{93373335-2F4E-4F39-AFC6-7CB7404F8997}.Release|Default.Deploy.0 = Release
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {51BE76C0-6D0A-4966-9E63-1F7C6CD85A64}
+	EndGlobalSection
+EndGlobal

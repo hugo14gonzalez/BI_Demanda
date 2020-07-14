@@ -1,0 +1,83 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<SharedDataSet xmlns="http://schemas.microsoft.com/sqlserver/reporting/2010/01/shareddatasetdefinition" xmlns:rd="http://schemas.microsoft.com/SQLServer/reporting/reportdesigner">
+  <DataSet Name="DataSet1">
+    <Query>
+      <DataSourceReference>dsDemanda_OLAP</DataSourceReference>
+      <CommandText>WITH 
+MEMBER [Measures].[ParameterCaption] AS [DimAgente].[Actividades].CURRENTMEMBER.MEMBER_CAPTION 
+MEMBER [Measures].[ParameterValue] AS [DimAgente].[Actividades].CURRENTMEMBER.UNIQUENAME 
+SELECT NON EMPTY {[Measures].[ParameterCaption],[Measures].[ParameterValue]} ON COLUMNS, 
+NON EMPTY [DimAgente].[Actividades].[Actividad].MEMBERS ON ROWS 
+FROM [Demanda];</CommandText>
+      <rd:DesignerState>
+        <QueryDefinition xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/AnalysisServices/QueryDefinition">
+          <CommandType>MDX</CommandType>
+          <Type>Query</Type>
+          <QuerySpecification xsi:type="MDXQuerySpecification">
+            <Select>
+              <Items>
+                <Item>
+                  <ID xsi:type="Level">
+                    <DimensionName>DimAgente</DimensionName>
+                    <HierarchyName>Actividades</HierarchyName>
+                    <HierarchyUniqueName>[DimAgente].[Actividades]</HierarchyUniqueName>
+                    <LevelName>Actividad</LevelName>
+                    <UniqueName>[DimAgente].[Actividades].[Actividad]</UniqueName>
+                  </ID>
+                  <ItemCaption>Actividad</ItemCaption>
+                </Item>
+                <Item>
+                  <ID xsi:type="Measure">
+                    <MeasureName>ParameterCaption</MeasureName>
+                    <UniqueName>[Measures].[ParameterCaption]</UniqueName>
+                  </ID>
+                  <ItemCaption>ParameterCaption</ItemCaption>
+                  <FormattedValue>true</FormattedValue>
+                </Item>
+                <Item>
+                  <ID xsi:type="Measure">
+                    <MeasureName>ParameterValue</MeasureName>
+                    <UniqueName>[Measures].[ParameterValue]</UniqueName>
+                  </ID>
+                  <ItemCaption>ParameterValue</ItemCaption>
+                  <FormattedValue>true</FormattedValue>
+                </Item>
+              </Items>
+            </Select>
+            <AutoExecute>false</AutoExecute>
+            <From>Demanda</From>
+            <Filter>
+              <FilterItems />
+            </Filter>
+            <Calculations />
+            <Aggregates />
+            <QueryProperties />
+          </QuerySpecification>
+          <Query>
+            <Statement>WITH 
+MEMBER [Measures].[ParameterCaption] AS [DimAgente].[Actividades].CURRENTMEMBER.MEMBER_CAPTION 
+MEMBER [Measures].[ParameterValue] AS [DimAgente].[Actividades].CURRENTMEMBER.UNIQUENAME 
+SELECT NON EMPTY {[Measures].[ParameterCaption],[Measures].[ParameterValue]} ON COLUMNS, 
+NON EMPTY [DimAgente].[Actividades].[Actividad].MEMBERS ON ROWS 
+FROM [Demanda];</Statement>
+            <ParameterDefinitions />
+          </Query>
+        </QueryDefinition>
+      </rd:DesignerState>
+    </Query>
+    <Fields>
+      <Field Name="Actividad">
+        <DataField>&lt;?xml version="1.0" encoding="utf-8"?&gt;&lt;Field xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xsi:type="Level" UniqueName="[DimAgente].[Actividades].[Actividad]" /&gt;</DataField>
+        <rd:TypeName>System.String</rd:TypeName>
+      </Field>
+      <Field Name="ParameterCaption">
+        <DataField>&lt;?xml version="1.0" encoding="utf-8"?&gt;&lt;Field xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xsi:type="Measure" UniqueName="[Measures].[ParameterCaption]" /&gt;</DataField>
+        <rd:TypeName>System.Int32</rd:TypeName>
+      </Field>
+      <Field Name="ParameterValue">
+        <DataField>&lt;?xml version="1.0" encoding="utf-8"?&gt;&lt;Field xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xsi:type="Measure" UniqueName="[Measures].[ParameterValue]" /&gt;</DataField>
+        <rd:TypeName>System.Int32</rd:TypeName>
+      </Field>
+    </Fields>
+  </DataSet>
+</SharedDataSet>

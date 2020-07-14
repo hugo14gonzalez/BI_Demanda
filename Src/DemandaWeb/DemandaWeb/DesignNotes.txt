@@ -1,0 +1,109 @@
+﻿======================================
+Referencias
+======================================
+NuGet:
+Microsoft.ReportingServices.ReportViewerControl.WebForms
+Microsoft.AspNetCore.Mvc.NewtonsoftJson
+
+Referencias:
+Systema.Web
+
+Instalación y administración de paquetes en Visual Studio con el Administrador de paquetes NuGet
+https://docs.microsoft.com/es-es/nuget/consume-packages/install-use-packages-visual-studio
+
+======================================
+Logging
+======================================
+https://docs.microsoft.com/es-es/aspnet/core/fundamentals/logging/?view=aspnetcore-3.1
+
+======================================
+Bootstrap tooltips
+======================================
+https://getbootstrap.com/docs/4.1/components/tooltips/
+https://getbootstrap.com/docs/4.1/components/popovers/
+https://getbootstrap.com/docs/3.4/javascript/#tooltips
+
+Popper - tooltips
+https://popper.js.org/
+Instalación
+Nuget: PM> Install-Package popper.js
+npm: npm install popper.js --save
+
+1. Adicioar la siguiente línea al archivo: package
+{
+  "version": "1.0.0",
+  "name": "asp.net",
+  "private": true,
+  "devDependencies": {
+    "font-awesome": "~4.7.0",
+    "popper.js": "~1.16.0"
+  }
+}
+
+2. Copiar la carpeta: popper.js
+Origen: \node_modules\
+Destino: \wwwroot\lib
+
+3. Adicionar al final del archivo _Layout.cshtml
+<script src="~/lib/popper.js/dist/popper.min.js"></script>
+
+======================================
+Bootstrap Menu Examples
+======================================
+https://bootsnipp.com/tags/menu?page=1
+https://bootsnipp.com/snippets/d3WOe
+
+======================================
+Iconos fontawesome
+======================================
+https://fontawesome.com
+
+1. (Adicionar archivo: npm - npm configuration file for package.json)
+2. En archivo package.json, adicionar referencia a: "font-awesome": "~4.7.0" 
+{
+  "version": "1.0.0",
+  "name": "asp.net",
+  "private": true,
+  "devDependencies": {
+    "font-awesome": "~4.7.0"
+  }
+}
+3. copiar la carpeta: font-awesome
+Origen: \DemandaWeb\node_modules\
+Destino: \DemandaWeb\wwwroot\lib\
+
+======================================
+JCPicker: Captura colores
+======================================
+JCPicker: Captura colores
+https://annystudio.com/software/colorpicker/
+
+======================================
+Reportes graficos
+======================================
+https://www.amcharts.com/demos/
+
+======================================
+Animacion CSS
+======================================
+http://animista.net/
+
+======================================
+NET CORE - MVC
+======================================
+Introducción - Paginas Razor 
+https://www.learnrazorpages.com/
+
+Tag Helpers - MVC
+https://docs.microsoft.com/en-us/aspnet/core/mvc/views/working-with-forms?view=aspnetcore-3.0
+
+ASP.NET Core web API help pages with Swagger / OpenAPI
+https://docs.microsoft.com/en-us/aspnet/core/tutorials/web-api-help-pages-using-swagger?view=aspnetcore-3.1
+
+Hospedar ASP.NET Core en Windows con IIS
+https://docs.microsoft.com/en-us/aspnet/core/host-and-deploy/iis/?view=aspnetcore-3.0
+
+ASP.NET Core Razor Pages: How to implement AJAX requests
+https://www.thereformedprogrammer.net/asp-net-core-razor-pages-how-to-implement-ajax-requests/
+
+

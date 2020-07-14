@@ -1,0 +1,244 @@
+﻿<Cube xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ddl2="http://schemas.microsoft.com/analysisservices/2003/engine/2" xmlns:ddl2_2="http://schemas.microsoft.com/analysisservices/2003/engine/2/2" xmlns:ddl100_100="http://schemas.microsoft.com/analysisservices/2008/engine/100/100" xmlns:ddl200="http://schemas.microsoft.com/analysisservices/2010/engine/200" xmlns:ddl200_200="http://schemas.microsoft.com/analysisservices/2010/engine/200/200" xmlns:ddl300="http://schemas.microsoft.com/analysisservices/2011/engine/300" xmlns:ddl300_300="http://schemas.microsoft.com/analysisservices/2011/engine/300/300" xmlns:ddl400="http://schemas.microsoft.com/analysisservices/2012/engine/400" xmlns:ddl400_400="http://schemas.microsoft.com/analysisservices/2012/engine/400/400" xmlns:ddl500="http://schemas.microsoft.com/analysisservices/2013/engine/500" xmlns:ddl500_500="http://schemas.microsoft.com/analysisservices/2013/engine/500/500" xmlns:dwd="http://schemas.microsoft.com/DataWarehouse/Designer/1.0" dwd:design-time-name="b40b9309-4edc-4697-9343-2e05e8188dd8" xmlns="http://schemas.microsoft.com/analysisservices/2003/engine">
+  <ID>Demanda</ID>
+  <MeasureGroups>
+    <MeasureGroup>
+      <ID>DemandaPerdida</ID>
+      <Partitions>
+        <Partition dwd:design-time-name="3cf37c26-9724-41d8-92eb-c5b6cbcb01c2">
+          <ID>DemandaPerdida_199912</ID>
+          <Name>DemandaPerdida_199912</Name>
+          <CreatedTimestamp>0001-01-01T05:00:00Z</CreatedTimestamp>
+          <LastSchemaUpdate>0001-01-01T05:00:00Z</LastSchemaUpdate>
+          <LastProcessed>0001-01-01T05:00:00Z</LastProcessed>
+          <State>Unprocessed</State>
+          <Source xsi:type="QueryBinding" dwd:design-time-name="e3bc10c4-7906-4cf8-a06c-16d6a6008c88">
+            <DataSourceID>dsDemandaDW</DataSourceID>
+            <QueryDefinition>SELECT [DW].[vFactDemandaPerdida].[FechaSKId],[DW].[vFactDemandaPerdida].[PeriodoSKId],[DW].[vFactDemandaPerdida].[AgenteMemDisSKId],[DW].[vFactDemandaPerdida].[MercadoSKId],[DW].[vFactDemandaPerdida].[GeografiaSKId],[DW].[vFactDemandaPerdida].[DemandaReal],[DW].[vFactDemandaPerdida].[PerdidaEnergia],[DW].[vFactDemandaPerdida].[DemandaDesc]
+FROM [DW].[vFactDemandaPerdida]
+WHERE [FechaSKId] &lt; 20000101</QueryDefinition>
+          </Source>
+          <StorageMode>Molap</StorageMode>
+          <CurrentStorageMode>Molap</CurrentStorageMode>
+          <ProcessingMode>Regular</ProcessingMode>
+          <StorageLocation>D:\MSDB\Demanda_OLAP\</StorageLocation>
+        </Partition>
+        <Partition dwd:design-time-name="12a4c020-7089-4e2d-9372-bbd7bf65ec96">
+          <ID>DemandaPerdida_200001</ID>
+          <Name>DemandaPerdida_200001</Name>
+          <CreatedTimestamp>0001-01-01T05:00:00Z</CreatedTimestamp>
+          <LastSchemaUpdate>0001-01-01T05:00:00Z</LastSchemaUpdate>
+          <LastProcessed>0001-01-01T05:00:00Z</LastProcessed>
+          <State>Unprocessed</State>
+          <Source xsi:type="QueryBinding" dwd:design-time-name="e4e74a52-d4b3-4532-8f8a-bd82e95d32cc">
+            <DataSourceID>dsDemandaDW</DataSourceID>
+            <QueryDefinition>SELECT [DW].[vFactDemandaPerdida].[FechaSKId],[DW].[vFactDemandaPerdida].[PeriodoSKId],[DW].[vFactDemandaPerdida].[AgenteMemDisSKId],[DW].[vFactDemandaPerdida].[MercadoSKId],[DW].[vFactDemandaPerdida].[GeografiaSKId],[DW].[vFactDemandaPerdida].[DemandaReal],[DW].[vFactDemandaPerdida].[PerdidaEnergia],[DW].[vFactDemandaPerdida].[DemandaDesc]
+FROM [DW].[vFactDemandaPerdida]
+WHERE [FechaSKId] &gt;= 20000101 AND [FechaSKId] &lt; 20000201</QueryDefinition>
+          </Source>
+          <StorageMode>Molap</StorageMode>
+          <CurrentStorageMode>Molap</CurrentStorageMode>
+          <ProcessingMode>Regular</ProcessingMode>
+          <StorageLocation>D:\MSDB\Demanda_OLAP\</StorageLocation>
+        </Partition>
+        <Partition dwd:design-time-name="cb8bfcfc-9ad1-48be-b6f4-97b9d3a0f199">
+          <ID>DemandaPerdida_200002</ID>
+          <Name>DemandaPerdida_200002</Name>
+          <CreatedTimestamp>0001-01-01T05:00:00Z</CreatedTimestamp>
+          <LastSchemaUpdate>0001-01-01T05:00:00Z</LastSchemaUpdate>
+          <LastProcessed>0001-01-01T05:00:00Z</LastProcessed>
+          <State>Unprocessed</State>
+          <Source xsi:type="QueryBinding" dwd:design-time-name="81d7c1ba-6cbd-4827-9218-92f6b71aaa18">
+            <DataSourceID>dsDemandaDW</DataSourceID>
+            <QueryDefinition>SELECT [DW].[vFactDemandaPerdida].[FechaSKId],[DW].[vFactDemandaPerdida].[PeriodoSKId],[DW].[vFactDemandaPerdida].[AgenteMemDisSKId],[DW].[vFactDemandaPerdida].[MercadoSKId],[DW].[vFactDemandaPerdida].[GeografiaSKId],[DW].[vFactDemandaPerdida].[DemandaReal],[DW].[vFactDemandaPerdida].[PerdidaEnergia],[DW].[vFactDemandaPerdida].[DemandaDesc]
+FROM [DW].[vFactDemandaPerdida]
+WHERE [FechaSKId] &gt;= 20000201 AND [FechaSKId] &lt; 20000301</QueryDefinition>
+          </Source>
+          <StorageMode>Molap</StorageMode>
+          <CurrentStorageMode>Molap</CurrentStorageMode>
+          <ProcessingMode>Regular</ProcessingMode>
+          <StorageLocation>D:\MSDB\Demanda_OLAP\</StorageLocation>
+        </Partition>
+        <Partition dwd:design-time-name="b4034209-374d-494c-9380-9f4a396f72de">
+          <ID>DemandaPerdida_200003</ID>
+          <Name>DemandaPerdida_200003</Name>
+          <CreatedTimestamp>0001-01-01T05:00:00Z</CreatedTimestamp>
+          <LastSchemaUpdate>0001-01-01T05:00:00Z</LastSchemaUpdate>
+          <LastProcessed>0001-01-01T05:00:00Z</LastProcessed>
+          <State>Unprocessed</State>
+          <Source xsi:type="QueryBinding" dwd:design-time-name="51bf46d9-a650-4373-9db9-48296e09ca9f">
+            <DataSourceID>dsDemandaDW</DataSourceID>
+            <QueryDefinition>SELECT [DW].[vFactDemandaPerdida].[FechaSKId],[DW].[vFactDemandaPerdida].[PeriodoSKId],[DW].[vFactDemandaPerdida].[AgenteMemDisSKId],[DW].[vFactDemandaPerdida].[MercadoSKId],[DW].[vFactDemandaPerdida].[GeografiaSKId],[DW].[vFactDemandaPerdida].[DemandaReal],[DW].[vFactDemandaPerdida].[PerdidaEnergia],[DW].[vFactDemandaPerdida].[DemandaDesc]
+FROM [DW].[vFactDemandaPerdida]
+WHERE [FechaSKId] &gt;= 20000301 AND [FechaSKId] &lt; 20000401</QueryDefinition>
+          </Source>
+          <StorageMode>Molap</StorageMode>
+          <CurrentStorageMode>Molap</CurrentStorageMode>
+          <ProcessingMode>Regular</ProcessingMode>
+          <StorageLocation>D:\MSDB\Demanda_OLAP\</StorageLocation>
+        </Partition>
+        <Partition dwd:design-time-name="caf7f18f-6d85-4f0d-9d7a-a66a31f67d48">
+          <ID>DemandaPerdida_200004</ID>
+          <Name>DemandaPerdida_200004</Name>
+          <CreatedTimestamp>0001-01-01T05:00:00Z</CreatedTimestamp>
+          <LastSchemaUpdate>0001-01-01T05:00:00Z</LastSchemaUpdate>
+          <LastProcessed>0001-01-01T05:00:00Z</LastProcessed>
+          <State>Unprocessed</State>
+          <Source xsi:type="QueryBinding" dwd:design-time-name="d033bbc4-8691-4525-a156-fb543d89193f">
+            <DataSourceID>dsDemandaDW</DataSourceID>
+            <QueryDefinition>SELECT [DW].[vFactDemandaPerdida].[FechaSKId],[DW].[vFactDemandaPerdida].[PeriodoSKId],[DW].[vFactDemandaPerdida].[AgenteMemDisSKId],[DW].[vFactDemandaPerdida].[MercadoSKId],[DW].[vFactDemandaPerdida].[GeografiaSKId],[DW].[vFactDemandaPerdida].[DemandaReal],[DW].[vFactDemandaPerdida].[PerdidaEnergia],[DW].[vFactDemandaPerdida].[DemandaDesc]
+FROM [DW].[vFactDemandaPerdida]
+WHERE [FechaSKId] &gt;= 20000401 AND [FechaSKId] &lt; 20000501</QueryDefinition>
+          </Source>
+          <StorageMode>Molap</StorageMode>
+          <CurrentStorageMode>Molap</CurrentStorageMode>
+          <ProcessingMode>Regular</ProcessingMode>
+          <StorageLocation>D:\MSDB\Demanda_OLAP\</StorageLocation>
+        </Partition>
+        <Partition dwd:design-time-name="d94b2604-f0fc-451d-8cac-1f2b2579a47a">
+          <ID>DemandaPerdida_200005</ID>
+          <Name>DemandaPerdida_200005</Name>
+          <CreatedTimestamp>0001-01-01T05:00:00Z</CreatedTimestamp>
+          <LastSchemaUpdate>0001-01-01T05:00:00Z</LastSchemaUpdate>
+          <LastProcessed>0001-01-01T05:00:00Z</LastProcessed>
+          <State>Unprocessed</State>
+          <Source xsi:type="QueryBinding" dwd:design-time-name="4b84510a-1a95-4c00-a23a-4b2d14fd8f94">
+            <DataSourceID>dsDemandaDW</DataSourceID>
+            <QueryDefinition>SELECT [DW].[vFactDemandaPerdida].[FechaSKId],[DW].[vFactDemandaPerdida].[PeriodoSKId],[DW].[vFactDemandaPerdida].[AgenteMemDisSKId],[DW].[vFactDemandaPerdida].[MercadoSKId],[DW].[vFactDemandaPerdida].[GeografiaSKId],[DW].[vFactDemandaPerdida].[DemandaReal],[DW].[vFactDemandaPerdida].[PerdidaEnergia],[DW].[vFactDemandaPerdida].[DemandaDesc]
+FROM [DW].[vFactDemandaPerdida]
+WHERE [FechaSKId] &gt;= 20000501 AND [FechaSKId] &lt; 20000601</QueryDefinition>
+          </Source>
+          <StorageMode>Molap</StorageMode>
+          <CurrentStorageMode>Molap</CurrentStorageMode>
+          <ProcessingMode>Regular</ProcessingMode>
+          <StorageLocation>D:\MSDB\Demanda_OLAP\</StorageLocation>
+        </Partition>
+        <Partition dwd:design-time-name="ac806296-de2b-4845-b41f-1c645531e21f">
+          <ID>DemandaPerdida_200006</ID>
+          <Name>DemandaPerdida_200006</Name>
+          <CreatedTimestamp>0001-01-01T05:00:00Z</CreatedTimestamp>
+          <LastSchemaUpdate>0001-01-01T05:00:00Z</LastSchemaUpdate>
+          <LastProcessed>0001-01-01T05:00:00Z</LastProcessed>
+          <State>Unprocessed</State>
+          <Source xsi:type="QueryBinding" dwd:design-time-name="f3d8fb7c-6226-4a6a-8a1e-cde72cf2f58b">
+            <DataSourceID>dsDemandaDW</DataSourceID>
+            <QueryDefinition>SELECT [DW].[vFactDemandaPerdida].[FechaSKId],[DW].[vFactDemandaPerdida].[PeriodoSKId],[DW].[vFactDemandaPerdida].[AgenteMemDisSKId],[DW].[vFactDemandaPerdida].[MercadoSKId],[DW].[vFactDemandaPerdida].[GeografiaSKId],[DW].[vFactDemandaPerdida].[DemandaReal],[DW].[vFactDemandaPerdida].[PerdidaEnergia],[DW].[vFactDemandaPerdida].[DemandaDesc]
+FROM [DW].[vFactDemandaPerdida]
+WHERE [FechaSKId] &gt;= 20000601 AND [FechaSKId] &lt; 20000701</QueryDefinition>
+          </Source>
+          <StorageMode>Molap</StorageMode>
+          <CurrentStorageMode>Molap</CurrentStorageMode>
+          <ProcessingMode>Regular</ProcessingMode>
+          <StorageLocation>D:\MSDB\Demanda_OLAP\</StorageLocation>
+        </Partition>
+        <Partition dwd:design-time-name="d23d7bea-5740-4101-b809-f4b791faf749">
+          <ID>DemandaPerdida_200007</ID>
+          <Name>DemandaPerdida_200007</Name>
+          <CreatedTimestamp>0001-01-01T05:00:00Z</CreatedTimestamp>
+          <LastSchemaUpdate>0001-01-01T05:00:00Z</LastSchemaUpdate>
+          <LastProcessed>0001-01-01T05:00:00Z</LastProcessed>
+          <State>Unprocessed</State>
+          <Source xsi:type="QueryBinding" dwd:design-time-name="1e7d4565-e5a7-4735-92ae-94e01ae651df">
+            <DataSourceID>dsDemandaDW</DataSourceID>
+            <QueryDefinition>SELECT [DW].[vFactDemandaPerdida].[FechaSKId],[DW].[vFactDemandaPerdida].[PeriodoSKId],[DW].[vFactDemandaPerdida].[AgenteMemDisSKId],[DW].[vFactDemandaPerdida].[MercadoSKId],[DW].[vFactDemandaPerdida].[GeografiaSKId],[DW].[vFactDemandaPerdida].[DemandaReal],[DW].[vFactDemandaPerdida].[PerdidaEnergia],[DW].[vFactDemandaPerdida].[DemandaDesc]
+FROM [DW].[vFactDemandaPerdida]
+WHERE [FechaSKId] &gt;= 20000701 AND [FechaSKId] &lt; 20000801</QueryDefinition>
+          </Source>
+          <StorageMode>Molap</StorageMode>
+          <CurrentStorageMode>Molap</CurrentStorageMode>
+          <ProcessingMode>Regular</ProcessingMode>
+          <StorageLocation>D:\MSDB\Demanda_OLAP\</StorageLocation>
+        </Partition>
+        <Partition dwd:design-time-name="1c242442-bb40-4736-9df7-2d0ef6eb38b2">
+          <ID>DemandaPerdida_200008</ID>
+          <Name>DemandaPerdida_200008</Name>
+          <CreatedTimestamp>0001-01-01T05:00:00Z</CreatedTimestamp>
+          <LastSchemaUpdate>0001-01-01T05:00:00Z</LastSchemaUpdate>
+          <LastProcessed>0001-01-01T05:00:00Z</LastProcessed>
+          <State>Unprocessed</State>
+          <Source xsi:type="QueryBinding" dwd:design-time-name="d86be8e2-e15c-4a46-96cd-7bf8ba2b4958">
+            <DataSourceID>dsDemandaDW</DataSourceID>
+            <QueryDefinition>SELECT [DW].[vFactDemandaPerdida].[FechaSKId],[DW].[vFactDemandaPerdida].[PeriodoSKId],[DW].[vFactDemandaPerdida].[AgenteMemDisSKId],[DW].[vFactDemandaPerdida].[MercadoSKId],[DW].[vFactDemandaPerdida].[GeografiaSKId],[DW].[vFactDemandaPerdida].[DemandaReal],[DW].[vFactDemandaPerdida].[PerdidaEnergia],[DW].[vFactDemandaPerdida].[DemandaDesc]
+FROM [DW].[vFactDemandaPerdida]
+WHERE [FechaSKId] &gt;= 20000801 AND [FechaSKId] &lt; 20000901</QueryDefinition>
+          </Source>
+          <StorageMode>Molap</StorageMode>
+          <CurrentStorageMode>Molap</CurrentStorageMode>
+          <ProcessingMode>Regular</ProcessingMode>
+          <StorageLocation>D:\MSDB\Demanda_OLAP\</StorageLocation>
+        </Partition>
+        <Partition dwd:design-time-name="6d8fce50-c156-4cd5-a0d8-d5dad67f47ca">
+          <ID>DemandaPerdida_200009</ID>
+          <Name>DemandaPerdida_200009</Name>
+          <CreatedTimestamp>0001-01-01T05:00:00Z</CreatedTimestamp>
+          <LastSchemaUpdate>0001-01-01T05:00:00Z</LastSchemaUpdate>
+          <LastProcessed>0001-01-01T05:00:00Z</LastProcessed>
+          <State>Unprocessed</State>
+          <Source xsi:type="QueryBinding" dwd:design-time-name="35cf8a26-fd81-459f-b78a-f3253e29f34a">
+            <DataSourceID>dsDemandaDW</DataSourceID>
+            <QueryDefinition>SELECT [DW].[vFactDemandaPerdida].[FechaSKId],[DW].[vFactDemandaPerdida].[PeriodoSKId],[DW].[vFactDemandaPerdida].[AgenteMemDisSKId],[DW].[vFactDemandaPerdida].[MercadoSKId],[DW].[vFactDemandaPerdida].[GeografiaSKId],[DW].[vFactDemandaPerdida].[DemandaReal],[DW].[vFactDemandaPerdida].[PerdidaEnergia],[DW].[vFactDemandaPerdida].[DemandaDesc]
+FROM [DW].[vFactDemandaPerdida]
+WHERE [FechaSKId] &gt;= 20000901 AND [FechaSKId] &lt; 20001001</QueryDefinition>
+          </Source>
+          <StorageMode>Molap</StorageMode>
+          <CurrentStorageMode>Molap</CurrentStorageMode>
+          <ProcessingMode>Regular</ProcessingMode>
+          <StorageLocation>D:\MSDB\Demanda_OLAP\</StorageLocation>
+        </Partition>
+        <Partition dwd:design-time-name="de9fde0e-5377-4584-a9e1-d45ee22a5656">
+          <ID>DemandaPerdida_200010</ID>
+          <Name>DemandaPerdida_200010</Name>
+          <CreatedTimestamp>0001-01-01T05:00:00Z</CreatedTimestamp>
+          <LastSchemaUpdate>0001-01-01T05:00:00Z</LastSchemaUpdate>
+          <LastProcessed>0001-01-01T05:00:00Z</LastProcessed>
+          <State>Unprocessed</State>
+          <Source xsi:type="QueryBinding" dwd:design-time-name="d9a14972-03bb-4f11-b47d-a57b72a0a1f9">
+            <DataSourceID>dsDemandaDW</DataSourceID>
+            <QueryDefinition>SELECT [DW].[vFactDemandaPerdida].[FechaSKId],[DW].[vFactDemandaPerdida].[PeriodoSKId],[DW].[vFactDemandaPerdida].[AgenteMemDisSKId],[DW].[vFactDemandaPerdida].[MercadoSKId],[DW].[vFactDemandaPerdida].[GeografiaSKId],[DW].[vFactDemandaPerdida].[DemandaReal],[DW].[vFactDemandaPerdida].[PerdidaEnergia],[DW].[vFactDemandaPerdida].[DemandaDesc]
+FROM [DW].[vFactDemandaPerdida]
+WHERE [FechaSKId] &gt;= 20001001 AND [FechaSKId] &lt; 20001101</QueryDefinition>
+          </Source>
+          <StorageMode>Molap</StorageMode>
+          <CurrentStorageMode>Molap</CurrentStorageMode>
+          <ProcessingMode>Regular</ProcessingMode>
+          <StorageLocation>D:\MSDB\Demanda_OLAP\</StorageLocation>
+        </Partition>
+        <Partition dwd:design-time-name="643fda2f-a628-4802-b70e-88d665635fbb">
+          <ID>DemandaPerdida_200011</ID>
+          <Name>DemandaPerdida_200011</Name>
+          <CreatedTimestamp>0001-01-01T05:00:00Z</CreatedTimestamp>
+          <LastSchemaUpdate>0001-01-01T05:00:00Z</LastSchemaUpdate>
+          <LastProcessed>0001-01-01T05:00:00Z</LastProcessed>
+          <State>Unprocessed</State>
+          <Source xsi:type="QueryBinding" dwd:design-time-name="feffd42e-a321-4ab3-b4d8-da0a22e50baa">
+            <DataSourceID>dsDemandaDW</DataSourceID>
+            <QueryDefinition>SELECT [DW].[vFactDemandaPerdida].[FechaSKId],[DW].[vFactDemandaPerdida].[PeriodoSKId],[DW].[vFactDemandaPerdida].[AgenteMemDisSKId],[DW].[vFactDemandaPerdida].[MercadoSKId],[DW].[vFactDemandaPerdida].[GeografiaSKId],[DW].[vFactDemandaPerdida].[DemandaReal],[DW].[vFactDemandaPerdida].[PerdidaEnergia],[DW].[vFactDemandaPerdida].[DemandaDesc]
+FROM [DW].[vFactDemandaPerdida]
+WHERE [FechaSKId] &gt;= 20001101 AND [FechaSKId] &lt; 20001201</QueryDefinition>
+          </Source>
+          <StorageMode>Molap</StorageMode>
+          <CurrentStorageMode>Molap</CurrentStorageMode>
+          <ProcessingMode>Regular</ProcessingMode>
+          <StorageLocation>D:\MSDB\Demanda_OLAP\</StorageLocation>
+        </Partition>
+        <Partition dwd:design-time-name="62007ba1-5bf0-4f68-aba6-69a6480f1bed">
+          <ID>DemandaPerdida_200012</ID>
+          <Name>DemandaPerdida_200012</Name>
+          <CreatedTimestamp>0001-01-01T05:00:00Z</CreatedTimestamp>
+          <LastSchemaUpdate>0001-01-01T05:00:00Z</LastSchemaUpdate>
+          <LastProcessed>0001-01-01T05:00:00Z</LastProcessed>
+          <State>Unprocessed</State>
+          <Source xsi:type="QueryBinding" dwd:design-time-name="b610cd1b-01e4-4b1b-8387-3d33ef67ef6e">
+            <DataSourceID>dsDemandaDW</DataSourceID>
+            <QueryDefinition>SELECT [DW].[vFactDemandaPerdida].[FechaSKId],[DW].[vFactDemandaPerdida].[PeriodoSKId],[DW].[vFactDemandaPerdida].[AgenteMemDisSKId],[DW].[vFactDemandaPerdida].[MercadoSKId],[DW].[vFactDemandaPerdida].[GeografiaSKId],[DW].[vFactDemandaPerdida].[DemandaReal],[DW].[vFactDemandaPerdida].[PerdidaEnergia],[DW].[vFactDemandaPerdida].[DemandaDesc]
+FROM [DW].[vFactDemandaPerdida]
+WHERE [FechaSKId] &gt;= 20001201</QueryDefinition>
+          </Source>
+          <StorageMode>Molap</StorageMode>
+          <CurrentStorageMode>Molap</CurrentStorageMode>
+          <ProcessingMode>Regular</ProcessingMode>
+          <StorageLocation>D:\MSDB\Demanda_OLAP\</StorageLocation>
+        </Partition>
+      </Partitions>
+    </MeasureGroup>
+  </MeasureGroups>
+</Cube>

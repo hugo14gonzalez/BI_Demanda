@@ -1,0 +1,10 @@
+﻿<?xml version="1.0"?>
+<DTS:ConnectionManager xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:ObjectName="dsBIXM"
+  DTS:DTSID="{9AAC71EC-B249-4A77-8F5E-E4099AA10964}"
+  DTS:CreationName="OLEDB">
+  <DTS:ObjectData>
+    <DTS:ConnectionManager
+      DTS:ConnectionString="Data Source=172.16.1.149,3052;Initial Catalog=BDDWXM;Provider=SQLOLEDB.1;Integrated Security=SSPI;Auto Translate=False;Application Name=SSIS-pkgDemandaBI-{9AAC71EC-B249-4A77-8F5E-E4099AA10964}172.16.1.149,3052.BDDWXM;" />
+  </DTS:ObjectData>
+</DTS:ConnectionManager>

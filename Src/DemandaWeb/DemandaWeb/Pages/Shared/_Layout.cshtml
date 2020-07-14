@@ -1,0 +1,144 @@
+﻿<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - DemandaWeb</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link href="~/lib/font-awesome/css/font-awesome.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="~/css/site.css" />
+
+    @RenderSection("AdditionalHeadContent", false)
+</head>
+<body>
+    <header>
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-dark bg-primary border-bottom box-shadow">
+            <div class="container-fluid">
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <a class="navbar-brand" asp-area="" asp-page="/Index">
+                    <img src="~/images/Logo72.png" height="50" alt="DemandaWeb" class="rotate-scale-up-diag-1" />
+                </a>
+
+                <div class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse">
+                    <ul class="navbar-nav flex-grow-1">
+                        <li class="nav-item active">
+                            <a class="nav-link" asp-area="" asp-page="/Index"><i class="fa fa-home"></i>&nbsp;Inicio</a>
+                        </li>
+
+                        <li class="nav-item dropdown active">
+                            <a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown" role="button" aria-expanded="false" aria-haspopup="true">
+                                <i class="fa fa-battery-half"></i>&nbsp;Demanda
+                            </a>
+                            <ul class="dropdown-menu" role="menu" aria-labelledby="navbarDropdownMenuLink">
+                                <li class="nav-item">
+                                    <a class="dropdown-item" asp-area="Demanda" asp-page="/Index" asp-page-handler="DemandaRealComercialPerdida">Demanda real, comercial y pédidas</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="dropdown-item" asp-area="Demanda" asp-page="/Index" asp-page-handler="DemandaComercialAgente" asp-route-agente="ALL">Demanda comercial por agente</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="dropdown-item" asp-area="Demanda" asp-page="/Index" asp-page-handler="DemandaDepartamento">Demanda por geografia</a>
+                                </li>
+                            </ul>
+                        </li>
+
+                        <li class="nav-item dropdown active">
+                            <a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown" role="button" aria-expanded="false" aria-haspopup="true">
+                                <i class="fa fa-file-text"></i>&nbsp;Bitácora
+                            </a>
+                            <ul class="dropdown-menu" role="menu" aria-labelledby="navbarDropdownMenuLink">
+                                <li class="nav-item">
+                                    <a class="dropdown-item" asp-area="Bitacora" asp-page="/Index" asp-page-handler="Bitacora">Bitácora sistema</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="dropdown-item" asp-area="Bitacora" asp-page="/Index" asp-page-handler="BitacoraTabla">Bitácora tabla</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="dropdown-item" asp-area="Bitacora" asp-page="/Index" asp-page-handler="BitacoraArchivo">Bitácora archivos</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="dropdown-item" asp-area="Bitacora" asp-page="/Index" asp-page-handler="BitacoraEstadistica">Bitácora estadísticas</a>
+                                </li>
+                                <li class="nav-item">
+                                    <div class="dropdown-divider"></div>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="dropdown-item" asp-area="Bitacora" asp-page="/Index" asp-page-handler="BitacoraDetalle">Bitácora detalle</a>
+                                </li>
+                                @*<li class="nav-item">
+                                    <div class="dropdown-divider"></div>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="dropdown-item" asp-area="Bitacora" asp-page="/ReportBitacora">Reporte de bitácora</a>
+                                </li>*@
+                            </ul>
+                        </li>
+
+                        <li class="nav-item active">
+                            <a class="nav-link" asp-area="" asp-page="/About"><i class="fa fa-info-circle"></i>&nbsp;Acerca de</a>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="navbar-collapse collapse d-sm-inline-flex">
+                    <ul class="navbar-nav ml-auto d-sm-inline-flex">
+
+                        <li class="nav-item avatar">
+                            <a class="nav-link p-0" href="#">
+                                <img src="~/images/Hugo.jpg" class="rounded-circle z-depth-0" alt="avatar" height="40" />
+                            </a>
+                        </li>
+
+                        @*<li class="nav-item avatar dropdown">
+                                <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink-1" data-toggle="dropdown"
+                                   aria-haspopup="true" aria-expanded="false">
+                                    <img src="~/images/Hugo.jpg" class="rounded-circle z-depth-0" alt="avatar" height="40" />
+                                </a>
+                                <div class="dropdown-menu dropdown-menu-lg-right dropdown-secondary" aria-labelledby="navbarDropdownMenuLink-1">
+                                    <a class="dropdown-item" href="#">Login</a>
+                                    <div class="dropdown-divider"></div>
+                                    <a class="dropdown-item" href="#">Configuración</a>
+                                </div>
+                            </li>*@
+
+                        @*<li class="nav-item dropdown active">
+                                <a class="nav-link dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" id="navbarDropdownMenuLink-2">
+                                    <i class="fa fa-user-circle"></i>
+                                </a>
+                                <div class="dropdown-menu dropdown-menu-right dropdown-default" aria-labelledby="navbarDropdownMenuLink-2">
+                                    <a class="dropdown-item" href="#">Login</a>
+                                    <div class="dropdown-divider"></div>
+                                    <a class="dropdown-item" href="#">Configuración</a>
+                                </div>
+                            </li>*@
+                    </ul>
+                </div>
+
+            </div>
+        </nav>
+    </header>
+    <div class="container-fluid">
+        <main role="main" class="pb-3">
+            @*@RenderSection("Content", false)*@
+            @RenderBody()
+        </main>
+    </div>
+
+    <footer class="border-top footer text-muted">
+        <div class="container">
+            &copy; 2020 - DemandaWeb - <a asp-area="" asp-page="/About"><i class="fa fa-info-circle"></i>&nbsp;Acerca de</a>
+        </div>
+    </footer>
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/popper.js/dist/popper.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    <script src="~/lib/ReportViewerForCore/js/ReportViewerForCore.js"></script>
+
+    @RenderSection("Scripts", required: false)
+</body>
+</html>

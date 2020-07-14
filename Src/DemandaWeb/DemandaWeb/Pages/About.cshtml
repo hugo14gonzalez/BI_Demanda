@@ -1,0 +1,54 @@
+﻿@page
+@model AboutModel
+@{
+    ViewData["Title"] = "Acerca de";
+}
+<div class="container-fluid">
+    <h4 class="text-center m-1">Acerca de DemandaWeb</h4>
+    <div class="d-flex flex-row justify-content-center align-items-stretch">
+        <div class="card border-primary p-1 m-1" style="max-width:25rem;">
+            <div class="row no-gutters">
+                <div class="col-sm-auto align-middle">
+                    <img src="~/images/Hugo.jpg" class="card-img" style="vertical-align:middle;width:80px;height:100px;" alt="Hugo González Olaya" />
+                </div>
+                <div class="col">
+                    <div class="card-body">
+                        <h6 class="card-subtitle">Hugo González Olaya</h6>
+                        <p class="card-text">Ingeniero de sistemas</p>
+                        <p class="card-text">Ingeniero Químico</p>
+                        <a href="mailto:hugo14.gonzalez@gmail.com?subject=Mate+6" class="card-link"><i class="fa fa-envelope-square"></i>&nbsp;hugo14.gonzalez@gmail.com</a>
+                        <hr class="my-4">
+                        <p class="card-text text-center">
+                            <img src="~/images/LogoUniremington.png" class="card-img" style="width:25px;height:25px" alt="logo Universidad" />
+                            &nbsp;<small class="text-muted">Universidad - Uniremington</small>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <hr />
+    <div class="card border-info p-1 m-1">
+        <div class="card-header text-white bg-info">
+            <h4 class="text-center p-1">Configuración de la aplicación</h4>
+        </div>
+        <div class="card-body">
+            <h4 class="card-title">Archivo de configuración: C:\inetpub\wwwroot\DemandaWeb\appsettings.json</h4>
+            <p class="card-text">La clave más importante es la ruta del servidor SQL Reporting Services</p>
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item">"URLReportServer": "http://localhost/ReportServer/"</li>
+                <li class="list-group-item">"BitacoraFolder": "DemandaBI/Auditoria"</li>
+                <li class="list-group-item">"ReportName_Audit_Bitacora": "Audit_Bitacora"</li>
+                <li class="list-group-item">"ReportName_Audit_BitacoraArchivo": "Audit_BitacoraArchivo"</li>
+                <li class="list-group-item">"ReportName_Audit_BitacoraDetalle": "Audit_BitacoraDetalle"</li>
+                <li class="list-group-item">"ReportName_Audit_BitacoraEstadisticas": "Audit_BitacoraEstadisticas"</li>
+                <li class="list-group-item">"ReportName_Audit_BitacoraTabla": "Audit_BitacoraTabla"</li>
+                <li class="list-group-item">"DemandaFolder": "DemandaBI"</li>
+                <li class="list-group-item">"ReportName_DashBoardBI": "DashBoardBI"</li>
+                <li class="list-group-item">"ReportName_DemandaComercialAgente": "DemandaComercialAgente"</li>
+                <li class="list-group-item">"ReportName_DemandaDepartamento": "DemandaDepartamento"</li>
+                <li class="list-group-item">"ReportName_DemandaRealComercialPerdida": "DemandaRealComercialPerdida"</li>
+            </ul>
+        </div>
+    </div>
+</div>

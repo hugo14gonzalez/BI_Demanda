@@ -1,0 +1,345 @@
+﻿@using ReportViewerForCore;
+@model ReportViewerForCore.ReportViewerModel
+
+@{
+    ViewData["Title"] = "Bitacora";
+    string controllerPath;
+    controllerPath = Model.ControllerPath;
+}
+
+<script src="~/lib/ReportViewerForCore/js/select2.min.4.0.3.js"></script>
+<script src="~/lib/ReportViewerForCore/js/jquery.highlight-5.js"></script>
+
+@Html.RenderScriptReportViewer(@Model)
+
+<script language="javascript" type="text/javascript">
+$(document).ready(function () {
+	_initializeReportViewerControls();
+
+	$('#ReportFirstPage,#ReportShow, #ReportRefresh').click(function () {
+		if (!$(this).attr('disabled')) {
+			viewReportPage(1);
+		}
+	});
+
+	$('#ReportPreviousPage').click(function () {
+		if (!$(this).attr('disabled')) {
+			var page = parseInt($('#ReportCurrentPage').val()) - 1;
+			viewReportPage(page);
+		}
+	});
+
+	$('#ReportNextPage').click(function () {
+		if (!$(this).attr('disabled')) {
+			var page = parseInt($('#ReportCurrentPage').val()) + 1;
+			viewReportPage(page);
+		}
+	});
+
+	$('#ReportLastPage').click(function () {
+		if (!$(this).attr('disabled')) {
+			var page = parseInt($('#ReportTotalPages').text());
+			viewReportPage(page);
+		}
+	});
+
+	$('#ReportCurrentPage').change(function () {
+		var page = $(this).val();
+		viewReportPage(page);
+	});
+
+	$('#ReportExportWordOpenXml,#ReportExportExcelOpenXml,#ReportExportPPTX,#ReportExportPdf,#ReportExportTiff,#ReportExportMhtml,#ReportExportCsv,#ReportExportXml').click(function () {
+		exportReport($(this));
+	});
+
+	$('#ReportSearchText').on("keypress", function (e) {
+		if (e.keyCode == 13) {/* Cancel the default action on keypress event */
+			e.preventDefault();
+			findText();
+		}
+	});
+
+	$('#ReportFind').click(function () {
+		findText();
+	});
+
+	$('#ReportPrint').click(function () {
+		printReport();
+	});
+});
+
+function _initializeReportViewerControls() {
+	$('select').select2();
+	try {
+		ReportViewer_Register_OnChanges();
+	} catch (e) { }
+}
+
+function reloadParameters() {
+	showLoadingProgress("Actualizando parámetros ...");
+
+	var paramsTemp = $('.parametersContainer :input').serializeArray();
+	var params = removeEmptyValues(paramsTemp);
+	var urlParams = $.param(params);
+	var urlRequest = "@controllerPath?handler=ReloadParameters";
+	var dataRequest = "&reportPath=@Model.ReportPath.UrlEncode()";
+	if (!(isEmpty(urlParams))) {
+		dataRequest += "&" + urlParams;
+	}
+
+	$.get(urlRequest, dataRequest)
+		.done(function (data) {
+			if (data != null) {
+				$('.parameters').html(data);
+				_initializeReportViewerControls();
+
+				if ($('.reportContent').find('div').length != 1) {
+					$('.reportContent').html('<div class="reportInformation">Después de establecer los parámetros presione el botón Ver Reporte!</div>');
+				}
+			}
+			hideLoadingProgress();
+		})
+		.fail(function (data) {
+			var message = "<div class='reportError'>" +
+				"<p>Error al recargar parámetros ...</p>" +
+				"<p>URL petición: " + urlRequest + "</p>" +
+				"<p>Datos petición: " + dataRequest + "</p>" +
+				"<p>Parametros: " + urlParams + "</p>" +
+				"<p>Respuesta petición: {readyState: " + data.readyState + ", status: " + data.status + ", statusText: " + data.statusText + "}</p>" +
+				"</div>";
+			$('.reportContent').html(message);
+			hideLoadingProgress();
+		});
+}
+
+function showLoadingProgress(message) {
+	hideLoadingProgress();
+
+	var tagMessage = '<div class="loadingContainer"><div style="margin: 0 auto; width: 100%; text-align: center; vertical-align: middle;">'
+		+ '<div class="spinner-border text-primary" role="status"><span class="sr-only">' + message + '</span></div></div></div>';
+	$('.reportContent').hide();
+	$('.reportContentContainer').append(tagMessage);
+}
+
+function hideLoadingProgress() {
+	$('.loadingContainer').remove();
+	$('.reportContent').show();
+}
+
+function printReport() {
+	var paramsTemp = $('.parametersContainer :input').serializeArray();
+	var params = removeEmptyValues(paramsTemp);
+	var urlParams = $.param(params);
+	var urlRequest = "@controllerPath?handler=PrintReport";
+	var dataRequest = "&reportPath=@Model.ReportPath.UrlEncode()";
+	if (!(isEmpty(urlParams))) {
+		dataRequest += "&" + urlParams;
+	}
+
+	window.open(urlRequest + dataRequest, "_blank");
+	//window.open("/Report/PrintReport/?reportPath=@Model.ReportPath.UrlEncode()&" + urlParams, "_blank");
+}
+
+function findText() {
+	$('.reportContent').removeHighlight();
+	var searchText = $("#ReportSearchText").val();
+	if (searchText != undefined && searchText != null && searchText != "") {
+		showLoadingProgress('Buscando ...');
+		var paramsTemp = $('.parametersContainer :input').serializeArray();
+		var params = removeEmptyValues(paramsTemp);
+		var urlParams = $.param(params);
+		var page = parseInt($('#ReportCurrentPage').val());
+		var urlRequest = "@controllerPath?handler=FindStringInReport";
+		var dataRequest = "&reportPath=@Model.ReportPath.UrlEncode()&page=" + page + "&searchText=" + searchText;
+		if (!(isEmpty(urlParams))) {
+			dataRequest += "&" + urlParams;
+		}
+
+		$.get(urlRequest, dataRequest)
+			.done(function (data) {
+				if (data > 0) {
+					viewReportPage(data, function () {
+						$('.reportContent').highlight(searchText);
+						hideLoadingProgress();
+					});
+				} else {
+					$('.reportContent').highlight(searchText);
+					hideLoadingProgress();
+				}
+			})
+			.fail(function (data) {
+				var message = "<div class='reportError'>" +
+					"<p>Texto no encontrado ...</p>" +
+					"<p>Respuesta petición: {readyState: " + data.readyState + ", status: " + data.status + ", statusText: " + data.statusText + "}</p>" +
+					"</div>";
+				alert(message)
+				hideLoadingProgress();
+			});
+	}
+}
+
+function viewReportPage(page, afterReportLoadedCallback) {
+	showLoadingProgress('Cargando pagina de reporte ...');
+
+	var paramsTemp = $('.parametersContainer :input').serializeArray();
+	var params = removeEmptyValues(paramsTemp);
+	var urlParams = $.param(params);
+	var totalPages = parseInt($('#ReportTotalPages').text());
+
+	if (isEmpty(totalPages) || totalPages < 1) {
+		totalPages = 1;
+	}
+	if (isEmpty(page) || page < 1) {
+		page = 1;
+	} else if (page > totalPages) {
+		page = totalPages;
+	}
+
+	var urlRequest = "@controllerPath?handler=ViewReportPage";
+
+	// var dataRequest = JSON.stringify({ "reportPath": "@Model.ReportPath.UrlEncode()", "page": page });
+	//var dataRequest = { "reportPath": "@Model.ReportPath.UrlEncode()", "page": page, "reportParameters": urlParams };
+	var dataRequest = "&reportPath=@Model.ReportPath.UrlEncode()&page=" + page;
+	if (!(isEmpty(urlParams))) {
+		dataRequest += "&" + urlParams;
+	}
+
+	$.getJSON(urlRequest, dataRequest)
+		.done(function (data) {
+			updateReportContent(data);
+			hideLoadingProgress();
+
+			if (afterReportLoadedCallback && typeof (afterReportLoadedCallback) == "function") {
+				afterReportLoadedCallback();
+			}
+		})
+		.fail(function (data) {
+			var message = "<div class='reportError'>" +
+				"<p>Error al cargar reporte, chequee los parametros del reporte...</p>" +
+				"<p>URL petición: " + urlRequest + "</p>" +
+				"<p>Datos petición: " + dataRequest + "</p>" +
+				"<p>Parametros: " + urlParams + "</p>" +
+				"<p>Respuesta petición: {readyState: " + data.readyState + ", status: " + data.status + ", statusText: " + data.statusText + "}</p>" +
+				"</div>";
+			$('.reportContent').html(message);
+			hideLoadingProgress();
+		});
+
+
+	/*    $.get(urlRequest, dataRequest)
+		.done(function (data) {
+					updateReportContent(data);
+				hideLoadingProgress();
+	
+				if (afterReportLoadedCallback && typeof (afterReportLoadedCallback) == "function") {
+					afterReportLoadedCallback();
+				}
+		})
+		.fail(function (data) {
+			var message = "<div class='reportError'>" +
+				"<p>Error al cargar reporte, chequee los parametros del reporte...</p>" +
+				"<p>URL petición: " + urlRequest + "</p>" +
+				"<p>Datos petición: " + dataRequest + "</p>" +
+				"<p>Parametros: " + urlParams + "</p>" +
+				"<p>Respuesta petición: {readyState: " + data.readyState + ", status: " + data.status + ", statusText: " + data.statusText + "}</p>" +
+				"</div>";
+			$('.reportContent').html(message);
+			hideLoadingProgress();
+		});
+	*/
+
+	/*  $.ajax({
+		type: "GET",
+		url: urlRequest,
+		data: dataRequest,
+		contentType: "application/json; charset=utf-8",
+		dataType: "json",
+			success: function (data) {
+			alert("Listo el reporte");
+			alert(JSON.stringify(data))
+			},
+			failure: function (data) {
+			alert("failure");
+			alert(JSON.stringify(data));
+			},
+			error: function (data) {
+			alert("error");
+			alert(JSON.stringify(data));
+			}
+		});
+	*/
+}
+
+function exportReport(element) {
+	var paramsTemp = $('.parametersContainer :input').serializeArray();
+	var params = removeEmptyValues(paramsTemp);
+	var urlParams = $.param(params);
+	var format = $(element).attr('id').replace("ReportExport", "");
+	var urlRequest = "@controllerPath?handler=ExportReport";
+	var dataRequest = "&reportPath=@Model.ReportPath.UrlEncode()&format=" + format;
+	if (!(isEmpty(urlParams))) {
+		dataRequest += "&" + urlParams;
+	}
+
+	//window.location.href = "/Report/ExportReport/?reportPath=@Model.ReportPath.UrlEncode()&format=" + format + "&" + urlParams;
+	window.location.href = urlRequest + dataRequest;
+}
+
+function updateReportContent(data) {
+	if (data != undefined && data != null) {
+		/* console.log(data); */
+        /* var obj = JSON.stringify(data);
+        var dataResesponse = $.parseJSON(obj); */
+
+		$('#ReportCurrentPage').val(data.currentPage);
+		$('#ReportTotalPages').text(data.totalPages);
+		$('.reportContent').html($.parseHTML(data.content));
+
+        /* var tagMessage = '<div>' + data.content + '</div>';
+		$('.reportContentContainer').append(tagMessage); */
+
+		if (data.TotalPages <= 1) {
+			$('#ReportFirstPage').attr('disabled', true);
+			$('#ReportFirstPage').attr('disabled', true);
+			$('#ReportNextPage').attr('disabled', true);
+			$('#ReportLastPage').attr('disabled', true);
+            } else {
+			$('#ReportFirstPage').attr('disabled', false);
+			$('#ReportFirstPage').attr('disabled', false);
+			$('#ReportNextPage').attr('disabled', false);
+			$('#ReportLastPage').attr('disabled', false);
+        }
+	}
+}
+
+/* const GetTypeName = x => { */
+function GetTypeName(x) {
+	if (x === undefined) return undefined;
+	if (x === null) return null;
+	return x.constructor;
+};
+
+/* const isEmpty = x => { */
+function isEmpty(x) {
+	switch (GetTypeName(x)) {
+		case undefined: return true;
+		case null: return true;
+		case Object: return isEmpty(Object.keys(x));
+		case Array: return x.length === 0;
+		case String: return x.trim() === "";
+	}
+};
+
+/* deeply remove all empty values */
+function removeEmptyValues(objSerialized) {
+	var s = '';
+	var data = {};
+	for (s in objSerialized) {
+		if (!isEmpty(objSerialized[s]['value'])) {
+			data[objSerialized[s]['name']] = objSerialized[s]['value']
+		}
+	}
+	return data;
+}
+</script>
+

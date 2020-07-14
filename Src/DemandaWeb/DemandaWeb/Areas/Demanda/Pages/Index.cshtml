@@ -1,0 +1,29 @@
+﻿@page
+@using ReportViewerForCore;
+@model DemandaWeb.Areas.Demanda.Pages.IndexModel
+@{
+    ViewData["Title"] = "Demanda";
+}
+<div class="d-flex flex-column align-items-center">
+    <div class="mainTitle"><i class="fa fa-battery-half"></i>&nbsp;@Model.ReportViewModel.Title</div>       
+    <div class="embed-responsive embed-responsive-21by9 reportContentIFrame" id="divReport">
+        <iframe class="embed-responsive-item reportIFrame" src=@Model.ReportViewModel.GetPathRender() id="iframeReport" allowfullscreen></iframe>
+        @*<iframe class="embed-responsive-item reportIFrame" src=@Model.ReportViewModel.GetPathRender() id="iframeReport" onload="resizeIframeHeight(this);"></iframe>*@
+    </div>
+</div>
+
+@*@section Scripts {
+    <script language="javascript" type="text/javascript">
+        $(document).ready(function () {
+            if (window.parent && typeof window.parent.UpdateIframeSize != undefined) {
+                window.parent.UpdateIframeSize();
+            }
+        });
+
+        function UpdateIframeSize() {
+            var iFrame = document.getElementById('iframeReport');
+            alert("UpdateIframeSize")
+            resizeIframeHeight(iFrame);
+        }
+    </script>
+}*@

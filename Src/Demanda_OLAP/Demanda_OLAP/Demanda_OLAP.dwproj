@@ -1,0 +1,250 @@
+﻿<Project xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ddl2="http://schemas.microsoft.com/analysisservices/2003/engine/2" xmlns:ddl2_2="http://schemas.microsoft.com/analysisservices/2003/engine/2/2" xmlns:ddl100_100="http://schemas.microsoft.com/analysisservices/2008/engine/100/100" xmlns:ddl200="http://schemas.microsoft.com/analysisservices/2010/engine/200" xmlns:ddl200_200="http://schemas.microsoft.com/analysisservices/2010/engine/200/200" xmlns:ddl300="http://schemas.microsoft.com/analysisservices/2011/engine/300" xmlns:ddl300_300="http://schemas.microsoft.com/analysisservices/2011/engine/300/300" xmlns:ddl400="http://schemas.microsoft.com/analysisservices/2012/engine/400" xmlns:ddl400_400="http://schemas.microsoft.com/analysisservices/2012/engine/400/400" xmlns:ddl500="http://schemas.microsoft.com/analysisservices/2013/engine/500" xmlns:ddl500_500="http://schemas.microsoft.com/analysisservices/2013/engine/500/500" xmlns:dwd="http://schemas.microsoft.com/DataWarehouse/Designer/1.0">
+  <ProductVersion>15.0.1659.0</ProductVersion>
+  <SchemaVersion>9.0.2.10</SchemaVersion>
+  <State>$base64$PFNvdXJjZUNvbnRyb2xJbmZvIHhtbG5zOnhzZD0iaHR0cDovL3d3dy53My5vcmcvMjAwMS9YTUxTY2hlbWEiIHhtbG5zOnhzaT0iaHR0cDovL3d3dy53My5vcmcvMjAwMS9YTUxTY2hlbWEtaW5zdGFuY2UiIHhtbG5zOmRkbDI9Imh0dHA6Ly9zY2hlbWFzLm1pY3Jvc29mdC5jb20vYW5hbHlzaXNzZXJ2aWNlcy8yMDAzL2VuZ2luZS8yIiB4bWxuczpkZGwyXzI9Imh0dHA6Ly9zY2hlbWFzLm1pY3Jvc29mdC5jb20vYW5hbHlzaXNzZXJ2aWNlcy8yMDAzL2VuZ2luZS8yLzIiIHhtbG5zOmRkbDEwMF8xMDA9Imh0dHA6Ly9zY2hlbWFzLm1pY3Jvc29mdC5jb20vYW5hbHlzaXNzZXJ2aWNlcy8yMDA4L2VuZ2luZS8xMDAvMTAwIiB4bWxuczpkZGwyMDA9Imh0dHA6Ly9zY2hlbWFzLm1pY3Jvc29mdC5jb20vYW5hbHlzaXNzZXJ2aWNlcy8yMDEwL2VuZ2luZS8yMDAiIHhtbG5zOmRkbDIwMF8yMDA9Imh0dHA6Ly9zY2hlbWFzLm1pY3Jvc29mdC5jb20vYW5hbHlzaXNzZXJ2aWNlcy8yMDEwL2VuZ2luZS8yMDAvMjAwIiB4bWxuczpkZGwzMDA9Imh0dHA6Ly9zY2hlbWFzLm1pY3Jvc29mdC5jb20vYW5hbHlzaXNzZXJ2aWNlcy8yMDExL2VuZ2luZS8zMDAiIHhtbG5zOmRkbDMwMF8zMDA9Imh0dHA6Ly9zY2hlbWFzLm1pY3Jvc29mdC5jb20vYW5hbHlzaXNzZXJ2aWNlcy8yMDExL2VuZ2luZS8zMDAvMzAwIiB4bWxuczpkZGw0MDA9Imh0dHA6Ly9zY2hlbWFzLm1pY3Jvc29mdC5jb20vYW5hbHlzaXNzZXJ2aWNlcy8yMDEyL2VuZ2luZS80MDAiIHhtbG5zOmRkbDQwMF80MDA9Imh0dHA6Ly9zY2hlbWFzLm1pY3Jvc29mdC5jb20vYW5hbHlzaXNzZXJ2aWNlcy8yMDEyL2VuZ2luZS80MDAvNDAwIiB4bWxuczpkZGw1MDA9Imh0dHA6Ly9zY2hlbWFzLm1pY3Jvc29mdC5jb20vYW5hbHlzaXNzZXJ2aWNlcy8yMDEzL2VuZ2luZS81MDAiIHhtbG5zOmRkbDUwMF81MDA9Imh0dHA6Ly9zY2hlbWFzLm1pY3Jvc29mdC5jb20vYW5hbHlzaXNzZXJ2aWNlcy8yMDEzL2VuZ2luZS81MDAvNTAwIiB4bWxuczpkd2Q9Imh0dHA6Ly9zY2hlbWFzLm1pY3Jvc29mdC5jb20vRGF0YVdhcmVob3VzZS9EZXNpZ25lci8xLjAiPg0KICA8RW5hYmxlZD5mYWxzZTwvRW5hYmxlZD4NCiAgPFByb2plY3ROYW1lPjwvUHJvamVjdE5hbWU+DQogIDxBdXhQYXRoPjwvQXV4UGF0aD4NCiAgPExvY2FsUGF0aD48L0xvY2FsUGF0aD4NCiAgPFByb3ZpZGVyPjwvUHJvdmlkZXI+DQo8L1NvdXJjZUNvbnRyb2xJbmZvPg==</State>
+  <Database>
+    <Name>Demanda_OLAP.database</Name>
+    <FullPath>Demanda_OLAP.database</FullPath>
+  </Database>
+  <Cubes>
+    <ProjectItem>
+      <Name>Demanda.cube</Name>
+      <FullPath>Demanda.cube</FullPath>
+      <Dependencies>
+        <ProjectItem>
+          <Name>Demanda.partitions</Name>
+          <FullPath>Demanda.partitions</FullPath>
+        </ProjectItem>
+      </Dependencies>
+    </ProjectItem>
+  </Cubes>
+  <Dimensions>
+    <ProjectItem>
+      <Name>DimAgente.dim</Name>
+      <FullPath>DimAgente.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>DimCompania.dim</Name>
+      <FullPath>DimCompania.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>DimFecha.dim</Name>
+      <FullPath>DimFecha.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>DimGeografia.dim</Name>
+      <FullPath>DimGeografia.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>DimMercado.dim</Name>
+      <FullPath>DimMercado.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>DimPeriodo.dim</Name>
+      <FullPath>DimPeriodo.dim</FullPath>
+    </ProjectItem>
+  </Dimensions>
+  <DataSources>
+    <ProjectItem>
+      <Name>dsDemandaDW.ds</Name>
+      <FullPath>dsDemandaDW.ds</FullPath>
+    </ProjectItem>
+  </DataSources>
+  <DataSourceViews>
+    <ProjectItem>
+      <Name>dsvDemandaDW.dsv</Name>
+      <FullPath>dsvDemandaDW.dsv</FullPath>
+    </ProjectItem>
+  </DataSourceViews>
+  <Roles>
+    <ProjectItem>
+      <Name>Publico.role</Name>
+      <FullPath>Publico.role</FullPath>
+    </ProjectItem>
+  </Roles>
+  <Configurations>
+    <Configuration>
+      <Name>Development</Name>
+      <Options>
+        <ConnectionMappings>
+          <ConfigurationSetting>
+            <Id>dsDemandaDW</Id>
+            <Name>dsDemandaDW</Name>
+            <Value xsi:type="xsd:string">Provider=SQLNCLI11.1;Data Source=MVMOAN172A\SQL2019;Integrated Security=SSPI;Initial Catalog=DemandaDW</Value>
+          </ConfigurationSetting>
+        </ConnectionMappings>
+        <ConnectionSecurityMappings>
+          <ConfigurationSetting>
+            <Id>dsDemandaDW</Id>
+            <Name>dsDemandaDW</Name>
+            <Value xsi:type="xsd:int">0</Value>
+          </ConfigurationSetting>
+        </ConnectionSecurityMappings>
+        <CubeStorageLocations>
+          <ConfigurationSetting>
+            <Id>Demanda</Id>
+            <Name>Demanda</Name>
+            <Value xsi:type="xsd:string">D:\MSDB\Demanda_OLAP\</Value>
+          </ConfigurationSetting>
+        </CubeStorageLocations>
+        <MeasureGroupStorageLocations>
+          <ConfigurationSetting>
+            <Id>Demanda</Id>
+            <Name>Demanda</Name>
+            <Value xsi:type="ConfigurationSettingsCollection">
+              <ConfigurationSetting>
+                <Id>DemandaPerdida</Id>
+                <Name>DemandaPerdida</Name>
+                <Value xsi:type="xsd:string">D:\MSDB\Demanda_OLAP\</Value>
+              </ConfigurationSetting>
+            </Value>
+          </ConfigurationSetting>
+        </MeasureGroupStorageLocations>
+        <PartitionStorageLocations>
+          <ConfigurationSetting>
+            <Id>Demanda</Id>
+            <Name>Demanda</Name>
+            <Value xsi:type="ConfigurationSettingsCollection">
+              <ConfigurationSetting>
+                <Id>DemandaPerdida</Id>
+                <Name>DemandaPerdida</Name>
+                <Value xsi:type="ConfigurationSettingsCollection">
+                  <ConfigurationSetting>
+                    <Id>FactDemandaPerdida_199912</Id>
+                    <Name>FactDemandaPerdida_199912</Name>
+                    <Value xsi:type="xsd:string">D:\MSDB\Demanda_OLAP\</Value>
+                  </ConfigurationSetting>
+                  <ConfigurationSetting>
+                    <Id>FactDemandaPerdida_200001</Id>
+                    <Name>FactDemandaPerdida_200001</Name>
+                    <Value xsi:type="xsd:string">D:\MSDB\Demanda_OLAP\</Value>
+                  </ConfigurationSetting>
+                  <ConfigurationSetting>
+                    <Id>FactDemandaPerdida_200002</Id>
+                    <Name>FactDemandaPerdida_200002</Name>
+                    <Value xsi:type="xsd:string">D:\MSDB\Demanda_OLAP\</Value>
+                  </ConfigurationSetting>
+                  <ConfigurationSetting>
+                    <Id>FactDemandaPerdida_200003</Id>
+                    <Name>FactDemandaPerdida_200003</Name>
+                    <Value xsi:type="xsd:string">D:\MSDB\Demanda_OLAP\</Value>
+                  </ConfigurationSetting>
+                  <ConfigurationSetting>
+                    <Id>FactDemandaPerdida_200004</Id>
+                    <Name>FactDemandaPerdida_200004</Name>
+                    <Value xsi:type="xsd:string">D:\MSDB\Demanda_OLAP\</Value>
+                  </ConfigurationSetting>
+                  <ConfigurationSetting>
+                    <Id>FactDemandaPerdida_200005</Id>
+                    <Name>FactDemandaPerdida_200005</Name>
+                    <Value xsi:type="xsd:string">D:\MSDB\Demanda_OLAP\</Value>
+                  </ConfigurationSetting>
+                  <ConfigurationSetting>
+                    <Id>FactDemandaPerdida_200006</Id>
+                    <Name>FactDemandaPerdida_200006</Name>
+                    <Value xsi:type="xsd:string">D:\MSDB\Demanda_OLAP\</Value>
+                  </ConfigurationSetting>
+                  <ConfigurationSetting>
+                    <Id>FactDemandaPerdida_200007</Id>
+                    <Name>FactDemandaPerdida_200007</Name>
+                    <Value xsi:type="xsd:string">D:\MSDB\Demanda_OLAP\</Value>
+                  </ConfigurationSetting>
+                  <ConfigurationSetting>
+                    <Id>FactDemandaPerdida_200008</Id>
+                    <Name>FactDemandaPerdida_200008</Name>
+                    <Value xsi:type="xsd:string">D:\MSDB\Demanda_OLAP\</Value>
+                  </ConfigurationSetting>
+                  <ConfigurationSetting>
+                    <Id>FactDemandaPerdida_200009</Id>
+                    <Name>FactDemandaPerdida_200009</Name>
+                    <Value xsi:type="xsd:string">D:\MSDB\Demanda_OLAP\</Value>
+                  </ConfigurationSetting>
+                  <ConfigurationSetting>
+                    <Id>FactDemandaPerdida_200010</Id>
+                    <Name>FactDemandaPerdida_200010</Name>
+                    <Value xsi:type="xsd:string">D:\MSDB\Demanda_OLAP\</Value>
+                  </ConfigurationSetting>
+                  <ConfigurationSetting>
+                    <Id>FactDemandaPerdida_200011</Id>
+                    <Name>FactDemandaPerdida_200011</Name>
+                    <Value xsi:type="xsd:string">D:\MSDB\Demanda_OLAP\</Value>
+                  </ConfigurationSetting>
+                  <ConfigurationSetting>
+                    <Id>FactDemandaPerdida_200012</Id>
+                    <Name>FactDemandaPerdida_200012</Name>
+                    <Value xsi:type="xsd:string">D:\MSDB\Demanda_OLAP\</Value>
+                  </ConfigurationSetting>
+                  <ConfigurationSetting>
+                    <Id>DemandaPerdida_199912</Id>
+                    <Name>DemandaPerdida_199912</Name>
+                    <Value xsi:type="xsd:string">D:\MSDB\Demanda_OLAP\</Value>
+                  </ConfigurationSetting>
+                  <ConfigurationSetting>
+                    <Id>DemandaPerdida_200001</Id>
+                    <Name>DemandaPerdida_200001</Name>
+                    <Value xsi:type="xsd:string">D:\MSDB\Demanda_OLAP\</Value>
+                  </ConfigurationSetting>
+                  <ConfigurationSetting>
+                    <Id>DemandaPerdida_200002</Id>
+                    <Name>DemandaPerdida_200002</Name>
+                    <Value xsi:type="xsd:string">D:\MSDB\Demanda_OLAP\</Value>
+                  </ConfigurationSetting>
+                  <ConfigurationSetting>
+                    <Id>DemandaPerdida_200003</Id>
+                    <Name>DemandaPerdida_200003</Name>
+                    <Value xsi:type="xsd:string">D:\MSDB\Demanda_OLAP\</Value>
+                  </ConfigurationSetting>
+                  <ConfigurationSetting>
+                    <Id>DemandaPerdida_200004</Id>
+                    <Name>DemandaPerdida_200004</Name>
+                    <Value xsi:type="xsd:string">D:\MSDB\Demanda_OLAP\</Value>
+                  </ConfigurationSetting>
+                  <ConfigurationSetting>
+                    <Id>DemandaPerdida_200005</Id>
+                    <Name>DemandaPerdida_200005</Name>
+                    <Value xsi:type="xsd:string">D:\MSDB\Demanda_OLAP\</Value>
+                  </ConfigurationSetting>
+                  <ConfigurationSetting>
+                    <Id>DemandaPerdida_200006</Id>
+                    <Name>DemandaPerdida_200006</Name>
+                    <Value xsi:type="xsd:string">D:\MSDB\Demanda_OLAP\</Value>
+                  </ConfigurationSetting>
+                  <ConfigurationSetting>
+                    <Id>DemandaPerdida_200007</Id>
+                    <Name>DemandaPerdida_200007</Name>
+                    <Value xsi:type="xsd:string">D:\MSDB\Demanda_OLAP\</Value>
+                  </ConfigurationSetting>
+                  <ConfigurationSetting>
+                    <Id>DemandaPerdida_200008</Id>
+                    <Name>DemandaPerdida_200008</Name>
+                    <Value xsi:type="xsd:string">D:\MSDB\Demanda_OLAP\</Value>
+                  </ConfigurationSetting>
+                  <ConfigurationSetting>
+                    <Id>DemandaPerdida_200009</Id>
+                    <Name>DemandaPerdida_200009</Name>
+                    <Value xsi:type="xsd:string">D:\MSDB\Demanda_OLAP\</Value>
+                  </ConfigurationSetting>
+                  <ConfigurationSetting>
+                    <Id>DemandaPerdida_200010</Id>
+                    <Name>DemandaPerdida_200010</Name>
+                    <Value xsi:type="xsd:string">D:\MSDB\Demanda_OLAP\</Value>
+                  </ConfigurationSetting>
+                  <ConfigurationSetting>
+                    <Id>DemandaPerdida_200011</Id>
+                    <Name>DemandaPerdida_200011</Name>
+                    <Value xsi:type="xsd:string">D:\MSDB\Demanda_OLAP\</Value>
+                  </ConfigurationSetting>
+                  <ConfigurationSetting>
+                    <Id>DemandaPerdida_200012</Id>
+                    <Name>DemandaPerdida_200012</Name>
+                    <Value xsi:type="xsd:string">D:\MSDB\Demanda_OLAP\</Value>
+                  </ConfigurationSetting>
+                </Value>
+              </ConfigurationSetting>
+            </Value>
+          </ConfigurationSetting>
+        </PartitionStorageLocations>
+      </Options>
+    </Configuration>
+  </Configurations>
+</Project>

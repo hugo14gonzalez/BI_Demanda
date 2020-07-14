@@ -1,0 +1,380 @@
+﻿<Dimension xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ddl2="http://schemas.microsoft.com/analysisservices/2003/engine/2" xmlns:ddl2_2="http://schemas.microsoft.com/analysisservices/2003/engine/2/2" xmlns:ddl100_100="http://schemas.microsoft.com/analysisservices/2008/engine/100/100" xmlns:ddl200="http://schemas.microsoft.com/analysisservices/2010/engine/200" xmlns:ddl200_200="http://schemas.microsoft.com/analysisservices/2010/engine/200/200" xmlns:ddl300="http://schemas.microsoft.com/analysisservices/2011/engine/300" xmlns:ddl300_300="http://schemas.microsoft.com/analysisservices/2011/engine/300/300" xmlns:ddl400="http://schemas.microsoft.com/analysisservices/2012/engine/400" xmlns:ddl400_400="http://schemas.microsoft.com/analysisservices/2012/engine/400/400" xmlns:ddl500="http://schemas.microsoft.com/analysisservices/2013/engine/500" xmlns:ddl500_500="http://schemas.microsoft.com/analysisservices/2013/engine/500/500" xmlns:dwd="http://schemas.microsoft.com/DataWarehouse/Designer/1.0" dwd:design-time-name="948c8353-c193-449a-8799-e365c2362d1b" xmlns="http://schemas.microsoft.com/analysisservices/2003/engine">
+  <ID>DimAgente</ID>
+  <Name>DimAgente</Name>
+  <CreatedTimestamp>0001-01-01T05:00:00Z</CreatedTimestamp>
+  <LastSchemaUpdate>0001-01-01T05:00:00Z</LastSchemaUpdate>
+  <Annotations>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramLayout</Name>
+      <Value>
+        <dds xmlns="">
+          <diagram fontclsid="{0BE35203-8F91-11CE-9DE3-00AA004BB851}" mouseiconclsid="{0BE35204-8F91-11CE-9DE3-00AA004BB851}" defaultlayout="MSDDS.Rectilinear" defaultlineroute="MSDDS.Rectilinear" version="7" nextobject="8" scale="100" pagebreakanchorx="0" pagebreakanchory="0" pagebreaksizex="0" pagebreaksizey="0" scrollleft="-4012" scrolltop="-1530" gridx="150" gridy="150" marginx="5000" marginy="5000" zoom="100" x="6011" y="14542" backcolor="16777215" defaultpersistence="2" PrintPageNumbersMode="3" PrintMarginTop="0" PrintMarginBottom="635" PrintMarginLeft="0" PrintMarginRight="0" marqueeselectionmode="0" mousepointer="0" snaptogrid="0" autotypeannotation="1" showscrollbars="1" viewpagebreaks="0" donotforceconnectorsbehindshapes="1" backpictureclsid="{00000000-0000-0000-0000-000000000000}">
+            <font>
+              <ddsxmlobjectstreamwrapper binary="010000009001b0300100065461686f6d61" />
+            </font>
+            <mouseicon>
+              <ddsxmlobjectstreamwrapper binary="6c74000000000000" />
+            </mouseicon>
+          </diagram>
+          <layoutmanager>
+            <ddsxmlobj />
+          </layoutmanager>
+          <ddscontrol controlprogid="DdsShapes.DdsObjectManagedBridge" tooltip="DimCompania" left="20" top="7226" logicalid="4" controlid="1" masterid="0" hint1="0" hint2="0" width="3048" height="4826" noresize="0" nomove="0" nodefaultattachpoints="0" autodrag="1" usedefaultiddshape="1" selectable="1" showselectionhandles="1" allownudging="1" isannotation="0" dontautolayout="0" groupcollapsed="0" tabstop="1" visible="1" snaptogrid="0">
+            <control>
+              <ddsxmlobjectstreaminitwrapper binary="000c0000e80b0000da120000" />
+            </control>
+            <layoutobject>
+              <ddsxmlobj>
+                <property name="LogicalObject" value="DW_DimCompania" vartype="8" />
+              </ddsxmlobj>
+            </layoutobject>
+            <shape groupshapeid="0" groupnode="0" />
+          </ddscontrol>
+          <ddscontrol controlprogid="DdsShapes.DdsObjectManagedBridge" tooltip="DimAgente" left="30" top="0" logicalid="5" controlid="2" masterid="0" hint1="0" hint2="0" width="3027" height="4826" noresize="0" nomove="0" nodefaultattachpoints="0" autodrag="1" usedefaultiddshape="1" selectable="1" showselectionhandles="1" allownudging="1" isannotation="0" dontautolayout="0" groupcollapsed="0" tabstop="1" visible="1" snaptogrid="0">
+            <control>
+              <ddsxmlobjectstreaminitwrapper binary="000c0000d30b0000da120000" />
+            </control>
+            <layoutobject>
+              <ddsxmlobj>
+                <property name="LogicalObject" value="DW_DimAgente" vartype="8" />
+              </ddsxmlobj>
+            </layoutobject>
+            <shape groupshapeid="0" groupnode="0" />
+          </ddscontrol>
+          <ddscontrol controlprogid="MSDDS.Polyline" left="1145" top="4526" logicalid="6" controlid="3" masterid="0" hint1="0" hint2="0" width="799" height="3200" noresize="0" nomove="0" nodefaultattachpoints="1" autodrag="0" usedefaultiddshape="0" selectable="1" showselectionhandles="0" allownudging="1" isannotation="0" dontautolayout="0" groupcollapsed="0" tabstop="1" visible="1" snaptogrid="0">
+            <control>
+              <ddsxmlobj>
+                <polyline endtypedst="6" endtypesrc="3" usercolor="0" linestyle="0" linerender="1" customendtypedstid="0" customendtypesrcid="0" adornsvisible="1" />
+              </ddsxmlobj>
+            </control>
+            <layoutobject>
+              <ddsxmlobj>
+                <property name="LogicalObject" value="dataSet.Relations[FK_DimAgente_DimCompania_CompaniaSKId]" vartype="8" />
+                <property name="Virtual" value="0" vartype="11" />
+                <property name="VisibleAP" value="0" vartype="3" />
+              </ddsxmlobj>
+            </layoutobject>
+            <connector lineroutestyle="MSDDS.Rectilinear" sourceid="1" destid="2" sourceattachpoint="4" destattachpoint="5" segmenteditmode="0" bendpointeditmode="0" bendpointvisibility="0" relatedid="0" virtual="0">
+              <point x="1544" y="7226" />
+              <point x="1544" y="6026" />
+              <point x="1543" y="6026" />
+              <point x="1543" y="4826" />
+            </connector>
+          </ddscontrol>
+        </dds>
+      </Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:ShowFriendlyNames</Name>
+      <Value>true</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:ShowRelationshipNames</Name>
+      <Value>false</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:UseDiagramDefaultLayout</Name>
+      <Value>true</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramViewPortLeft</Name>
+      <Value>-4012</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramViewPortTop</Name>
+      <Value>-1530</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramBoundingLeft</Name>
+      <Value>20</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramBoundingTop</Name>
+      <Value>0</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramZoom</Name>
+      <Value>100</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:ARDiagramLayout</Name>
+      <Value>
+        <DiagramLayout ZoomPercent="100" ViewPortX="0" ViewPortY="0" xmlns="">
+          <Shapes NodeWidth="140">
+            <Shape Id="Agente SK Id" Expanded="false">
+              <Attributes>
+                <Attribute Id="Agente SK Id" />
+                <Attribute Id="Activo" />
+                <Attribute Id="Agente Mem Id" />
+                <Attribute Id="Compania SK Id" />
+                <Attribute Id="Fecha Fin SK Id" />
+                <Attribute Id="Fecha Ini SK Id" />
+              </Attributes>
+              <Position x="20" y="20" />
+            </Shape>
+            <Shape Id="Nombre" Expanded="false">
+              <Attributes>
+                <Attribute Id="Nombre" />
+              </Attributes>
+              <Position x="200" y="20" />
+            </Shape>
+            <Shape Id="Actividad" Expanded="false">
+              <Attributes>
+                <Attribute Id="Actividad" />
+              </Attributes>
+              <Position x="380" y="20" />
+            </Shape>
+          </Shapes>
+        </DiagramLayout>
+      </Value>
+    </Annotation>
+  </Annotations>
+  <LastProcessed>0001-01-01T05:00:00Z</LastProcessed>
+  <State>Unprocessed</State>
+  <Source xsi:type="DataSourceViewBinding" dwd:design-time-name="2df728a1-94d9-438a-8420-e009dd0d51bc">
+    <DataSourceViewID>dsvDemandaDW</DataSourceViewID>
+  </Source>
+  <UnknownMember>Visible</UnknownMember>
+  <ErrorConfiguration dwd:design-time-name="0a75e67e-7562-48c2-8532-5b405d8745eb">
+    <KeyNotFound>ReportAndStop</KeyNotFound>
+    <KeyDuplicate>ReportAndStop</KeyDuplicate>
+  </ErrorConfiguration>
+  <CurrentStorageMode>Molap</CurrentStorageMode>
+  <DimensionPermissions>
+    <DimensionPermission dwd:design-time-name="c13ed594-702b-4d88-b5a0-86448dd4a6ab">
+      <ID>DimensionPermission</ID>
+      <Name>DimensionPermission</Name>
+      <CreatedTimestamp>0001-01-01T00:00:00Z</CreatedTimestamp>
+      <LastSchemaUpdate>0001-01-01T00:00:00Z</LastSchemaUpdate>
+      <RoleID>Role</RoleID>
+      <ReadDefinition>Allowed</ReadDefinition>
+      <Read>Allowed</Read>
+    </DimensionPermission>
+  </DimensionPermissions>
+  <Attributes>
+    <Attribute dwd:design-time-name="408107a9-da7b-46ef-9157-e079dcbdf664">
+      <ID>Agente SK Id</ID>
+      <Name>AgenteId</Name>
+      <Usage>Key</Usage>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="2c4e0a9f-315e-499c-a39b-15f2ed05db0b">
+          <DataType>Integer</DataType>
+          <NullProcessing>UnknownMember</NullProcessing>
+          <Trimming>None</Trimming>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="e1feeed1-8d5e-4999-a915-10acd1475edb">
+            <TableID>DW_DimAgente</TableID>
+            <ColumnID>AgenteSKId</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn dwd:design-time-name="f52c6f2c-0583-4ea1-9c61-99255e5d883e">
+        <DataType>WChar</DataType>
+        <DataSize>20</DataSize>
+        <Source xsi:type="ColumnBinding" dwd:design-time-name="37640953-b4a1-4835-ba6b-a636e8b63e0a">
+          <TableID>DW_DimAgente</TableID>
+          <ColumnID>AgenteId</ColumnID>
+        </Source>
+      </NameColumn>
+      <AttributeRelationships>
+        <AttributeRelationship dwd:design-time-name="a46138e9-1ae3-4734-b90d-10c8c093437c">
+          <AttributeID>Fecha Fin SK Id</AttributeID>
+          <Name>FechaFin</Name>
+        </AttributeRelationship>
+        <AttributeRelationship dwd:design-time-name="243f8de4-ec63-4613-a46f-057aee856e45">
+          <AttributeID>Fecha Ini SK Id</AttributeID>
+          <Name>FechaIni</Name>
+        </AttributeRelationship>
+        <AttributeRelationship dwd:design-time-name="4a50c036-9b5b-441a-87d8-5a3b9ed9b2e3">
+          <AttributeID>Compania SK Id</AttributeID>
+          <Name>CompaniaId</Name>
+        </AttributeRelationship>
+        <AttributeRelationship dwd:design-time-name="b916cf41-5e15-4fe7-94b3-139b392dd42a">
+          <AttributeID>Agente Mem Id</AttributeID>
+          <Name>AgenteMemId</Name>
+        </AttributeRelationship>
+        <AttributeRelationship dwd:design-time-name="a514dc9c-8a90-459a-8d70-0bd726fd302c">
+          <AttributeID>Activo</AttributeID>
+          <Name>Activo</Name>
+        </AttributeRelationship>
+        <AttributeRelationship dwd:design-time-name="dbe2a08d-f4b7-4209-a1ac-3c1349852e5c">
+          <AttributeID>Nombre</AttributeID>
+          <Name>Nombre</Name>
+        </AttributeRelationship>
+      </AttributeRelationships>
+      <OrderBy>Key</OrderBy>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="6fc3a61c-8dd6-48df-9e65-b650aa58b334">
+      <ID>Fecha Fin SK Id</ID>
+      <Name>FechaFin</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="7d2ccff9-b376-454a-9368-e5bce336fc17">
+          <DataType>Integer</DataType>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="55cf6ce3-b2e1-4709-92cc-8e0b06457568">
+            <TableID>DW_DimAgente</TableID>
+            <ColumnID>FechaFinSKId</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <OrderBy>Key</OrderBy>
+      <AttributeHierarchyEnabled>false</AttributeHierarchyEnabled>
+      <AttributeHierarchyOptimizedState>NotOptimized</AttributeHierarchyOptimizedState>
+      <AttributeHierarchyVisible>false</AttributeHierarchyVisible>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="7deb81f7-3cc6-4ca2-9f9b-9add7a4748d3">
+      <ID>Fecha Ini SK Id</ID>
+      <Name>FechaIni</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="c5d4038e-d181-4031-97d8-2ef229b72ba4">
+          <DataType>Integer</DataType>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="a6b50a0d-79dd-470a-a89d-8b47cec1f40d">
+            <TableID>DW_DimAgente</TableID>
+            <ColumnID>FechaIniSKId</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <OrderBy>Key</OrderBy>
+      <AttributeHierarchyEnabled>false</AttributeHierarchyEnabled>
+      <AttributeHierarchyOptimizedState>NotOptimized</AttributeHierarchyOptimizedState>
+      <AttributeHierarchyVisible>false</AttributeHierarchyVisible>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="c17d0ca8-6dd5-450f-99ca-48f597533e59">
+      <ID>Compania SK Id</ID>
+      <Name>CompaniaId</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="309f8363-0f97-4eb2-92fc-7dd8c336707e">
+          <DataType>Integer</DataType>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="88c8a175-529a-4500-a58b-1a1a7b08fd52">
+            <TableID>DW_DimAgente</TableID>
+            <ColumnID>CompaniaSKId</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn dwd:design-time-name="2b6b2b12-0148-4927-a0c7-d45cb8843dd7">
+        <DataType>WChar</DataType>
+        <DataSize>20</DataSize>
+        <Source xsi:type="ColumnBinding" dwd:design-time-name="f69feb23-0c6c-4dbb-896b-54c0556779e0">
+          <TableID>DW_DimCompania</TableID>
+          <ColumnID>CompaniaId</ColumnID>
+        </Source>
+      </NameColumn>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="2493b71e-25ff-44c7-aa54-a52fc0ece0b0">
+      <ID>Agente Mem Id</ID>
+      <Name>AgenteMemId</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="b32eab5a-6cbc-4f49-9c62-98bd628020ec">
+          <DataType>WChar</DataType>
+          <DataSize>20</DataSize>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="c9f504ad-f493-4b76-9c71-350b6552446c">
+            <TableID>DW_DimAgente</TableID>
+            <ColumnID>AgenteMemId</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <OrderBy>Key</OrderBy>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="dea03091-0cae-4b54-af6c-911294e0d1a4">
+      <ID>Nombre</ID>
+      <Name>Nombre</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="ba1057dc-33d0-48b3-8d48-eb046c1736ba">
+          <DataType>WChar</DataType>
+          <DataSize>20</DataSize>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="dcfa3876-ffbe-4f9e-b32a-b9683787b8a2">
+            <TableID>DW_DimAgente</TableID>
+            <ColumnID>Actividad</ColumnID>
+          </Source>
+        </KeyColumn>
+        <KeyColumn dwd:design-time-name="12d25760-3729-4d8a-8969-ff8c40359bdb">
+          <DataType>WChar</DataType>
+          <DataSize>100</DataSize>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="12d0bbc2-e7b5-4531-b168-6a6bed54248e">
+            <TableID>DW_DimAgente</TableID>
+            <ColumnID>Nombre</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn dwd:design-time-name="7f36c394-bae6-490c-b392-d886b7fd3808">
+        <DataType>WChar</DataType>
+        <DataSize>100</DataSize>
+        <Source xsi:type="ColumnBinding" dwd:design-time-name="b5837a28-e6e6-4a5c-b631-065b65f4009f">
+          <TableID>DW_DimAgente</TableID>
+          <ColumnID>Nombre</ColumnID>
+        </Source>
+      </NameColumn>
+      <AttributeRelationships>
+        <AttributeRelationship dwd:design-time-name="606bc013-c64c-4e91-ac90-d6830132ade2">
+          <AttributeID>Actividad</AttributeID>
+          <Name>Actividad</Name>
+        </AttributeRelationship>
+      </AttributeRelationships>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="3d7bf280-3d43-47fe-a3df-bdf10b59de0d">
+      <ID>Actividad</ID>
+      <Name>Actividad</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="169f2e2c-44a2-4690-8ddd-9fe0262e2a5d">
+          <DataType>WChar</DataType>
+          <DataSize>20</DataSize>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="2f1c0154-a678-4f8f-846c-b43c618bdc5d">
+            <TableID>DW_DimAgente</TableID>
+            <ColumnID>Actividad</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <OrderBy>Key</OrderBy>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="17c83eb8-0247-4b82-b547-177fbfc87690">
+      <ID>Activo</ID>
+      <Name>Activo</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="9daccde5-2fd9-408b-a414-4c1808051e98">
+          <DataType>Boolean</DataType>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="57dc6667-08f4-44e7-b49d-2aa971b431c7">
+            <TableID>DW_DimAgente</TableID>
+            <ColumnID>Activo</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <OrderBy>Key</OrderBy>
+      <AttributeHierarchyEnabled>false</AttributeHierarchyEnabled>
+      <AttributeHierarchyOptimizedState>NotOptimized</AttributeHierarchyOptimizedState>
+      <AttributeHierarchyVisible>false</AttributeHierarchyVisible>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+  </Attributes>
+  <Hierarchies>
+    <Hierarchy dwd:design-time-name="251845ce-98f7-4e5d-b219-b837f85d3f0e">
+      <ID>Jerarquía</ID>
+      <Name>Actividades</Name>
+      <Levels>
+        <Level dwd:design-time-name="efdd7ab4-f542-4894-a481-4cf7f40dc0aa">
+          <ID>Actividad</ID>
+          <Name>Actividad</Name>
+          <SourceAttributeID>Actividad</SourceAttributeID>
+        </Level>
+        <Level dwd:design-time-name="7a96494c-3fe4-4dc7-86fe-1bff1bb971a2">
+          <ID>Nombre</ID>
+          <Name>Nombre</Name>
+          <SourceAttributeID>Nombre</SourceAttributeID>
+        </Level>
+      </Levels>
+    </Hierarchy>
+  </Hierarchies>
+  <ddl300:ProcessingState>Unprocessed</ddl300:ProcessingState>
+</Dimension>

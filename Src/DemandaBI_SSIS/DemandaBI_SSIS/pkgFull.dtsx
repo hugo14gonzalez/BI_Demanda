@@ -1,0 +1,1177 @@
+<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="4/1/2019 5:11:27 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="HUGO"
+  DTS:CreatorName="HUGO"
+  DTS:DTSID="{3A0B6343-3AAC-4443-AD0A-F7FD011A6237}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="15.0.1100.123"
+  DTS:LocaleID="9226"
+  DTS:ObjectName="pkgFull"
+  DTS:PackageType="5"
+  DTS:ProtectionLevel="2"
+  DTS:VersionBuild="29"
+  DTS:VersionGUID="{CCB9B230-D5B3-4EDD-ABFC-D559E503AF33}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[dsLog]"
+      DTS:CreationName="FILE"
+      DTS:DTSID="{876D72AE-2670-412A-8974-EA9B1121BCD0}"
+      DTS:ObjectName="dsLog">
+      <DTS:PropertyExpression
+        DTS:Name="ConnectionString">(RIGHT(@[$Project::FolderLog], 1) == "\\" ?  @[$Project::FolderLog] :  @[$Project::FolderLog]) + "\\" + @[System::PackageName] + ".csv"</DTS:PropertyExpression>
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:FileUsageType="1"
+          DTS:ConnectionString="\\HUGO\ETL_Log\DemandaBI\pkgFull.csv" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:LogProviders>
+    <DTS:LogProvider
+      DTS:ConfigString="dsLog"
+      DTS:CreationName="Microsoft.LogProviderTextFile"
+      DTS:Description="Escribe entradas del registro sobre eventos en un archivo CSV"
+      DTS:DTSID="{AEA7AE38-3F7A-4CDB-9C95-1FB31AB95C70}"
+      DTS:ObjectName="Proveedor de registro SSIS para archivos de texto">
+      <DTS:ObjectData>
+        <InnerObject />
+      </DTS:ObjectData>
+    </DTS:LogProvider>
+  </DTS:LogProviders>
+  <DTS:PackageParameters>
+    <DTS:PackageParameter
+      DTS:CreationName=""
+      DTS:DataType="8"
+      DTS:Description="En [Utility].[ModelSystem].[ModelId] Codigo del modelo dimensiones del data warehouse. Ejemplo: DW_DDim"
+      DTS:DTSID="{4BE11179-418C-4AF6-80A1-5365501DF78D}"
+      DTS:ObjectName="ModelDimId">
+      <DTS:Property
+        DTS:DataType="8"
+        DTS:Name="ParameterValue">DW_DDim</DTS:Property>
+    </DTS:PackageParameter>
+    <DTS:PackageParameter
+      DTS:CreationName=""
+      DTS:DataType="8"
+      DTS:Description="En [Utility].[ModelSystem].[ModelId] Codigo del modelo completo. Ejemplo: DW_DFull"
+      DTS:DTSID="{A92F4A3C-2199-478B-AB5B-CEDFAF8DD81D}"
+      DTS:ObjectName="ModelFullId">
+      <DTS:Property
+        DTS:DataType="8"
+        DTS:Name="ParameterValue">DW_DFull</DTS:Property>
+    </DTS:PackageParameter>
+  </DTS:PackageParameters>
+  <DTS:Variables>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{E4ABC8C8-04AF-45A6-8656-1ACDB3319F4B}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="AppId">
+      <DTS:VariableValue
+        DTS:DataType="8">ETL</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{AF8956CA-6C8D-4548-9DEF-5CE173118FAA}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="BitacoraId">
+      <DTS:VariableValue
+        DTS:DataType="20">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{F3274A84-A46B-4F3A-8E75-9A39381659E2}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="BitacoraParentId">
+      <DTS:VariableValue
+        DTS:DataType="20">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{39656B43-3B96-4D38-8FFA-37CC107AB9CD}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="ModuleId">
+      <DTS:VariableValue
+        DTS:DataType="3">1</DTS:VariableValue>
+    </DTS:Variable>
+  </DTS:Variables>
+  <DTS:LoggingOptions
+    DTS:FilterKind="0"
+    DTS:LoggingMode="1">
+    <DTS:Property
+      DTS:DataType="8"
+      DTS:Name="EventFilter">2,7,OnError,12,OnTaskFailed</DTS:Property>
+    <DTS:Property
+      DTS:EventName="OnError"
+      DTS:Name="ColumnFilter">
+      <DTS:Property
+        DTS:Name="Computer">-1</DTS:Property>
+      <DTS:Property
+        DTS:Name="Operator">-1</DTS:Property>
+      <DTS:Property
+        DTS:Name="SourceName">-1</DTS:Property>
+      <DTS:Property
+        DTS:Name="SourceID">-1</DTS:Property>
+      <DTS:Property
+        DTS:Name="ExecutionID">-1</DTS:Property>
+      <DTS:Property
+        DTS:Name="MessageText">-1</DTS:Property>
+      <DTS:Property
+        DTS:Name="DataBytes">-1</DTS:Property>
+    </DTS:Property>
+    <DTS:Property
+      DTS:EventName="OnTaskFailed"
+      DTS:Name="ColumnFilter">
+      <DTS:Property
+        DTS:Name="Computer">-1</DTS:Property>
+      <DTS:Property
+        DTS:Name="Operator">-1</DTS:Property>
+      <DTS:Property
+        DTS:Name="SourceName">-1</DTS:Property>
+      <DTS:Property
+        DTS:Name="SourceID">-1</DTS:Property>
+      <DTS:Property
+        DTS:Name="ExecutionID">-1</DTS:Property>
+      <DTS:Property
+        DTS:Name="MessageText">-1</DTS:Property>
+      <DTS:Property
+        DTS:Name="DataBytes">-1</DTS:Property>
+    </DTS:Property>
+    <DTS:SelectedLogProviders>
+      <DTS:SelectedLogProvider
+        DTS:InstanceID="{AEA7AE38-3F7A-4CDB-9C95-1FB31AB95C70}" />
+    </DTS:SelectedLogProviders>
+  </DTS:LoggingOptions>
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\SC Cubos"
+      DTS:CreationName="STOCK:SEQUENCE"
+      DTS:Description="Contenedor de secuencias"
+      DTS:DTSID="{37505264-90C9-49AA-B90D-C261344BC1FE}"
+      DTS:ExecutableType="STOCK:SEQUENCE"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="SC Cubos">
+      <DTS:Variables />
+      <DTS:Executables>
+        <DTS:Executable
+          DTS:refId="Package\SC Cubos\ETL OLAP Dim Procesar"
+          DTS:CreationName="Microsoft.ExecutePackageTask"
+          DTS:Description="Tarea Ejecutar paquete"
+          DTS:DTSID="{a7437d61-4aa0-40a6-b854-dfd11fa80398}"
+          DTS:ExecutableType="Microsoft.ExecutePackageTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="ETL OLAP Dim Procesar"
+          DTS:TaskContact="Microsoft Corporation; Microsoft SQL Server; Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <ExecutePackageTask>
+              <UseProjectReference>True</UseProjectReference>
+              <PackageName>pkgCubeDimProcess.dtsx</PackageName>
+              <ParameterAssignment>
+                <ParameterName>BitacoraParentId</ParameterName>
+                <BindedVariableOrParameterName>User::BitacoraId</BindedVariableOrParameterName>
+              </ParameterAssignment>
+            </ExecutePackageTask>
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\SC Cubos\ETL OLAP Part Crear"
+          DTS:CreationName="Microsoft.ExecutePackageTask"
+          DTS:Description="Tarea Ejecutar paquete"
+          DTS:DTSID="{b052c7e1-3c0e-4751-852b-2b0827cb52ec}"
+          DTS:ExecutableType="Microsoft.ExecutePackageTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="ETL OLAP Part Crear"
+          DTS:TaskContact="Microsoft Corporation; Microsoft SQL Server; Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <ExecutePackageTask>
+              <UseProjectReference>True</UseProjectReference>
+              <PackageName>pkgCubePartitionCreate.dtsx</PackageName>
+              <ParameterAssignment>
+                <ParameterName>BitacoraParentId</ParameterName>
+                <BindedVariableOrParameterName>User::BitacoraId</BindedVariableOrParameterName>
+              </ParameterAssignment>
+            </ExecutePackageTask>
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\SC Cubos\ETL OLAP Part Procesar"
+          DTS:CreationName="Microsoft.ExecutePackageTask"
+          DTS:Description="Tarea Ejecutar paquete"
+          DTS:DTSID="{d26aae04-69ec-4a4c-a385-37a051e8a104}"
+          DTS:ExecutableType="Microsoft.ExecutePackageTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="ETL OLAP Part Procesar"
+          DTS:TaskContact="Microsoft Corporation; Microsoft SQL Server; Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <ExecutePackageTask>
+              <UseProjectReference>True</UseProjectReference>
+              <PackageName>pkgCubePartitionProcess.dtsx</PackageName>
+              <ParameterAssignment>
+                <ParameterName>BitacoraParentId</ParameterName>
+                <BindedVariableOrParameterName>User::BitacoraId</BindedVariableOrParameterName>
+              </ParameterAssignment>
+            </ExecutePackageTask>
+          </DTS:ObjectData>
+        </DTS:Executable>
+      </DTS:Executables>
+      <DTS:PrecedenceConstraints>
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\SC Cubos.PrecedenceConstraints[Restricción]"
+          DTS:CreationName=""
+          DTS:DTSID="{CB8C3D3D-9A9F-4D5B-8FF4-432B12252210}"
+          DTS:From="Package\SC Cubos\ETL OLAP Dim Procesar"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Restricción"
+          DTS:To="Package\SC Cubos\ETL OLAP Part Crear"
+          DTS:Value="2" />
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\SC Cubos.PrecedenceConstraints[Restricción 1]"
+          DTS:CreationName=""
+          DTS:DTSID="{EC678E30-C4DA-490C-AB8C-ED2D3C410078}"
+          DTS:From="Package\SC Cubos\ETL OLAP Part Crear"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Restricción 1"
+          DTS:To="Package\SC Cubos\ETL OLAP Part Procesar"
+          DTS:Value="2" />
+      </DTS:PrecedenceConstraints>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\SC Load Fact"
+      DTS:CreationName="STOCK:SEQUENCE"
+      DTS:Description="Contenedor de secuencias"
+      DTS:DTSID="{29D3D163-C8FD-463F-A24B-8DCB36C837E5}"
+      DTS:ExecutableType="STOCK:SEQUENCE"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="SC Load Fact">
+      <DTS:Variables />
+      <DTS:Executables>
+        <DTS:Executable
+          DTS:refId="Package\SC Load Fact\ETL FactDemandaPerdida"
+          DTS:CreationName="Microsoft.ExecutePackageTask"
+          DTS:Description="Tarea Ejecutar paquete"
+          DTS:DTSID="{1B4DADE9-9B77-4DF6-B8CF-43A0FE60BAD2}"
+          DTS:ExecutableType="Microsoft.ExecutePackageTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="ETL FactDemandaPerdida"
+          DTS:TaskContact="Microsoft Corporation; Microsoft SQL Server; Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <ExecutePackageTask>
+              <UseProjectReference>True</UseProjectReference>
+              <PackageName>pkgFactDemandaPerdida.dtsx</PackageName>
+              <ParameterAssignment>
+                <ParameterName>BitacoraParentId</ParameterName>
+                <BindedVariableOrParameterName>User::BitacoraId</BindedVariableOrParameterName>
+              </ParameterAssignment>
+            </ExecutePackageTask>
+          </DTS:ObjectData>
+        </DTS:Executable>
+      </DTS:Executables>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\SC Load tablas Dim"
+      DTS:CreationName="STOCK:SEQUENCE"
+      DTS:Description="Contenedor de secuencias"
+      DTS:DTSID="{10E6D95A-3B10-4AA0-8A04-5247517147D4}"
+      DTS:ExecutableType="STOCK:SEQUENCE"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="SC Load tablas Dim">
+      <DTS:Variables />
+      <DTS:Executables>
+        <DTS:Executable
+          DTS:refId="Package\SC Load tablas Dim\SC Dim 1"
+          DTS:CreationName="STOCK:SEQUENCE"
+          DTS:Description="Contenedor de secuencias"
+          DTS:DTSID="{F7CDCF20-82A6-4A1C-A82C-079C6C5EF4F2}"
+          DTS:ExecutableType="STOCK:SEQUENCE"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="SC Dim 1">
+          <DTS:Variables />
+          <DTS:Executables>
+            <DTS:Executable
+              DTS:refId="Package\SC Load tablas Dim\SC Dim 1\ETL DimGeografia"
+              DTS:CreationName="Microsoft.ExecutePackageTask"
+              DTS:Description="Tarea Ejecutar paquete"
+              DTS:DTSID="{4D8EFA35-2B0A-41C0-9E6B-AE1E8EF5DD4C}"
+              DTS:ExecutableType="Microsoft.ExecutePackageTask"
+              DTS:LocaleID="-1"
+              DTS:ObjectName="ETL DimGeografia"
+              DTS:TaskContact="Microsoft Corporation; Microsoft SQL Server; Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+              <DTS:Variables />
+              <DTS:ObjectData>
+                <ExecutePackageTask>
+                  <UseProjectReference>True</UseProjectReference>
+                  <PackageName>pkgDimGeografia.dtsx</PackageName>
+                  <ParameterAssignment>
+                    <ParameterName>BitacoraParentId</ParameterName>
+                    <BindedVariableOrParameterName>User::BitacoraId</BindedVariableOrParameterName>
+                  </ParameterAssignment>
+                </ExecutePackageTask>
+              </DTS:ObjectData>
+            </DTS:Executable>
+            <DTS:Executable
+              DTS:refId="Package\SC Load tablas Dim\SC Dim 1\SQL DimDate"
+              DTS:CreationName="Microsoft.ExecuteSQLTask"
+              DTS:Description="Execute SQL Task"
+              DTS:DTSID="{a0419925-225c-4d84-a921-2f51bf31dfb3}"
+              DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+              DTS:LocaleID="-1"
+              DTS:ObjectName="SQL DimDate"
+              DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017 RC1; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+              DTS:ThreadHint="0">
+              <DTS:Variables />
+              <DTS:ObjectData>
+                <SQLTask:SqlTaskData
+                  SQLTask:Connection="{B4DAFAE1-2059-4939-809F-74E6B701FD01}"
+                  SQLTask:SqlStatementSource="/* Mes anterior, actual y 2 meses hacia adelante */&#xA;Declare @dateStart date, @dateEnd date;&#xA;Set @dateStart = DATEADD(month, - 1, DATEADD(month, DATEDIFF(month, 0, GetDate()), 0));&#xA;set @dateEnd = DATEADD(month, DATEDIFF(month, 0, @dateStart) + 4, 0) - 1;&#xA;EXECUTE [DW].[spLoadDimDate] @dateStart, @dateEnd, 1;&#xA;GO&#xA;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+              </DTS:ObjectData>
+            </DTS:Executable>
+          </DTS:Executables>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\SC Load tablas Dim\SC Dim 2"
+          DTS:CreationName="STOCK:SEQUENCE"
+          DTS:Description="Contenedor de secuencias"
+          DTS:DTSID="{2BB45D43-58A2-4F16-B55C-32E71B73C1F9}"
+          DTS:ExecutableType="STOCK:SEQUENCE"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="SC Dim 2">
+          <DTS:Variables />
+          <DTS:Executables>
+            <DTS:Executable
+              DTS:refId="Package\SC Load tablas Dim\SC Dim 2\ETL DimAgente"
+              DTS:CreationName="Microsoft.ExecutePackageTask"
+              DTS:Description="Tarea Ejecutar paquete"
+              DTS:DTSID="{250208D5-2499-4977-83C0-45824B32CE7F}"
+              DTS:ExecutableType="Microsoft.ExecutePackageTask"
+              DTS:LocaleID="-1"
+              DTS:ObjectName="ETL DimAgente"
+              DTS:TaskContact="Microsoft Corporation; Microsoft SQL Server; Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+              <DTS:Variables />
+              <DTS:ObjectData>
+                <ExecutePackageTask>
+                  <UseProjectReference>True</UseProjectReference>
+                  <PackageName>pkgDimAgente.dtsx</PackageName>
+                  <ParameterAssignment>
+                    <ParameterName>BitacoraParentId</ParameterName>
+                    <BindedVariableOrParameterName>User::BitacoraId</BindedVariableOrParameterName>
+                  </ParameterAssignment>
+                </ExecutePackageTask>
+              </DTS:ObjectData>
+            </DTS:Executable>
+            <DTS:Executable
+              DTS:refId="Package\SC Load tablas Dim\SC Dim 2\ETL DimCompania"
+              DTS:CreationName="Microsoft.ExecutePackageTask"
+              DTS:Description="Tarea Ejecutar paquete"
+              DTS:DTSID="{C59491B1-157A-4D26-B099-7E9C75615CC7}"
+              DTS:ExecutableType="Microsoft.ExecutePackageTask"
+              DTS:LocaleID="-1"
+              DTS:ObjectName="ETL DimCompania"
+              DTS:TaskContact="Microsoft Corporation; Microsoft SQL Server; Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+              <DTS:Variables />
+              <DTS:ObjectData>
+                <ExecutePackageTask>
+                  <UseProjectReference>True</UseProjectReference>
+                  <PackageName>pkgDimCompania.dtsx</PackageName>
+                  <ParameterAssignment>
+                    <ParameterName>BitacoraParentId</ParameterName>
+                    <BindedVariableOrParameterName>User::BitacoraId</BindedVariableOrParameterName>
+                  </ParameterAssignment>
+                </ExecutePackageTask>
+              </DTS:ObjectData>
+            </DTS:Executable>
+          </DTS:Executables>
+          <DTS:PrecedenceConstraints>
+            <DTS:PrecedenceConstraint
+              DTS:refId="Package\SC Load tablas Dim\SC Dim 2.PrecedenceConstraints[Restricción]"
+              DTS:CreationName=""
+              DTS:DTSID="{1BB341D1-1498-4DA5-AFBE-344E34413659}"
+              DTS:From="Package\SC Load tablas Dim\SC Dim 2\ETL DimCompania"
+              DTS:LogicalAnd="True"
+              DTS:ObjectName="Restricción"
+              DTS:To="Package\SC Load tablas Dim\SC Dim 2\ETL DimAgente"
+              DTS:Value="2" />
+          </DTS:PrecedenceConstraints>
+        </DTS:Executable>
+      </DTS:Executables>
+      <DTS:PrecedenceConstraints>
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\SC Load tablas Dim.PrecedenceConstraints[Restricción]"
+          DTS:CreationName=""
+          DTS:DTSID="{16DF0ABD-96B1-4179-B139-E661AF615B31}"
+          DTS:From="Package\SC Load tablas Dim\SC Dim 1"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Restricción"
+          DTS:To="Package\SC Load tablas Dim\SC Dim 2"
+          DTS:Value="2" />
+      </DTS:PrecedenceConstraints>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\SC Version y Programacion"
+      DTS:CreationName="STOCK:SEQUENCE"
+      DTS:Description="Sequence Container"
+      DTS:DTSID="{0d1f0d2f-e965-4224-b7d2-94e676ebf0ef}"
+      DTS:ExecutableType="STOCK:SEQUENCE"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="SC Version y Programacion">
+      <DTS:Variables />
+      <DTS:Executables>
+        <DTS:Executable
+          DTS:refId="Package\SC Version y Programacion\SQL Agendar programacion"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{45a15dff-321e-460a-a700-fe0552ac8b07}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="SQL Agendar programacion"
+          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017 RC1; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{B4DAFAE1-2059-4939-809F-74E6B701FD01}"
+              SQLTask:SqlStatementSource="EXECUTE [Utility].[spModuleProgramming_Sheduling] ?, ?;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="0"
+                SQLTask:DtsVariableName="User::BitacoraId"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="3"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="1"
+                SQLTask:DtsVariableName="$Package::ModelFullId"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="130"
+                SQLTask:ParameterSize="-1" />
+            </SQLTask:SqlTaskData>
+          </DTS:ObjectData>
+        </DTS:Executable>
+      </DTS:Executables>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\SQL Audit End"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{D7E0E722-770F-4B4D-8F70-FBC0157460E5}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="SQL Audit End"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017 RC1; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:LoggingOptions
+        DTS:FilterKind="0" />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{B4DAFAE1-2059-4939-809F-74E6B701FD01}"
+          SQLTask:SqlStatementSource="EXECUTE [Audit].[spBitacora_End] ?;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+          <SQLTask:ParameterBinding
+            SQLTask:ParameterName="0"
+            SQLTask:DtsVariableName="User::BitacoraId"
+            SQLTask:ParameterDirection="Input"
+            SQLTask:DataType="3"
+            SQLTask:ParameterSize="-1" />
+        </SQLTask:SqlTaskData>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\SQL Audit Start"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{A5611339-9783-4190-8D2D-3CD90CDD4A72}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="SQL Audit Start"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017 RC1; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:LoggingOptions
+        DTS:FilterKind="0" />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{B4DAFAE1-2059-4939-809F-74E6B701FD01}"
+          SQLTask:SqlStatementSource="EXECUTE [Audit].[spBitacora_Start] ? OUTPUT, ?, ?, ?, ?, NULL, NULL, 0, NULL, 0, 'ETL';" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+          <SQLTask:ParameterBinding
+            SQLTask:ParameterName="0"
+            SQLTask:DtsVariableName="User::BitacoraId"
+            SQLTask:ParameterDirection="Output"
+            SQLTask:DataType="3"
+            SQLTask:ParameterSize="-1" />
+          <SQLTask:ParameterBinding
+            SQLTask:ParameterName="1"
+            SQLTask:DtsVariableName="User::BitacoraParentId"
+            SQLTask:ParameterDirection="Input"
+            SQLTask:DataType="3"
+            SQLTask:ParameterSize="-1" />
+          <SQLTask:ParameterBinding
+            SQLTask:ParameterName="2"
+            SQLTask:DtsVariableName="User::AppId"
+            SQLTask:ParameterDirection="Input"
+            SQLTask:DataType="130"
+            SQLTask:ParameterSize="-1" />
+          <SQLTask:ParameterBinding
+            SQLTask:ParameterName="3"
+            SQLTask:DtsVariableName="User::ModuleId"
+            SQLTask:ParameterDirection="Input"
+            SQLTask:DataType="3"
+            SQLTask:ParameterSize="-1" />
+          <SQLTask:ParameterBinding
+            SQLTask:ParameterName="4"
+            SQLTask:DtsVariableName="System::PackageName"
+            SQLTask:ParameterDirection="Input"
+            SQLTask:DataType="130"
+            SQLTask:ParameterSize="-1" />
+        </SQLTask:SqlTaskData>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\SQL Estado Prog Dim OK"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{4aede515-f168-4a89-b124-15b98d2d7641}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="SQL Estado Prog Dim OK"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017 RC1; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{B4DAFAE1-2059-4939-809F-74E6B701FD01}"
+          SQLTask:SqlStatementSource="EXECUTE [Utility].[spModuleProgramming_UpdateState_WithoutDate] ?, 0, 0, ?, 0;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+          <SQLTask:ParameterBinding
+            SQLTask:ParameterName="0"
+            SQLTask:DtsVariableName="User::BitacoraId"
+            SQLTask:ParameterDirection="Input"
+            SQLTask:DataType="3"
+            SQLTask:ParameterSize="-1" />
+          <SQLTask:ParameterBinding
+            SQLTask:ParameterName="1"
+            SQLTask:DtsVariableName="$Package::ModelDimId"
+            SQLTask:ParameterDirection="Input"
+            SQLTask:DataType="130"
+            SQLTask:ParameterSize="-1" />
+        </SQLTask:SqlTaskData>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\SQL Prog Fin"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{91837d71-6e6a-4307-99c1-1309aa4eb1c8}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="SQL Prog Fin"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017 RC1; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{B4DAFAE1-2059-4939-809F-74E6B701FD01}"
+          SQLTask:SqlStatementSource="EXECUTE [Utility].[spModuleProgramming_End] ?;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+          <SQLTask:ParameterBinding
+            SQLTask:ParameterName="0"
+            SQLTask:DtsVariableName="User::BitacoraId"
+            SQLTask:ParameterDirection="Input"
+            SQLTask:DataType="3"
+            SQLTask:ParameterSize="-1" />
+        </SQLTask:SqlTaskData>
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Restricción]"
+      DTS:CreationName=""
+      DTS:DTSID="{E3482690-2B3D-458D-A442-4FA9A80606FD}"
+      DTS:From="Package\SQL Audit Start"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Restricción"
+      DTS:To="Package\SC Version y Programacion" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Restricción 1]"
+      DTS:CreationName=""
+      DTS:DTSID="{DF6BF225-22DB-47B2-89FC-9F8D037BD685}"
+      DTS:From="Package\SC Version y Programacion"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Restricción 1"
+      DTS:To="Package\SC Load tablas Dim" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Restricción 2]"
+      DTS:CreationName=""
+      DTS:DTSID="{54789E1B-FD20-441C-8A9D-53AF465968E4}"
+      DTS:From="Package\SC Load tablas Dim"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Restricción 2"
+      DTS:To="Package\SC Load Fact"
+      DTS:Value="2" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Restricción 3]"
+      DTS:CreationName=""
+      DTS:DTSID="{919DC4EA-0F74-4689-AD66-C89CCEBC9031}"
+      DTS:From="Package\SC Load Fact"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Restricción 3"
+      DTS:To="Package\SC Cubos"
+      DTS:Value="2" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Restricción 4]"
+      DTS:CreationName=""
+      DTS:DTSID="{DD9AFD91-5100-43C2-BB4A-907A526E36E3}"
+      DTS:From="Package\SC Cubos"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Restricción 4"
+      DTS:To="Package\SQL Estado Prog Dim OK"
+      DTS:Value="2" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Restricción 5]"
+      DTS:CreationName=""
+      DTS:DTSID="{35B2F120-83F1-4B27-AC9F-999074786E75}"
+      DTS:From="Package\SQL Estado Prog Dim OK"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Restricción 5"
+      DTS:To="Package\SQL Prog Fin"
+      DTS:Value="2" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Restricción 6]"
+      DTS:CreationName=""
+      DTS:DTSID="{25EEDD88-E45D-48E9-B21D-156BC1AF8CD0}"
+      DTS:From="Package\SQL Prog Fin"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Restricción 6"
+      DTS:To="Package\SQL Audit End"
+      DTS:Value="2" />
+  </DTS:PrecedenceConstraints>
+  <DTS:EventHandlers>
+    <DTS:EventHandler
+      DTS:refId="Package.EventHandlers[OnError]"
+      DTS:CreationName="OnError"
+      DTS:DTSID="{C7492726-DC89-4062-A15E-5C9326D70891}"
+      DTS:EventID="9110279"
+      DTS:EventName="OnError"
+      DTS:LocaleID="-1">
+      <DTS:Variables>
+        <DTS:Variable
+          DTS:CreationName=""
+          DTS:Description="La propiedad de propagación del evento"
+          DTS:DTSID="{C523C309-61C2-4173-B604-150111AED019}"
+          DTS:IncludeInDebugDump="6789"
+          DTS:Namespace="System"
+          DTS:ObjectName="Propagate">
+          <DTS:VariableValue
+            DTS:DataType="11">-1</DTS:VariableValue>
+        </DTS:Variable>
+      </DTS:Variables>
+      <DTS:Executables>
+        <DTS:Executable
+          DTS:refId="Package.EventHandlers[OnError]\SQL Audit Error"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{1B39A6D0-694A-419B-BA7B-9D73B83A7D24}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="SQL Audit Error"
+          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017 RC1; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{B4DAFAE1-2059-4939-809F-74E6B701FD01}"
+              SQLTask:SqlStatementSource="EXECUTE [Audit].[spBitacora_Error] ?, ?, ?;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="0"
+                SQLTask:DtsVariableName="User::BitacoraId"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="3"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="1"
+                SQLTask:DtsVariableName="System::SourceName"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="130"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="2"
+                SQLTask:DtsVariableName="System::ErrorDescription"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="130"
+                SQLTask:ParameterSize="-1" />
+            </SQLTask:SqlTaskData>
+          </DTS:ObjectData>
+        </DTS:Executable>
+      </DTS:Executables>
+    </DTS:EventHandler>
+  </DTS:EventHandlers>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--Esta sección CDATA contiene la información de diseño del paquete. Esta sección incluye información como, por ejemplo, las coordenadas (x,y), el ancho y el alto.-->
+<!--Si edita manualmente esta sección y comete un error, puede eliminarlo. -->
+<!--El paquete podrá cargarse normalmente, pero se perderá la información de diseño anterior y el diseñador reorganizará los elementos automáticamente en la superficie de diseño.-->
+<Objects
+  Version="8">
+  <!--Cada uno de los nodos siguientes contiene propiedades que no afectan al comportamiento en tiempo de ejecución.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="32" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph" xmlns:mssge="clr-namespace:Microsoft.SqlServer.Graph.Extended;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:av="http://schemas.microsoft.com/winfx/2006/xaml/presentation">
+        <NodeLayout
+          Size="189.6,41.6"
+          Id="Package\SC Cubos\ETL OLAP Dim Procesar"
+          TopLeft="18.1428684190831,15.2352997588451" />
+        <NodeLayout
+          Size="175.2,41.6"
+          Id="Package\SC Cubos\ETL OLAP Part Crear"
+          TopLeft="254.571443874009,12.8823572310609" />
+        <NodeLayout
+          Size="190.4,41.6"
+          Id="Package\SC Cubos\ETL OLAP Part Procesar"
+          TopLeft="241.873030959344,89.0522929678876" />
+        <EdgeLayout
+          Id="Package\SC Cubos.PrecedenceConstraints[Restricción]"
+          TopLeft="207.742868419083,34.858828494953">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{x:Null}"
+              EndConnector="46.8285754549262,0"
+              Start="0,0"
+              End="39.3285754549262,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="39.3285754549262,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-4.49016539753688,5,48.30890625,10.3349609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\SC Cubos.PrecedenceConstraints[Restricción 1]"
+          TopLeft="339.622237416676,54.4823572310609">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{x:Null}"
+              EndConnector="0,34.5699357368267"
+              Start="0,0"
+              End="0,27.0699357368267">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,27.0699357368267" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-24.154453125,8.36748739966337,48.30890625,10.3349609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="444.8,151.2"
+          Size="444.8,194.4"
+          Id="Package\SC Cubos"
+          TopLeft="667.142857519948,503.294117132273" />
+        <NodeLayout
+          Size="200,41.6"
+          Id="Package\SC Load Fact\ETL FactDemandaPerdida"
+          TopLeft="17,13" />
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="235.2,76.8"
+          Size="235.2,120"
+          Id="Package\SC Load Fact"
+          TopLeft="860.3809522512,332.503268401653" />
+        <NodeLayout
+          Size="164,41.6"
+          Id="Package\SC Load tablas Dim\SC Dim 1\ETL DimGeografia"
+          TopLeft="11,64" />
+        <NodeLayout
+          Size="142.4,41.6"
+          Id="Package\SC Load tablas Dim\SC Dim 1\SQL DimDate"
+          TopLeft="11,8" />
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="195.2,116"
+          Size="195.2,159.2"
+          Id="Package\SC Load tablas Dim\SC Dim 1"
+          TopLeft="11,12" />
+        <NodeLayout
+          Size="152,41.6"
+          Id="Package\SC Load tablas Dim\SC Dim 2\ETL DimAgente"
+          TopLeft="21,78" />
+        <NodeLayout
+          Size="164.8,41.6"
+          Id="Package\SC Load tablas Dim\SC Dim 2\ETL DimCompania"
+          TopLeft="18,7" />
+        <EdgeLayout
+          Id="Package\SC Load tablas Dim\SC Dim 2.PrecedenceConstraints[Restricción]"
+          TopLeft="98.75,49">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{x:Null}"
+              EndConnector="0,29"
+              Start="0,0"
+              End="0,21.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,21.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-24.154453125,5.58251953125,48.30890625,10.3349609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="196,134.4"
+          Size="196,177.6"
+          Id="Package\SC Load tablas Dim\SC Dim 2"
+          TopLeft="259.380952251201,7" />
+        <EdgeLayout
+          Id="Package\SC Load tablas Dim.PrecedenceConstraints[Restricción]"
+          TopLeft="206.2,93.7">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{x:Null}"
+              EndConnector="53.1809522512006,0"
+              Start="0,0"
+              End="45.6809522512006,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="45.6809522512006,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-1.31397699939972,5,48.30890625,10.3349609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="464,190.4"
+          Size="464,233.6"
+          Id="Package\SC Load tablas Dim"
+          TopLeft="341,255" />
+        <NodeLayout
+          Size="208,41.6"
+          Id="Package\SC Version y Programacion\SQL Agendar programacion"
+          TopLeft="10,57" />
+        <AnnotationLayout
+          Text="ETL Version: No requerida porque&#xA;los datos no tienen version."
+          ParentId="Package\SC Version y Programacion"
+          Size="207.2,49.6"
+          Id="695171c1-2da9-43da-ab10-a3266730d3b2"
+          TopLeft="7,2">
+          <AnnotationLayout.FontInfo>
+            <mssge:FontInfo
+              Family="Arial Narrow"
+              Size="11.25"
+              Color="#FF000000">
+              <mssge:FontInfo.TextDecorations>
+                <av:TextDecorationCollection />
+              </mssge:FontInfo.TextDecorations>
+            </mssge:FontInfo>
+          </AnnotationLayout.FontInfo>
+        </AnnotationLayout>
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="231.2,108"
+          Size="231.2,151.2"
+          Id="Package\SC Version y Programacion"
+          TopLeft="81.3809526769482,339.343137505145" />
+        <NodeLayout
+          Size="151.2,41.6"
+          Id="Package\SQL Audit End"
+          TopLeft="229.761905864793,599.091502483879" />
+        <NodeLayout
+          Size="151.2,41.6"
+          Id="Package\SQL Audit Start"
+          TopLeft="121.952381224049,267.078431612068" />
+        <NodeLayout
+          Size="196.8,41.6"
+          Id="Package\SQL Estado Prog Dim OK"
+          TopLeft="427.396826595676,508.189541588743" />
+        <NodeLayout
+          Size="140,41.6"
+          Id="Package\SQL Prog Fin"
+          TopLeft="236.158731183228,511.797384804646" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Restricción]"
+          TopLeft="197.266666950499,308.678431612068">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{x:Null}"
+              EndConnector="0,30.6647058930776"
+              Start="0,0"
+              End="0,23.1647058930776">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,23.1647058930776" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Restricción 1]"
+          TopLeft="312.580952676948,414.943137505145">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{x:Null}"
+              EndConnector="28.4190473230518,-43.1431375051449"
+              Start="0,0"
+              End="20.9190473230518,-43.1431375051449">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="10.2095236615259,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="10.2095236615259,0"
+                    Point2="14.2095236615259,0"
+                    Point3="14.2095236615259,-4" />
+                  <mssgle:LineSegment
+                    End="14.2095236615259,-39.1431375051449" />
+                  <mssgle:CubicBezierSegment
+                    Point1="14.2095236615259,-39.1431375051449"
+                    Point2="14.2095236615259,-43.1431375051449"
+                    Point3="18.2095236615259,-43.1431375051449" />
+                  <mssgle:LineSegment
+                    End="20.9190473230518,-43.1431375051449" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Restricción 2]"
+          TopLeft="805,371.8">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{x:Null}"
+              EndConnector="55.3809522512005,20.7032684016533"
+              Start="0,0"
+              End="47.8809522512005,20.7032684016533">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="23.6904761256002,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="23.6904761256002,0"
+                    Point2="27.6904761256002,0"
+                    Point3="27.6904761256002,4" />
+                  <mssgle:LineSegment
+                    End="27.6904761256002,16.7032684016533" />
+                  <mssgle:CubicBezierSegment
+                    Point1="27.6904761256002,16.7032684016533"
+                    Point2="27.6904761256002,20.7032684016533"
+                    Point3="31.6904761256002,20.7032684016533" />
+                  <mssgle:LineSegment
+                    End="47.8809522512005,20.7032684016533" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="3.53602300060024,-16.3349609375,48.30890625,10.3349609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Restricción 3]"
+          TopLeft="977.980952251201,452.503268401653">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{x:Null}"
+              EndConnector="-88.4380947312525,50.7908487306197"
+              Start="0,0"
+              End="-88.4380947312525,43.2908487306197">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,21.3954243653099" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,21.3954243653099"
+                    Point2="0,25.3954243653099"
+                    Point3="-4,25.3954243653099" />
+                  <mssgle:LineSegment
+                    End="-84.4380947312525,25.3954243653099" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-84.4380947312525,25.3954243653099"
+                    Point2="-88.4380947312525,25.3954243653099"
+                    Point3="-88.4380947312525,29.3954243653099" />
+                  <mssgle:LineSegment
+                    End="-88.4380947312525,43.2908487306197" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-68.3735004906262,30.3954243653099,48.30890625,10.3349609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Restricción 4]"
+          TopLeft="667.142857519948,600.494117132273">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{x:Null}"
+              EndConnector="-42.9460309242721,-71.5045755435306"
+              Start="0,0"
+              End="-35.4460309242721,-71.5045755435306">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="-17.4730154621361,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-17.4730154621361,0"
+                    Point2="-21.4730154621361,0"
+                    Point3="-21.4730154621361,-4" />
+                  <mssgle:LineSegment
+                    End="-21.4730154621361,-67.5045755435306" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-21.4730154621361,-67.5045755435306"
+                    Point2="-21.4730154621361,-71.5045755435306"
+                    Point3="-25.4730154621361,-71.5045755435306" />
+                  <mssgle:LineSegment
+                    End="-35.4460309242721,-71.5045755435306" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-45.6274685871361,1,48.30890625,10.3349609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Restricción 5]"
+          TopLeft="427.396826595676,530.793463196694">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{x:Null}"
+              EndConnector="-51.2380954124482,0"
+              Start="0,0"
+              End="-43.7380954124482,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="-43.7380954124482,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-46.0235008312241,5,48.30890625,10.3349609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Restricción 6]"
+          TopLeft="305.76031852401,553.397384804646">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{x:Null}"
+              EndConnector="0,45.6941176792329"
+              Start="0,0"
+              End="0,38.1941176792329">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,38.1941176792329" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-24.154453125,13.9295783708665,48.30890625,10.3349609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <AnnotationLayout
+          Text="EJECUTA TODO PARA CARGAR EL DW&#xA;Descripcion: Carga las tablas Dim y Fact y procesa cubos&#xA;Desarrollador: Hugo Gonzalez Olaya&#xA;Fecha creacion: 2019-07-15&#xA;Fecha actualizacion: 2020-07-15"
+          ParentId="Package"
+          Size="305.6,90.4"
+          Id="adb712d2-8af4-4f3f-a47c-d1cda283be45"
+          TopLeft="814.492064147579,245.104576819771">
+          <AnnotationLayout.FontInfo>
+            <mssge:FontInfo
+              Color="#FF000000">
+              <mssge:FontInfo.TextDecorations>
+                <av:TextDecorationCollection />
+              </mssge:FontInfo.TextDecorations>
+            </mssge:FontInfo>
+          </AnnotationLayout.FontInfo>
+        </AnnotationLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <DtsEventHandler
+    design-time-name="Package.EventHandlers[OnError]">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        <NodeLayout
+          Size="152,42"
+          Id="Package.EventHandlers[OnError]\SQL Audit Error"
+          TopLeft="240,31" />
+      </GraphLayout>
+    </LayoutInfo>
+  </DtsEventHandler>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

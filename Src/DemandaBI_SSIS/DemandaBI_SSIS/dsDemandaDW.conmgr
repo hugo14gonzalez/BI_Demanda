@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<DTS:ConnectionManager xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:ObjectName="dsDemandaDW"
+  DTS:DTSID="{B4DAFAE1-2059-4939-809F-74E6B701FD01}"
+  DTS:CreationName="OLEDB">
+  <DTS:PropertyExpression
+    DTS:Name="ConnectionString">@[$Project::dsDemandaDW_ConnectionString]</DTS:PropertyExpression>
+  <DTS:PropertyExpression
+    DTS:Name="Password">@[$Project::dsDemandaDW_Password]</DTS:PropertyExpression>
+  <DTS:ObjectData>
+    <DTS:ConnectionManager
+      DTS:ConnectionString="Data Source=HUGO\SQL2019;User ID=USR_DemandaDW;Initial Catalog=DemandaDW;Provider=SQLNCLI11.1;Persist Security Info=True;Auto Translate=False;">
+      <DTS:Password
+        DTS:Name="Password"
+        Sensitive="1"
+        p4:Salt="fo0Qd9d8wuo="
+        p4:IV="8bRyxGIA2C+kxca8GprTPA=="
+        p4:Algorithm="http://www.w3.org/2001/04/xmlenc#aes256-cbc" xmlns:p4="www.microsoft.com/SqlServer/SSIS">s7YJqWrR119bNTQj38MyDPITZb9gD4UnBL4h5e/LSnU0pwRJAus5Y9ZNqiqpDi8sX67pXPlfOfTQQi71U+rKQS8JS4gOu4198vp3vuUak7mmisESVY6TC077lEhUHMdGAxqDJsklf6f40krIErt6VGbCA1FYOG7APNyYfpNlh3I=</DTS:Password>
+    </DTS:ConnectionManager>
+  </DTS:ObjectData>
+</DTS:ConnectionManager>

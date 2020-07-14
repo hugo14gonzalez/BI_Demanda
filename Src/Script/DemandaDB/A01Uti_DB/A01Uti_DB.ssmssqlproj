@@ -1,0 +1,105 @@
+<?xml version="1.0"?>
+<SqlWorkbenchSqlProject xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Name="A01Uti_DB">
+  <Items>
+    <LogicalFolder Name="Connections" Type="2" Sorted="true">
+      <Items />
+    </LogicalFolder>
+    <LogicalFolder Name="Queries" Type="0" Sorted="true">
+      <Items>
+        <FileNode Name="A01CreaDB.sql">
+          <AssociatedConnectionMoniker />
+          <AssociatedConnSrvName />
+          <AssociatedConnUserName />
+          <FullPath>A01CreaDB.sql</FullPath>
+        </FileNode>
+        <FileNode Name="A02Schema.sql">
+          <AssociatedConnectionMoniker />
+          <AssociatedConnSrvName />
+          <AssociatedConnUserName />
+          <FullPath>A02Schema.sql</FullPath>
+        </FileNode>
+        <FileNode Name="A03Table_Util.sql">
+          <AssociatedConnectionMoniker />
+          <AssociatedConnSrvName />
+          <AssociatedConnUserName />
+          <FullPath>A03Table_Util.sql</FullPath>
+        </FileNode>
+        <FileNode Name="A04Table_UtilCube.sql">
+          <AssociatedConnectionMoniker />
+          <AssociatedConnSrvName />
+          <AssociatedConnUserName />
+          <FullPath>A04Table_UtilCube.sql</FullPath>
+        </FileNode>
+        <FileNode Name="A05Table_Audi.sql">
+          <AssociatedConnectionMoniker />
+          <AssociatedConnSrvName />
+          <AssociatedConnUserName />
+          <FullPath>A05Table_Audi.sql</FullPath>
+        </FileNode>
+        <FileNode Name="A06FK_Util.sql">
+          <AssociatedConnectionMoniker />
+          <AssociatedConnSrvName />
+          <AssociatedConnUserName />
+          <FullPath>A06FK_Util.sql</FullPath>
+        </FileNode>
+        <FileNode Name="A07FK_UtilCube.sql">
+          <AssociatedConnectionMoniker />
+          <AssociatedConnSrvName />
+          <AssociatedConnUserName />
+          <FullPath>A07FK_UtilCube.sql</FullPath>
+        </FileNode>
+        <FileNode Name="A08FK_Audi.sql">
+          <AssociatedConnectionMoniker />
+          <AssociatedConnSrvName />
+          <AssociatedConnUserName />
+          <FullPath>A08FK_Audi.sql</FullPath>
+        </FileNode>
+        <FileNode Name="A09SP_Util_General.sql">
+          <AssociatedConnectionMoniker />
+          <AssociatedConnSrvName />
+          <AssociatedConnUserName />
+          <FullPath>A09SP_Util_General.sql</FullPath>
+        </FileNode>
+        <FileNode Name="A10SP_Util_Date.sql">
+          <AssociatedConnectionMoniker />
+          <AssociatedConnSrvName />
+          <AssociatedConnUserName />
+          <FullPath>A10SP_Util_Date.sql</FullPath>
+        </FileNode>
+        <FileNode Name="A11SP_Audi.sql">
+          <AssociatedConnectionMoniker />
+          <AssociatedConnSrvName />
+          <AssociatedConnUserName />
+          <FullPath>A11SP_Audi.sql</FullPath>
+        </FileNode>
+        <FileNode Name="A12SP_Util_Prog.sql">
+          <AssociatedConnectionMoniker />
+          <AssociatedConnSrvName />
+          <AssociatedConnUserName />
+          <FullPath>A12SP_Util_Prog.sql</FullPath>
+        </FileNode>
+        <FileNode Name="A13SP_Util_Cube.sql">
+          <AssociatedConnectionMoniker />
+          <AssociatedConnSrvName />
+          <AssociatedConnUserName />
+          <FullPath>A13SP_Util_Cube.sql</FullPath>
+        </FileNode>
+        <FileNode Name="A14SP_Util_Load.sql">
+          <AssociatedConnectionMoniker />
+          <AssociatedConnSrvName />
+          <AssociatedConnUserName />
+          <FullPath>A14SP_Util_Load.sql</FullPath>
+        </FileNode>
+        <FileNode Name="A15SPUtil_OLAP.sql">
+          <AssociatedConnectionMoniker />
+          <AssociatedConnSrvName />
+          <AssociatedConnUserName />
+          <FullPath>A15SPUtil_OLAP.sql</FullPath>
+        </FileNode>
+      </Items>
+    </LogicalFolder>
+    <LogicalFolder Name="Miscellaneous" Type="3" Sorted="true">
+      <Items />
+    </LogicalFolder>
+  </Items>
+</SqlWorkbenchSqlProject>

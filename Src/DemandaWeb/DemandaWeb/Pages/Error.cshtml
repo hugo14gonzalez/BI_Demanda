@@ -1,0 +1,32 @@
+﻿@page
+@model ErrorModel
+@{
+    ViewData["Title"] = "Error";
+}
+
+<h1 class="text-danger">Error.</h1>
+<h2 class="text-danger">Ha ocurrido un error mientras procesamos su solicitud.</h2>
+
+@if (Model.ShowRequestId)
+{
+    <p>
+        <strong>Request ID:</strong> <code>@Model.RequestId</code>
+    </p>
+}
+
+<div class="card text-white bg-danger mb-3">
+    <div class="card-heading p-2">
+        <h4 class="card-title"><i class="fa fa-exclamation-triangle"></i> Error!</h4>
+        <h5 class="card-subtitle mb-2">Error mientras procesamos su requerimiento</h5>
+        <p class="card-text"><strong>Código de solicitud ID:</strong> <code>@Model.RequestId</code></p>
+    </div>
+    <div class="card-body bg-white text-dark">
+        <p class="card-text">
+            Error al procesar solicitud.
+        </p>
+    </div>
+    <div class="card-footer bg-light border-danger">
+        <p class="card-text text-danger">Si es necesario comuniquese con el administrador del sistema.</p>
+        <a class="btn btn-success" asp-area="" asp-page="/Index"><i class="fa fa-chevron-left"></i> Retornar a inicio</a>
+    </div>
+</div>

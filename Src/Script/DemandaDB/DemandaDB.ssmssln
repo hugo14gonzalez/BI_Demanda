@@ -1,0 +1,53 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# SQL Server Management Studio Solution File, Format Version 18.00
+VisualStudioVersion = 15.0.28307.421
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{4F2E2C19-372F-40D8-9FA7-9D2138C6997A}") = "A00Deployment", "A00Deployment\A00Deployment.ssmssqlproj", "{54F565BC-E110-4BF9-82E3-D57DC16893C0}"
+EndProject
+Project("{4F2E2C19-372F-40D8-9FA7-9D2138C6997A}") = "A01Uti_DB", "A01Uti_DB\A01Uti_DB.ssmssqlproj", "{7E3A835B-856A-496A-970A-3B03A30AE96B}"
+EndProject
+Project("{4F2E2C19-372F-40D8-9FA7-9D2138C6997A}") = "A02DemandaDW_DB", "A02DemandaDW_DB\A02DemandaDW_DB.ssmssqlproj", "{72659318-2F75-44C7-AC6E-B907A84B2E86}"
+EndProject
+Project("{4F2E2C19-372F-40D8-9FA7-9D2138C6997A}") = "B01Uti_Data", "B01Uti_Data\B01Uti_Data.ssmssqlproj", "{FB095916-D630-40BA-BBC1-0FAA6C168900}"
+EndProject
+Project("{4F2E2C19-372F-40D8-9FA7-9D2138C6997A}") = "B02DemandaDW_Data", "B02DemandaDW_Data\B02DemandaDW_Data.ssmssqlproj", "{3E27E8E4-59FB-4005-85C3-28BF3D11257B}"
+EndProject
+Project("{4F2E2C19-372F-40D8-9FA7-9D2138C6997A}") = "C01Uti_Security", "C01Uti_Security\C01Uti_Security.ssmssqlproj", "{7029D607-C372-49C5-A89D-4D6E71021B4F}"
+EndProject
+Project("{4F2E2C19-372F-40D8-9FA7-9D2138C6997A}") = "C02DemandaDW_Security", "C02DemandaDW_Security\C02DemandaDW_Security.ssmssqlproj", "{A6283C15-0B53-4462-90D2-DA12E90CACE2}"
+EndProject
+Project("{4F2E2C19-372F-40D8-9FA7-9D2138C6997A}") = "D01SQLAgent", "D01SQLAgent\D01SQLAgent.ssmssqlproj", "{F76B593E-2118-4CE1-A62B-82D207249C24}"
+EndProject
+Project("{4F2E2C19-372F-40D8-9FA7-9D2138C6997A}") = "Z01Test", "Z01Test\Z01Test.ssmssqlproj", "{19017500-B66C-44FD-BF8E-03084C4ADD5F}"
+EndProject
+Project("{54D695D8-3FC1-47A3-8D60-959ECE458279}") = "Z02Test", "Z02Test\Z02Test.ssmsasproj", "{517E7D51-2D4C-44CC-AC72-29108A80ED70}"
+EndProject
+Project("{4F2E2C19-372F-40D8-9FA7-9D2138C6997A}") = "C03SSISDB_Security", "C03SSISDB_Security\C03SSISDB_Security.ssmssqlproj", "{20CC4FAD-C9F0-41EB-83D2-037DEA5FC696}"
+EndProject
+Project("{4F2E2C19-372F-40D8-9FA7-9D2138C6997A}") = "A03SSISDB", "A03SSISDB\A03SSISDB.ssmssqlproj", "{DA109918-8F76-44EA-B955-455219151399}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Default|Default = Default|Default
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{54F565BC-E110-4BF9-82E3-D57DC16893C0}.Default|Default.ActiveCfg = Default
+		{7E3A835B-856A-496A-970A-3B03A30AE96B}.Default|Default.ActiveCfg = Default
+		{72659318-2F75-44C7-AC6E-B907A84B2E86}.Default|Default.ActiveCfg = Default
+		{FB095916-D630-40BA-BBC1-0FAA6C168900}.Default|Default.ActiveCfg = Default
+		{3E27E8E4-59FB-4005-85C3-28BF3D11257B}.Default|Default.ActiveCfg = Default
+		{7029D607-C372-49C5-A89D-4D6E71021B4F}.Default|Default.ActiveCfg = Default
+		{A6283C15-0B53-4462-90D2-DA12E90CACE2}.Default|Default.ActiveCfg = Default
+		{F76B593E-2118-4CE1-A62B-82D207249C24}.Default|Default.ActiveCfg = Default
+		{19017500-B66C-44FD-BF8E-03084C4ADD5F}.Default|Default.ActiveCfg = Default
+		{20CC4FAD-C9F0-41EB-83D2-037DEA5FC696}.Default|Default.ActiveCfg = Default
+		{DA109918-8F76-44EA-B955-455219151399}.Default|Default.ActiveCfg = Default
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {35B92529-8307-4794-B56C-589B0435B0A4}
+	EndGlobalSection
+EndGlobal

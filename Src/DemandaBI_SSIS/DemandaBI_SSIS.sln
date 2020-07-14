@@ -1,0 +1,22 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27703.2026
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{159641D6-6404-4A2A-AE62-294DE0FE8301}") = "DemandaBI_SSIS", "DemandaBI_SSIS\DemandaBI_SSIS.dtproj", "{DBE07F6D-BBF3-4E81-BDA6-64603FF8529A}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Development|Default = Development|Default
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{DBE07F6D-BBF3-4E81-BDA6-64603FF8529A}.Development|Default.ActiveCfg = Development
+		{DBE07F6D-BBF3-4E81-BDA6-64603FF8529A}.Development|Default.Build.0 = Development
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {7C8A4DE6-AF8E-49BB-BED9-CFAC49007315}
+	EndGlobalSection
+EndGlobal

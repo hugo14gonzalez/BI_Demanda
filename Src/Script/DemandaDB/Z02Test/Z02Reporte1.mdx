@@ -1,0 +1,509 @@
+/* ======================================================
+PARAMETROS CONSULTAS
+====================================================== */
+/* dataSetYearCount_Cube */
+WITH MEMBER [Measures].[YearCount] AS  
+ FILTER([DimFecha].[FechaCalendario].[Año].MEMBERS, [Measures].[Dem_Contar]).Count   
+SELECT [Measures].[YearCount] ON COLUMNS
+FROM [Demanda];
+
+/* dataSetCurrentMonth */
+WITH 
+MEMBER [Measures].[ParameterCaption] AS [DimFecha].[Mes desc corto].CURRENTMEMBER.MEMBER_CAPTION 
+MEMBER [Measures].[ParameterValue] AS [DimFecha].[Mes desc corto].CURRENTMEMBER.UNIQUENAME 
+SELECT NON EMPTY {[Measures].[ParameterCaption], [Measures].[ParameterValue]} ON COLUMNS , 
+TAIL(FILTER([DimFecha].[Mes desc corto].MEMBERS, [Measures].[Dem_Contar]), 1) ON ROWS
+FROM [Demanda];
+
+/* dataSetCurrentYear */
+WITH 
+MEMBER [Measures].[ParameterCaption] AS [DimFecha].[Año].CURRENTMEMBER.MEMBER_CAPTION 
+MEMBER [Measures].[ParameterValue] AS [DimFecha].[Año].CURRENTMEMBER.UNIQUENAME 
+SELECT NON EMPTY {[Measures].[ParameterCaption], [Measures].[ParameterValue]} ON COLUMNS , 
+TAIL(FILTER([DimFecha].[Año].MEMBERS, [Measures].[Dem_Contar]), 1) ON ROWS
+FROM [Demanda];
+
+/* dataSetDate_Cube */
+WITH 
+MEMBER [Measures].[ParameterCaption] AS [DimFecha].[Fecha].CURRENTMEMBER.MEMBER_CAPTION 
+MEMBER [Measures].[ParameterValue] AS [DimFecha].[Fecha].CURRENTMEMBER.UNIQUENAME 
+MEMBER [Measures].[ParameterLevel] AS [DimFecha].[Fecha].CURRENTMEMBER.LEVEL.ORDINAL 
+MEMBER [Measures].[ParameterCaptionIndented] AS Space(3 * [Measures].[ParameterLevel]) + [DimFecha].[Fecha].CURRENTMEMBER.MEMBER_CAPTION
+SELECT NON EMPTY {[Measures].[ParameterCaption], [Measures].[ParameterValue], [Measures].[ParameterLevel], [Measures].[ParameterCaptionIndented]} ON COLUMNS , 
+NON EMPTY ORDER( FILTER(Except([DimFecha].[Fecha].ALLMEMBERS, [DimFecha].[Fecha].[All]), [Measures].[Dem_Contar]), [DimFecha].[Fecha].CurrentMember.Member_Value, DESC ) ON ROWS 
+FROM [Demanda];
+
+/* dataSetMonth_Cube */
+WITH 
+MEMBER [Measures].[ParameterCaption] AS [DimFecha].[Mes desc corto].CURRENTMEMBER.MEMBER_CAPTION 
+MEMBER [Measures].[ParameterValue] AS [DimFecha].[Mes desc corto].CURRENTMEMBER.UNIQUENAME 
+//MEMBER [Measures].[ParameterLevel] AS [DimFecha].[Mes desc corto].CURRENTMEMBER.LEVEL.ORDINAL 
+//MEMBER [Measures].[ParameterCaptionIndented] AS Space(3 * [Measures].[ParameterLevel]) + [DimFecha].[Mes desc corto].CURRENTMEMBER.MEMBER_CAPTION
+SELECT NON EMPTY {[Measures].[ParameterCaption], [Measures].[ParameterValue]} ON COLUMNS , 
+NON EMPTY ORDER( FILTER(Except([DimFecha].[Mes desc corto].MEMBERS, [DimFecha].[Mes desc corto].[All]), [Measures].[Dem_Contar]), [DimFecha].[Mes desc corto].CurrentMember.Member_Value, DESC ) ON ROWS 
+FROM ( SELECT ( STRTOSET('[DimFecha].[Año].&[2018]', CONSTRAINED) ) ON COLUMNS 
+FROM [Demanda]) 
+WHERE ( IIF( STRTOSET('[DimFecha].[Año].&[2018]', CONSTRAINED).Count = 1, STRTOSET('[DimFecha].[Año].&[2018]', CONSTRAINED), [DimFecha].[Año].currentmember ) );
+
+WITH 
+MEMBER [Measures].[ParameterCaption] AS [DimFecha].[Mes desc corto].CURRENTMEMBER.MEMBER_CAPTION 
+MEMBER [Measures].[ParameterValue] AS [DimFecha].[Mes desc corto].CURRENTMEMBER.UNIQUENAME 
+//MEMBER [Measures].[ParameterLevel] AS [DimFecha].[Mes desc corto].CURRENTMEMBER.LEVEL.ORDINAL 
+//MEMBER [Measures].[ParameterCaptionIndented] AS Space(3 * [Measures].[ParameterLevel]) + [DimFecha].[Mes desc corto].CURRENTMEMBER.MEMBER_CAPTION
+SELECT NON EMPTY {[Measures].[ParameterCaption], [Measures].[ParameterValue]} ON COLUMNS , 
+NON EMPTY ORDER( FILTER(Except([DimFecha].[Mes desc corto].MEMBERS, [DimFecha].[Mes desc corto].[All]), [Measures].[Dem_Contar]), [DimFecha].[Mes desc corto].CurrentMember.Member_Value, DESC ) ON ROWS 
+FROM ( SELECT ( STRTOSET('[DimFecha].[Año].&[' + @[Año] + ']', CONSTRAINED) ) ON COLUMNS 
+FROM [Demanda]) 
+WHERE ( IIF( STRTOSET('[DimFecha].[Año].&[' + @[Año] + ']', CONSTRAINED).Count = 1, STRTOSET('[DimFecha].[Año].&[' + @[Año] + ']', CONSTRAINED), [DimFecha].[Año].currentmember ) );
+
+WITH 
+MEMBER [Measures].[ParameterCaption] AS [DimFecha].[Mes desc corto].CURRENTMEMBER.MEMBER_CAPTION 
+MEMBER [Measures].[ParameterValue] AS [DimFecha].[Mes desc corto].CURRENTMEMBER.UNIQUENAME 
+//MEMBER [Measures].[ParameterLevel] AS [DimFecha].[Mes desc corto].CURRENTMEMBER.LEVEL.ORDINAL 
+//MEMBER [Measures].[ParameterCaptionIndented] AS Space(3 * [Measures].[ParameterLevel]) + [DimFecha].[Mes desc corto].CURRENTMEMBER.MEMBER_CAPTION
+SELECT NON EMPTY {[Measures].[ParameterCaption], [Measures].[ParameterValue]} ON COLUMNS , 
+NON EMPTY ORDER( FILTER(Except([DimFecha].[Mes desc corto].MEMBERS, [DimFecha].[Mes desc corto].[All]), [Measures].[Dem_Contar]), [DimFecha].[Mes desc corto].CurrentMember.Member_Value, DESC ) ON ROWS 
+FROM ( SELECT ( STRTOSET(@[DimFechaAño], CONSTRAINED) ) ON COLUMNS 
+FROM [Demanda]) WHERE ( IIF( STRTOSET(@[DimFechaAño], CONSTRAINED).Count = 1, STRTOSET(@[DimFechaAño], CONSTRAINED), [DimFecha].[Año].currentmember ) );
+
+/* dataSetYear_Cube */
+WITH 
+SET [SetYears] As ORDER( FILTER(Except([DimFecha].[Año].Members, [DimFecha].[Año].[All]), [Measures].[Dem_Contar]), [DimFecha].[Año].CurrentMember.Member_Value, DESC )
+MEMBER [Measures].[ParameterCaption] AS [DimFecha].[Año].CURRENTMEMBER.MEMBER_CAPTION 
+MEMBER [Measures].[ParameterValue] AS [DimFecha].[Año].CURRENTMEMBER.UNIQUENAME 
+//MEMBER [Measures].[ParameterLevel] AS [DimFecha].[Año].CURRENTMEMBER.LEVEL.ORDINAL 
+//MEMBER [Measures].[ParameterCaptionIndented] AS Space(3 * [Measures].[ParameterLevel]) + [DimFecha].[Año].CURRENTMEMBER.MEMBER_CAPTION
+MEMBER [Measures].[YearRowNumber] AS RANK([DimFecha].[Año].CURRENTMEMBER, [SetYears])   
+SELECT NON EMPTY {[Measures].[ParameterCaption], [Measures].[ParameterValue], [Measures].[YearRowNumber]} ON COLUMNS , 
+NON EMPTY [SetYears]  ON ROWS 
+FROM [Demanda];
+
+/* dataSetYearMonth_Cube */
+WITH 
+SET [SetMonths5] As ORDER(FILTER(Except([DimFecha].[Mes desc corto].MEMBERS, [DimFecha].[Mes desc corto].[All]), [Measures].[Dem_Contar]), [DimFecha].[Mes desc corto].CURRENTMEMBER.Member_Value, BDESC)
+SET [SetMonths] As ORDER( ORDER( FILTER(Except([DimFecha].[Mes desc corto].MEMBERS, [DimFecha].[Mes desc corto].[All]), [Measures].[Dem_Contar]), 
+    [DimFecha].[Mes desc corto].CURRENTMEMBER.Member_Value, bDESC), [DimFecha].[Año], bDESC)  
+SET [SetMonths3] As ORDER( ORDER( FILTER(Except([DimFecha].[Mes desc corto].MEMBERS, [DimFecha].[Mes desc corto].[All]), [Measures].[Dem_Contar]), 
+    [DimFecha].[Año], BDESC), [DimFecha].[Mes desc corto].CURRENTMEMBER.Member_Value, BDESC)  
+SET [SetMonths4] As GENERATE( ORDER( FILTER(Except([DimFecha].[Mes desc corto].MEMBERS, [DimFecha].[Mes desc corto].[All]), [Measures].[Dem_Contar]), 
+    [DimFecha].[Año], BDESC ) As A, ORDER (A, [DimFecha].[Mes desc corto].CURRENTMEMBER.Member_Value, BDESC) )
+SET [SetMonths6] As GENERATE( ORDER( FILTER(Except([DimFecha].[Mes desc corto].MEMBERS, [DimFecha].[Mes desc corto].[All]), [Measures].[Dem_Contar]), 
+    [DimFecha].[Mes desc corto].CURRENTMEMBER.Member_Value, DESC ) As A, ORDER (A, [DimFecha].[Año], DESC) )
+MEMBER [Measures].[ParameterCaption] AS [DimFecha].[Mes desc corto].CURRENTMEMBER.MEMBER_CAPTION 
+MEMBER [Measures].[ParameterValue] AS [DimFecha].[Mes desc corto].CURRENTMEMBER.UNIQUENAME 
+//MEMBER [Measures].[ParameterLevel] AS [DimFecha].[Mes desc corto].CURRENTMEMBER.LEVEL.ORDINAL 
+//MEMBER [Measures].[ParameterCaptionIndented] AS Space(3 * [Measures].[ParameterLevel]) + [DimFecha].[Mes desc corto].CURRENTMEMBER.MEMBER_CAPTION
+SELECT NON EMPTY {[Measures].[ParameterCaption], [Measures].[ParameterValue]} ON COLUMNS , 
+NON EMPTY [SetMonths] ON ROWS 
+FROM [Demanda];
+
+/* dataSetGeografiaFisica */
+WITH 
+MEMBER [Measures].[ParameterCaption] AS [DimGeografia].[GeografiaFisica].CURRENTMEMBER.MEMBER_CAPTION 
+MEMBER [Measures].[ParameterValue] AS [DimGeografia].[GeografiaFisica].CURRENTMEMBER.UNIQUENAME 
+//MEMBER [Measures].[ParameterLevel] AS [DimGeografia].[GeografiaFisica].CURRENTMEMBER.LEVEL.ORDINAL 
+//MEMBER [Measures].[ParameterCaptionIndented] AS Space(3 * [Measures].[ParameterLevel]) + [DimGeografia].[GeografiaFisica].CURRENTMEMBER.MEMBER_CAPTION
+SELECT NON EMPTY{[Measures].[ParameterCaption], [Measures].[ParameterValue]} ON COLUMNS, 
+NON EMPTY [DimGeografia].[GeografiaFisica].MEMBERS ON ROWS 
+FROM [Demanda];
+
+/* dataSetGeografiaOperativa */
+WITH 
+MEMBER [Measures].[ParameterCaption] AS [DimGeografia].[GeografiaOperativa].CURRENTMEMBER.MEMBER_CAPTION 
+MEMBER [Measures].[ParameterValue] AS [DimGeografia].[GeografiaOperativa].CURRENTMEMBER.UNIQUENAME 
+MEMBER [Measures].[ParameterLevel] AS [DimGeografia].[GeografiaOperativa].CURRENTMEMBER.LEVEL.ORDINAL 
+MEMBER [Measures].[ParameterCaptionIndented] AS 
+ Space(3 * [Measures].[ParameterLevel]) + [DimGeografia].[GeografiaOperativa].CURRENTMEMBER.MEMBER_CAPTION
+SELECT NON EMPTY {[Measures].[ParameterCaption], [Measures].[ParameterCaptionIndented], [Measures].[ParameterValue], [Measures].[ParameterLevel]} ON COLUMNS, 
+NON EMPTY [DimGeografia].[GeografiaOperativa].MEMBERS ON ROWS 
+FROM [Demanda];
+
+/* dataSetCountry */
+WITH 
+MEMBER [Measures].[ParameterCaption] AS [DimGeografia].[Pais].CURRENTMEMBER.MEMBER_CAPTION 
+MEMBER [Measures].[ParameterValue] AS [DimGeografia].[Pais].CURRENTMEMBER.UNIQUENAME 
+//MEMBER [Measures].[ParameterLevel] AS [DimGeografia].[Pais].CURRENTMEMBER.LEVEL.ORDINAL 
+//MEMBER [Measures].[ParameterCaptionIndented] AS Space(3 * [Measures].[ParameterLevel]) + [DimGeografia].[Pais].CURRENTMEMBER.MEMBER_CAPTION
+SELECT NON EMPTY{[Measures].[ParameterCaption], [Measures].[ParameterValue]} ON COLUMNS, 
+NON EMPTY [DimGeografia].[Pais].[Pais].MEMBERS ON ROWS 
+FROM [Demanda];
+
+/* dataSetCity */
+WITH 
+MEMBER [Measures].[ParameterCaption] AS [DimGeografia].[GeografiaFisica].CURRENTMEMBER.MEMBER_CAPTION 
+MEMBER [Measures].[ParameterValue] AS [DimGeografia].[GeografiaFisica].CURRENTMEMBER.UNIQUENAME 
+//MEMBER [Measures].[ParameterLevel] AS [DimGeografia].[GeografiaFisica].CURRENTMEMBER.LEVEL.ORDINAL 
+//MEMBER [Measures].[ParameterCaptionIndented] AS Space(3 * [Measures].[ParameterLevel]) + [DimGeografia].[GeografiaFisica].CURRENTMEMBER.MEMBER_CAPTION
+SELECT NON EMPTY{[Measures].[ParameterCaption], [Measures].[ParameterValue]} ON COLUMNS, 
+NON EMPTY FILTER([DimGeografia].[GeografiaFisica].[Departamento].MEMBERS, [Measures].[Dem_Contar]) ON ROWS
+FROM ( SELECT ( STRTOSET('[DimGeografia].[Pais].[' + @[Country] + ']', CONSTRAINED) ) ON COLUMNS 
+FROM [Demanda]) 
+WHERE ( IIF( STRTOSET('[DimGeografia].[Pais].[' + @[Country] + ']', CONSTRAINED).Count = 1, STRTOSET('[DimGeografia].[Pais].[' + @[Country] + ']', CONSTRAINED), [DimGeografia].[Pais].currentmember ) );
+
+WITH 
+MEMBER [Measures].[ParameterCaption] AS [DimGeografia].[GeografiaFisica].CURRENTMEMBER.MEMBER_CAPTION 
+MEMBER [Measures].[ParameterValue] AS [DimGeografia].[GeografiaFisica].CURRENTMEMBER.UNIQUENAME 
+//MEMBER [Measures].[ParameterLevel] AS [DimGeografia].[GeografiaFisica].CURRENTMEMBER.LEVEL.ORDINAL 
+//MEMBER [Measures].[ParameterCaptionIndented] AS Space(3 * [Measures].[ParameterLevel]) + [DimGeografia].[GeografiaFisica].CURRENTMEMBER.MEMBER_CAPTION
+SELECT NON EMPTY{[Measures].[ParameterCaption], [Measures].[ParameterValue]} ON COLUMNS, 
+NON EMPTY FILTER([DimGeografia].[GeografiaFisica].[Departamento].MEMBERS, [Measures].[Dem_Contar]) ON ROWS
+FROM ( SELECT ( STRTOSET('[DimGeografia].[Pais].[COLOMBIA]', CONSTRAINED) ) ON COLUMNS 
+FROM [Demanda]) 
+WHERE ( IIF( STRTOSET('[DimGeografia].[Pais].[COLOMBIA]', CONSTRAINED).Count = 1, STRTOSET('[DimGeografia].[Pais].[COLOMBIA]', CONSTRAINED), [DimGeografia].[Pais].currentmember ) );
+
+/* dataSetActividadAgente */
+WITH 
+MEMBER [Measures].[ParameterCaption] AS [DimAgente].[Actividades].CURRENTMEMBER.MEMBER_CAPTION 
+MEMBER [Measures].[ParameterValue] AS [DimAgente].[Actividades].CURRENTMEMBER.UNIQUENAME 
+SELECT NON EMPTY {[Measures].[ParameterCaption],[Measures].[ParameterValue]} ON COLUMNS, 
+NON EMPTY [DimAgente].[Actividades].[Actividad].MEMBERS ON ROWS 
+FROM [Demanda];
+
+/* dataSetAgentePorActividad */
+WITH 
+MEMBER [Measures].[ParameterCaption] AS [DimAgente].[Actividades].CURRENTMEMBER.MEMBER_CAPTION 
+MEMBER [Measures].[ParameterValue] AS [DimAgente].[Actividades].CURRENTMEMBER.UNIQUENAME 
+//MEMBER [Measures].[ParameterLevel] AS [DimAgente].[Actividades].CURRENTMEMBER.LEVEL.ORDINAL 
+//MEMBER [Measures].[ParameterCaptionIndented] AS Space(3 * [Measures].[ParameterLevel]) + [DimAgente].[Actividades].CURRENTMEMBER.MEMBER_CAPTION
+SELECT NON EMPTY {[Measures].[ParameterCaption], [Measures].[ParameterValue]} ON COLUMNS, 
+NON EMPTY FILTER([DimAgente].[Actividades].[Nombre].MEMBERS, [Measures].[Dem_Contar]) ON ROWS
+FROM ( SELECT ( STRTOSET('[DimAgente].[Actividad].&[DISTRIBUCION]', CONSTRAINED) ) ON COLUMNS 
+FROM [Demanda]) 
+WHERE ( IIF( STRTOSET('[DimAgente].[Actividad].&[DISTRIBUCION]', CONSTRAINED).Count = 1, STRTOSET('[DimAgente].[Actividad].&[DISTRIBUCION]', CONSTRAINED), [DimAgente].[Actividad].CurrentMember ) );
+
+WITH 
+MEMBER [Measures].[ParameterCaption] AS [DimAgente].[Actividades].CURRENTMEMBER.MEMBER_CAPTION 
+MEMBER [Measures].[ParameterValue] AS [DimAgente].[Actividades].CURRENTMEMBER.UNIQUENAME 
+//MEMBER [Measures].[ParameterLevel] AS [DimAgente].[Actividades].CURRENTMEMBER.LEVEL.ORDINAL 
+//MEMBER [Measures].[ParameterCaptionIndented] AS Space(3 * [Measures].[ParameterLevel]) + [DimAgente].[Actividades].CURRENTMEMBER.MEMBER_CAPTION
+SELECT NON EMPTY {[Measures].[ParameterCaption], [Measures].[ParameterValue]} ON COLUMNS, 
+NON EMPTY FILTER([DimAgente].[Actividades].[Nombre].MEMBERS, [Measures].[Dem_Contar]) ON ROWS
+FROM ( SELECT ( STRTOSET('[DimAgente].[Actividad].&[TRANSPORTE]', CONSTRAINED) ) ON COLUMNS 
+FROM [Demanda]) 
+WHERE ( IIF( STRTOSET('[DimAgente].[Actividad].&[TRANSPORTE]', CONSTRAINED).Count = 1, STRTOSET('[DimAgente].[Actividad].&[TRANSPORTE]', CONSTRAINED), [DimAgente].[Actividad].CurrentMember ) );
+
+WITH 
+MEMBER [Measures].[ParameterCaption] AS [DimAgente].[Actividades].CURRENTMEMBER.MEMBER_CAPTION 
+MEMBER [Measures].[ParameterValue] AS [DimAgente].[Actividades].CURRENTMEMBER.UNIQUENAME 
+//MEMBER [Measures].[ParameterLevel] AS [DimAgente].[Actividades].CURRENTMEMBER.LEVEL.ORDINAL 
+//MEMBER [Measures].[ParameterCaptionIndented] AS Space(3 * [Measures].[ParameterLevel]) + [DimAgente].[Actividades].CURRENTMEMBER.MEMBER_CAPTION
+SELECT NON EMPTY {[Measures].[ParameterCaption], [Measures].[ParameterValue]} ON COLUMNS, 
+NON EMPTY FILTER([DimAgente].[Actividades].[Nombre].MEMBERS, [Measures].[Dem_Contar]) ON ROWS
+FROM ( SELECT ( STRTOSET('[DimAgente].[Actividad].&[' + @[Actividad] + ']', CONSTRAINED) ) ON COLUMNS 
+FROM [Demanda]) 
+WHERE ( IIF( STRTOSET('[DimAgente].[Actividad].&[' + @[Actividad] + ']', CONSTRAINED).Count = 1, STRTOSET('[DimAgente].[Actividad].&[' + @[Actividad] + ']', CONSTRAINED), [DimAgente].[Actividad].CurrentMember ) );
+
+/* Consultar Mercado */
+WITH 
+MEMBER [Measures].[ParameterCaption] AS [DimMercado].[MercadoId].CURRENTMEMBER.MEMBER_CAPTION 
+MEMBER [Measures].[ParameterValue] AS [DimMercado].[MercadoId].CURRENTMEMBER.UNIQUENAME 
+//MEMBER [Measures].[ParameterLevel] AS [DimMercado].[MercadoId].CURRENTMEMBER.LEVEL.ORDINAL 
+//MEMBER [Measures].[ParameterCaptionIndented] AS Space(3 * [Measures].[ParameterLevel]) + [DimMercado].[MercadoId].CURRENTMEMBER.MEMBER_CAPTION
+SELECT {[Measures].[ParameterCaption], [Measures].[ParameterValue]} ON COLUMNS, 
+ [DimMercado].[MercadoId].MEMBERS ON ROWS 
+FROM [Demanda];
+
+//How do you write MDX query that uses execution date/time as a parameter?
+SELECT {[Measures].[Dem_DemandaReal]} ON 0 
+, {StrToMember("[DimFecha].[FechaCalendario].[" + Format(now(), "yyyy-MM-dd") + "]") } ON 1 
+FROM [Demanda];
+
+/* =======================================================
+Consultas Demanda
+======================================================= */
+/* dataSetDemComeAgente */
+WITH
+MEMBER [Measures].[Demanda comercial] AS 
+ IIF(ISEMPTY([Measures].[Dem_DemandaComercial]), NULL, [Measures].[Dem_DemandaComercial] / 1000000 )  
+MEMBER [Measures].[Demanda comercial_No Regulado] AS 
+ IIF(ISEMPTY(([Measures].[Dem_DemandaComercial], [DimMercado].[MercadoId].[NO REGULADO])), NULL, ([Measures].[Dem_DemandaComercial], [DimMercado].[MercadoId].[NO REGULADO]) / 1000000 )  
+MEMBER [Measures].[Demanda comercial_Regulado] AS 
+ IIF(ISEMPTY(([Measures].[Dem_DemandaComercial], [DimMercado].[MercadoId].[REGULADO])), NULL, ([Measures].[Dem_DemandaComercial], [DimMercado].[MercadoId].[REGULADO]) / 1000000 )  
+SELECT NON EMPTY {[Measures].[Demanda comercial],[Measures].[Demanda comercial_No Regulado],[Measures].[Demanda comercial_Regulado]} ON COLUMNS,
+NON EMPTY { DESCENDANTS([DimFecha].[FechaCalendario].[Año].&[2018], [DimFecha].[FechaCalendario].[Mes]) 
+ * DESCENDANTS([DimAgente].[Actividades].[Actividad].&[DISTRIBUCION], [DimAgente].[Actividades].[Nombre]) } ON ROWS
+FROM [Demanda];
+
+WITH
+MEMBER [Measures].[Demanda comercial] AS 
+ IIF(ISEMPTY([Measures].[Dem_DemandaComercial]), NULL, [Measures].[Dem_DemandaComercial] / 1000000 )  
+MEMBER [Measures].[Demanda comercial_No Regulado] AS 
+ IIF(ISEMPTY(([Measures].[Dem_DemandaComercial], [DimMercado].[MercadoId].[NO REGULADO])), NULL, ([Measures].[Dem_DemandaComercial], [DimMercado].[MercadoId].[NO REGULADO]) / 1000000 )  
+MEMBER [Measures].[Demanda comercial_Regulado] AS 
+ IIF(ISEMPTY(([Measures].[Dem_DemandaComercial], [DimMercado].[MercadoId].[REGULADO])), NULL, ([Measures].[Dem_DemandaComercial], [DimMercado].[MercadoId].[REGULADO]) / 1000000 )  
+SELECT NON EMPTY {[Measures].[Demanda comercial],[Measures].[Demanda comercial_No Regulado],[Measures].[Demanda comercial_Regulado]} ON COLUMNS,
+NON EMPTY { Except([DimFecha].[Mes desc corto].MEMBERS, [DimFecha].[Mes desc corto].[All]) } ON ROWS
+FROM ( SELECT ( STRTOSET('[DimFecha].[Año].&[2018]', CONSTRAINED) ) ON COLUMNS 
+FROM ( SELECT ( STRTOSET('[DimAgente].[Actividades].[Nombre].&[DISTRIBUCION]&[SISTEMA DE TRANSMISION NACIONAL]', CONSTRAINED) ) ON COLUMNS 
+FROM [Demanda])) 
+WHERE ( IIF( STRTOSET('[DimFecha].[Año].&[2018]', CONSTRAINED).Count = 1, STRTOSET('[DimFecha].[Año].&[2018]', CONSTRAINED), [DimFecha].[Año].CurrentMember ),
+        IIF( STRTOSET('[DimAgente].[Actividades].[Nombre].&[DISTRIBUCION]&[SISTEMA DE TRANSMISION NACIONAL]', CONSTRAINED).Count = 1, STRTOSET('[DimAgente].[Actividades].[Nombre].&[DISTRIBUCION]&[SISTEMA DE TRANSMISION NACIONAL]', CONSTRAINED), [DimAgente].[Actividades].[Nombre].CurrentMember ) );
+
+WITH
+MEMBER [Measures].[Demanda comercial] AS 
+ IIF(ISEMPTY([Measures].[Dem_DemandaComercial]), NULL, [Measures].[Dem_DemandaComercial] / 1000000 )  
+MEMBER [Measures].[Demanda comercial_No Regulado] AS 
+ IIF(ISEMPTY(([Measures].[Dem_DemandaComercial], [DimMercado].[MercadoId].[NO REGULADO])), NULL, ([Measures].[Dem_DemandaComercial], [DimMercado].[MercadoId].[NO REGULADO]) / 1000000 )  
+MEMBER [Measures].[Demanda comercial_Regulado] AS 
+ IIF(ISEMPTY(([Measures].[Dem_DemandaComercial], [DimMercado].[MercadoId].[REGULADO])), NULL, ([Measures].[Dem_DemandaComercial], [DimMercado].[MercadoId].[REGULADO]) / 1000000 )  
+SELECT NON EMPTY {[Measures].[Demanda comercial],[Measures].[Demanda comercial_No Regulado],[Measures].[Demanda comercial_Regulado]} ON COLUMNS,
+NON EMPTY { Except([DimFecha].[Mes desc corto].MEMBERS, [DimFecha].[Mes desc corto].[All]) } ON ROWS
+FROM ( SELECT ( STRTOSET('[DimFecha].[Año].&[2018]', CONSTRAINED) ) ON COLUMNS 
+FROM ( SELECT ( STRTOSET('[DimAgente].[Actividades].[Nombre].&[TRANSPORTE]&[SISTEMA DE TRANSMISION NACIONAL]', CONSTRAINED) ) ON COLUMNS 
+FROM [Demanda])) 
+WHERE ( IIF( STRTOSET('[DimFecha].[Año].&[2018]', CONSTRAINED).Count = 1, STRTOSET('[DimFecha].[Año].&[2018]', CONSTRAINED), [DimFecha].[Año].CurrentMember ),
+        IIF( STRTOSET('[DimAgente].[Actividades].[Nombre].&[TRANSPORTE]&[SISTEMA DE TRANSMISION NACIONAL]', CONSTRAINED).Count = 1, STRTOSET('[DimAgente].[Actividades].[Nombre].&[TRANSPORTE]&[SISTEMA DE TRANSMISION NACIONAL]', CONSTRAINED), [DimAgente].[Actividades].[Nombre].CurrentMember ) );
+
+WITH
+MEMBER [Measures].[Demanda comercial] AS 
+ IIF(ISEMPTY([Measures].[Dem_DemandaComercial]), NULL, [Measures].[Dem_DemandaComercial] / 1000000 )  
+MEMBER [Measures].[Demanda comercial_No Regulado] AS 
+ IIF(ISEMPTY(([Measures].[Dem_DemandaComercial], [DimMercado].[MercadoId].[NO REGULADO])), NULL, ([Measures].[Dem_DemandaComercial], [DimMercado].[MercadoId].[NO REGULADO]) / 1000000 )  
+MEMBER [Measures].[Demanda comercial_Regulado] AS 
+ IIF(ISEMPTY(([Measures].[Dem_DemandaComercial], [DimMercado].[MercadoId].[REGULADO])), NULL, ([Measures].[Dem_DemandaComercial], [DimMercado].[MercadoId].[REGULADO]) / 1000000 )  
+SELECT NON EMPTY {[Measures].[Demanda comercial],[Measures].[Demanda comercial_No Regulado],[Measures].[Demanda comercial_Regulado]} ON COLUMNS,
+NON EMPTY { Except([DimFecha].[Mes desc corto].MEMBERS, [DimFecha].[Mes desc corto].[All]) } ON ROWS
+FROM ( SELECT ( STRTOSET('[DimFecha].[Año].&[' + @[Año] + ']', CONSTRAINED) ) ON COLUMNS 
+FROM ( SELECT ( STRTOSET(@[Agente], CONSTRAINED) ) ON COLUMNS 
+FROM [Demanda]) )
+WHERE ( IIF( STRTOSET('[DimFecha].[Año].&[' + @[Año] + ']', CONSTRAINED).Count = 1, STRTOSET('[DimFecha].[Año].&[' + @[Año] + ']', CONSTRAINED), [DimFecha].[Año].CurrentMember ), 
+        IIF( STRTOSET(@[Agente], CONSTRAINED).Count = 1, STRTOSET(@[Agente], CONSTRAINED), [DimAgente].[Actividades].[Nombre].CurrentMember ) );
+
+/* dataSetDemRealComePerd */
+WITH
+MEMBER [Measures].[Demanda real] AS 
+ IIF(ISEMPTY([Measures].[Dem_DemandaReal]), NULL, [Measures].[Dem_DemandaReal] / 1000000 )  
+MEMBER [Measures].[Demanda comercial] AS 
+ IIF(ISEMPTY([Measures].[Dem_DemandaComercial]), NULL, [Measures].[Dem_DemandaComercial] / 1000000 )  
+MEMBER [Measures].[Perdidas energia] AS 
+ IIF(ISEMPTY([Measures].[Dem_PerdidaEnergia]), NULL, [Measures].[Dem_PerdidaEnergia] / 1000000 )  
+SELECT NON EMPTY {[Measures].[Demanda real],[Measures].[Demanda comercial],[Measures].[Perdidas energia]} ON COLUMNS,
+NON EMPTY { [DimFecha].[Año].&[2019].Lag(10) : [DimFecha].[Año].&[2019] } ON ROWS
+FROM [Demanda];
+
+WITH
+MEMBER [Measures].[Demanda real] AS 
+ IIF(ISEMPTY([Measures].[Dem_DemandaReal]), NULL, [Measures].[Dem_DemandaReal] / 1000000 )  
+MEMBER [Measures].[Demanda comercial] AS 
+ IIF(ISEMPTY([Measures].[Dem_DemandaComercial]), NULL, [Measures].[Dem_DemandaComercial] / 1000000 )  
+MEMBER [Measures].[Perdidas energia] AS 
+ IIF(ISEMPTY([Measures].[Dem_PerdidaEnergia]), NULL, [Measures].[Dem_PerdidaEnergia] / 1000000 )  
+SELECT NON EMPTY {[Measures].[Demanda real],[Measures].[Demanda comercial],[Measures].[Perdidas energia]} ON COLUMNS,
+NON EMPTY { STRTOMEMBER('[DimFecha].[Año].&[2019]').Lag(10) : STRTOMEMBER('[DimFecha].[Año].&[2019]') } ON ROWS
+FROM [Demanda];
+
+WITH
+MEMBER [Measures].[Demanda real] AS 
+ IIF(ISEMPTY([Measures].[Dem_DemandaReal]), NULL, [Measures].[Dem_DemandaReal] / 1000000 )  
+MEMBER [Measures].[Demanda comercial] AS 
+ IIF(ISEMPTY([Measures].[Dem_DemandaComercial]), NULL, [Measures].[Dem_DemandaComercial] / 1000000 )  
+MEMBER [Measures].[Perdidas energia] AS 
+ IIF(ISEMPTY([Measures].[Dem_PerdidaEnergia]), NULL, [Measures].[Dem_PerdidaEnergia] / 1000000 )  
+SELECT NON EMPTY {[Measures].[Demanda real],[Measures].[Demanda comercial],[Measures].[Perdidas energia]} ON COLUMNS,
+NON EMPTY { STRTOMEMBER('[DimFecha].[Año].&[' + @[Año] + ']').Lag(@[Periodos]) : STRTOMEMBER('[DimFecha].[Año].&[' + @[Año] + ']') } ON ROWS
+FROM [Demanda];
+
+/* dataSetDemandaDepartamento  */
+WITH
+MEMBER [Measures].[Demanda real] AS 
+ IIF(ISEMPTY([Measures].[Dem_DemandaReal]), NULL, [Measures].[Dem_DemandaReal] / 1000000 )  
+MEMBER [Measures].[Demanda comercial] AS 
+ IIF(ISEMPTY([Measures].[Dem_DemandaComercial]), NULL, [Measures].[Dem_DemandaComercial] / 1000000 )  
+MEMBER [Measures].[Perdidas energia] AS 
+ IIF(ISEMPTY([Measures].[Dem_PerdidaEnergia]), NULL, [Measures].[Dem_PerdidaEnergia] / 1000000 )  
+SELECT NON EMPTY {[Measures].[Demanda real],[Measures].[Demanda comercial],[Measures].[Perdidas energia]} ON COLUMNS,
+NON EMPTY { [DimFecha].[Mes desc corto].[Mes desc corto].Members
+* DESCENDANTS([DimGeografia].[GeografiaFisica].[Pais].[COLOMBIA], [DimGeografia].[GeografiaFisica].[Departamento]) } ON ROWS
+FROM [Demanda];
+
+WITH
+MEMBER [Measures].[Demanda real] AS 
+ IIF(ISEMPTY([Measures].[Dem_DemandaReal]), NULL, [Measures].[Dem_DemandaReal] / 1000000 )  
+MEMBER [Measures].[Demanda comercial] AS 
+ IIF(ISEMPTY([Measures].[Dem_DemandaComercial]), NULL, [Measures].[Dem_DemandaComercial] / 1000000 )  
+MEMBER [Measures].[Perdidas energia] AS 
+ IIF(ISEMPTY([Measures].[Dem_PerdidaEnergia]), NULL, [Measures].[Dem_PerdidaEnergia] / 1000000 )  
+SELECT NON EMPTY {[Measures].[Demanda real],[Measures].[Demanda comercial],[Measures].[Perdidas energia]} ON COLUMNS,
+NON EMPTY { DESCENDANTS([DimGeografia].[GeografiaFisica].[Pais].[COLOMBIA], [DimGeografia].[GeografiaFisica].[Departamento]) } ON ROWS
+FROM ( SELECT ( STRTOSET('[DimFecha].[Mes desc corto].&[2019]&[9]', CONSTRAINED) ) ON COLUMNS 
+FROM [Demanda])
+WHERE ( IIF( STRTOSET('[DimFecha].[Mes desc corto].&[2019]&[9]', CONSTRAINED).Count = 1, STRTOSET('[DimFecha].[Mes desc corto].&[2019]&[9]', CONSTRAINED), [DimFecha].[Mes desc corto].CurrentMember ) );
+
+WITH
+MEMBER [Measures].[Demanda real] AS 
+ IIF(ISEMPTY([Measures].[Dem_DemandaReal]), NULL, [Measures].[Dem_DemandaReal] / 1000000 )  
+MEMBER [Measures].[Demanda comercial] AS 
+ IIF(ISEMPTY([Measures].[Dem_DemandaComercial]), NULL, [Measures].[Dem_DemandaComercial] / 1000000 )  
+MEMBER [Measures].[Perdidas energia] AS 
+ IIF(ISEMPTY([Measures].[Dem_PerdidaEnergia]), NULL, [Measures].[Dem_PerdidaEnergia] / 1000000 )  
+SELECT NON EMPTY {[Measures].[Demanda real],[Measures].[Demanda comercial],[Measures].[Perdidas energia]} ON COLUMNS,
+NON EMPTY { DESCENDANTS([DimGeografia].[GeografiaFisica].[Pais].[COLOMBIA], [DimGeografia].[GeografiaFisica].[Departamento]) } ON ROWS
+FROM ( SELECT ( STRTOSET(@[Fecha], CONSTRAINED) ) ON COLUMNS 
+FROM [Demanda])
+WHERE ( IIF( STRTOSET(@[Fecha], CONSTRAINED).Count = 1, STRTOSET(@[Fecha], CONSTRAINED), [DimFecha].[Mes desc corto].CurrentMember ) );
+
+/* Reporte demanda por geografia */
+WITH
+MEMBER [Measures].[Demanda real] AS 
+ IIF(ISEMPTY([Measures].[Dem_DemandaReal]), NULL, [Measures].[Dem_DemandaReal] / 1000000 )  
+MEMBER [Measures].[Demanda comercial] AS 
+ IIF(ISEMPTY([Measures].[Dem_DemandaComercial]), NULL, [Measures].[Dem_DemandaComercial] / 1000000 )  
+MEMBER [Measures].[Perdidas energia] AS 
+ IIF(ISEMPTY([Measures].[Dem_PerdidaEnergia]), NULL, [Measures].[Dem_PerdidaEnergia] / 1000000 )  
+SELECT NON EMPTY {[Measures].[Demanda real],[Measures].[Demanda comercial],[Measures].[Perdidas energia]} ON COLUMNS,
+NON EMPTY { [DimFecha].[Mes desc corto].&[2019]&[9].Lag(12) : [DimFecha].[Mes desc corto].&[2019]&[9] 
+ * DESCENDANTS([DimGeografia].[GeografiaFisica].[Pais].[COLOMBIA], [DimGeografia].[GeografiaFisica].[Departamento]) } ON ROWS
+FROM [Demanda];
+
+/* =======================================================
+Consultas Tableros
+======================================================= */
+/* dataSetDemandaUltimosDias */
+WITH
+SET [SetDaysLast] AS
+ {TAIL(FILTER([DimFecha].[Fecha].MEMBERS, [Measures].[Dem_DemandaReal])).item(0).lag(30):
+  TAIL(FILTER([DimFecha].[Fecha].MEMBERS, [Measures].[Dem_DemandaReal])).item(0) }
+MEMBER [Measures].[Demanda real] AS IIF(ISEMPTY([Measures].[Dem_DemandaReal]), 0, [Measures].[Dem_DemandaReal] / 1000000 )  
+SELECT NON EMPTY {[Measures].[Demanda real]} ON COLUMNS,
+NON EMPTY [SetDaysLast] ON ROWS 
+FROM [Demanda];
+
+WITH
+SET [SetDaysLast] AS
+ {TAIL(FILTER([DimFecha].[Fecha].MEMBERS, [Measures].[Dem_DemandaReal])).item(0).lag(30):
+  TAIL(FILTER([DimFecha].[Fecha].MEMBERS, [Measures].[Dem_DemandaReal])).item(0) }
+MEMBER [Measures].[Demanda real] AS IIF(ISEMPTY([Measures].[Dem_DemandaReal]), 0, [Measures].[Dem_DemandaReal] / 1000000 )  
+MEMBER [Measures].[DayLast] AS TAIL([SetDaysLast]).Item(1)
+SELECT NON EMPTY {[Measures].[Demanda real], [Measures].[DayLast]} ON COLUMNS,
+NON EMPTY [SetDaysLast] ON ROWS 
+FROM [Demanda];
+
+/* dataSetDemandaUltimosDiasTotales */
+WITH
+SET [SetDaysLast] AS
+ {TAIL(FILTER([DimFecha].[Fecha].MEMBERS, [Measures].[Dem_DemandaReal])).item(0).lag(30):
+  TAIL(FILTER([DimFecha].[Fecha].MEMBERS, [Measures].[Dem_DemandaReal])).item(0) }
+MEMBER [Measures].[Demanda real] AS IIF(ISEMPTY([Measures].[Dem_DemandaReal]), 0, [Measures].[Dem_DemandaReal] / 1000000 )  
+MEMBER [Measures].[Demanda real anterior] AS ([DimFecha].[FechaCalendario].CurrentMember.PrevMember, [Measures].[Demanda real])
+MEMBER [Measures].[Demanda real porc_diferencia] AS 
+ IIF(ISEMPTY([Measures].[Demanda real]), 0, ([Measures].[Demanda real] / [Measures].[Demanda real anterior]) -1 ) * 100
+MEMBER [Measures].[StatusIndicator] AS
+ CASE 
+  WHEN [Measures].[Demanda real porc_diferencia] > 0 THEN 1
+  WHEN [Measures].[Demanda real porc_diferencia] = 0 THEN 0
+  ELSE -1
+END
+MEMBER [Measures].[Demanda real max] AS Max([SetDaysLast], [Measures].[Demanda real])
+MEMBER [Measures].[FactorCeiling] AS 10 ^ (Len(Fix([Measures].[Demanda real max])) - 1)
+MEMBER [Measures].[Demanda real max ajustada] AS Fix(([Measures].[Demanda real max] / [Measures].[FactorCeiling]) + 1) * [Measures].[FactorCeiling]  
+SELECT NON EMPTY {[Measures].[Demanda real], [Measures].[Demanda real anterior], [Measures].[Demanda real porc_diferencia],
+  [Measures].[StatusIndicator], [Measures].[Demanda real max], [Measures].[Demanda real max ajustada]} ON COLUMNS,
+NON EMPTY {TAIL([SetDaysLast]) } ON ROWS 
+FROM [Demanda];
+
+/* dataSetPerdidasUltimosDias */
+WITH
+SET [SetDaysLast] AS
+ {TAIL(FILTER([DimFecha].[Fecha].MEMBERS, [Measures].[Dem_PerdidaEnergia])).item(0).lag(30):
+  TAIL(FILTER([DimFecha].[Fecha].MEMBERS, [Measures].[Dem_PerdidaEnergia])).item(0) }
+MEMBER [Measures].[Perdidas energia] AS IIF(ISEMPTY([Measures].[Dem_PerdidaEnergia]), 0, [Measures].[Dem_PerdidaEnergia] / 1000000 )  
+SELECT NON EMPTY {[Measures].[Perdidas energia]} ON COLUMNS,
+NON EMPTY [SetDaysLast] ON ROWS 
+FROM [Demanda];
+
+/* dataSetPerdidasUltimosDiasTotales */
+WITH
+SET [SetDaysLast] AS
+ {TAIL(FILTER([DimFecha].[Fecha].MEMBERS, [Measures].[Dem_PerdidaEnergia])).item(0).lag(30):
+  TAIL(FILTER([DimFecha].[Fecha].MEMBERS, [Measures].[Dem_PerdidaEnergia])).item(0) }
+MEMBER [Measures].[Perdidas energia] AS IIF(ISEMPTY([Measures].[Dem_PerdidaEnergia]), 0, [Measures].[Dem_PerdidaEnergia] / 1000000 )  
+MEMBER [Measures].[Perdidas energia anterior] AS ([DimFecha].[FechaCalendario].CurrentMember.PrevMember, [Measures].[Perdidas energia])
+MEMBER [Measures].[Perdidas energia porc_diferencia] AS 
+ IIF(ISEMPTY([Measures].[Perdidas energia anterior]), 0, ([Measures].[Perdidas energia] / [Measures].[Perdidas energia anterior]) -1 ) * 100
+MEMBER [Measures].[StatusIndicator] AS
+ CASE 
+  WHEN [Measures].[Perdidas energia porc_diferencia] > 0 THEN 1
+  WHEN [Measures].[Perdidas energia porc_diferencia] = 0 THEN 0
+  ELSE -1
+END
+MEMBER [Measures].[Perdidas energia max] AS Max([SetDaysLast], [Measures].[Perdidas energia])
+MEMBER [Measures].[FactorCeiling] AS 10 ^ (Len(Fix([Measures].[Perdidas energia max])) - 1)
+MEMBER [Measures].[Perdidas energia max ajustada] AS Fix(([Measures].[Perdidas energia max] / [Measures].[FactorCeiling]) + 1) * [Measures].[FactorCeiling]  
+SELECT NON EMPTY {[Measures].[Perdidas energia], [Measures].[Perdidas energia anterior], [Measures].[Perdidas energia porc_diferencia], 
+  [Measures].[StatusIndicator], [Measures].[Perdidas energia max], [Measures].[Perdidas energia max ajustada]} ON COLUMNS,
+NON EMPTY {TAIL([SetDaysLast]) } ON ROWS 
+FROM [Demanda];
+
+/* dataSetDemandaComercialUltimosDias */
+WITH
+SET [SetDaysLast] AS
+ {TAIL(FILTER([DimFecha].[Fecha].MEMBERS, [Measures].[Dem_DemandaComercial])).item(0).lag(30):
+  TAIL(FILTER([DimFecha].[Fecha].MEMBERS, [Measures].[Dem_DemandaComercial])).item(0) }
+MEMBER [Measures].[Demanda comercial] AS IIF(ISEMPTY([Measures].[Dem_DemandaComercial]), 0, [Measures].[Dem_DemandaComercial] / 1000000 )  
+SELECT NON EMPTY {[Measures].[Demanda comercial]} ON COLUMNS,
+NON EMPTY [SetDaysLast] ON ROWS 
+FROM [Demanda];
+
+/* dataSetDemandaComercialUltimosDiasTotales */
+WITH
+SET [SetDaysLast] AS
+ {TAIL(FILTER([DimFecha].[Fecha].MEMBERS, [Measures].[Dem_DemandaComercial])).item(0).lag(30):
+  TAIL(FILTER([DimFecha].[Fecha].MEMBERS, [Measures].[Dem_DemandaComercial])).item(0) }
+MEMBER [Measures].[Demanda comercial] AS IIF(ISEMPTY([Measures].[Dem_DemandaComercial]), 0, [Measures].[Dem_DemandaComercial] / 1000000 )  
+MEMBER [Measures].[Demanda comercial anterior] AS ([DimFecha].[FechaCalendario].CurrentMember.PrevMember, [Measures].[Demanda comercial])
+MEMBER [Measures].[Demanda comercial porc_diferencia] AS 
+ IIF(ISEMPTY([Measures].[Demanda comercial anterior]), 0, ([Measures].[Demanda comercial] / [Measures].[Demanda comercial anterior]) -1 ) * 100  
+MEMBER [Measures].[StatusIndicator] AS
+ CASE 
+  WHEN [Measures].[Demanda comercial porc_diferencia] > 0 THEN 1
+  WHEN [Measures].[Demanda comercial porc_diferencia] = 0 THEN 0
+  ELSE -1
+END
+MEMBER [Measures].[Demanda comercial max] AS Max([SetDaysLast], [Measures].[Demanda comercial])
+MEMBER [Measures].[FactorCeiling] AS 10 ^ (Len(Fix([Measures].[Demanda comercial max])) - 1)
+MEMBER [Measures].[Demanda comercial max ajustada] AS Fix(([Measures].[Demanda comercial max] / [Measures].[FactorCeiling]) + 1) * [Measures].[FactorCeiling]  
+SELECT NON EMPTY {[Measures].[Demanda comercial], [Measures].[Demanda comercial anterior], [Measures].[Demanda comercial porc_diferencia],
+  [Measures].[StatusIndicator], [Measures].[Demanda comercial max], [Measures].[Demanda comercial max ajustada]} ON COLUMNS,
+NON EMPTY {TAIL(FILTER([DimFecha].[Fecha].MEMBERS, [Measures].[Demanda comercial])).item(0) } ON ROWS 
+FROM [Demanda];
+
+/* dataSetDemandaComercialMercadoUltimosDias */
+WITH
+SET [SetDaysLast] AS
+ {TAIL(FILTER([DimFecha].[Fecha].MEMBERS, [Measures].[Dem_DemandaComercial])).item(0).lag(30):
+  TAIL(FILTER([DimFecha].[Fecha].MEMBERS, [Measures].[Dem_DemandaComercial])).item(0) }
+MEMBER [Measures].[Demanda comercial] AS IIF(ISEMPTY([Measures].[Dem_DemandaComercial]), 0, [Measures].[Dem_DemandaComercial] / 1000000 )  
+MEMBER [Measures].[Demanda comercial_No Regulado] AS 
+ IIF(ISEMPTY(([Measures].[Dem_DemandaComercial], [DimMercado].[MercadoId].[NO REGULADO])), NULL, ([Measures].[Dem_DemandaComercial], [DimMercado].[MercadoId].[NO REGULADO]) / 1000000 )  
+MEMBER [Measures].[Demanda comercial_Regulado] AS 
+ IIF(ISEMPTY(([Measures].[Dem_DemandaComercial], [DimMercado].[MercadoId].[REGULADO])), NULL, ([Measures].[Dem_DemandaComercial], [DimMercado].[MercadoId].[REGULADO]) / 1000000 )  
+SELECT NON EMPTY {[Measures].[Demanda comercial], [Measures].[Demanda comercial_No Regulado], [Measures].[Demanda comercial_Regulado]} ON COLUMNS,
+NON EMPTY [SetDaysLast] ON ROWS 
+FROM [Demanda];
+
+/* dataSetDemandaComercialMercadoUltimosDiasTotales */
+WITH
+SET [SetDaysLast] AS
+ {TAIL(FILTER([DimFecha].[Fecha].MEMBERS, [Measures].[Dem_DemandaComercial])).item(0).lag(30):
+  TAIL(FILTER([DimFecha].[Fecha].MEMBERS, [Measures].[Dem_DemandaComercial])).item(0) }
+MEMBER [Measures].[Demanda comercial] AS IIF(ISEMPTY([Measures].[Dem_DemandaComercial]), 0, [Measures].[Dem_DemandaComercial] / 1000000 )  
+MEMBER [Measures].[Demanda comercial anterior] AS ([DimFecha].[FechaCalendario].CurrentMember.PrevMember, [Measures].[Demanda comercial])
+MEMBER [Measures].[Demanda comercial porc_diferencia] AS 
+ IIF(ISEMPTY([Measures].[Demanda comercial anterior]), 0, ([Measures].[Demanda comercial] / [Measures].[Demanda comercial anterior]) -1 ) * 100
+MEMBER [Measures].[StatusIndicator] AS
+ CASE 
+  WHEN [Measures].[Demanda comercial porc_diferencia] > 0 THEN 1
+  WHEN [Measures].[Demanda comercial porc_diferencia] = 0 THEN 0
+  ELSE -1
+END
+MEMBER [Measures].[Demanda comercial_No Regulado] AS 
+ IIF(ISEMPTY(([Measures].[Dem_DemandaComercial], [DimMercado].[MercadoId].[NO REGULADO])), NULL, ([Measures].[Dem_DemandaComercial], [DimMercado].[MercadoId].[NO REGULADO]) / 1000000 )  
+MEMBER [Measures].[Demanda comercial_Regulado] AS 
+ IIF(ISEMPTY(([Measures].[Dem_DemandaComercial], [DimMercado].[MercadoId].[REGULADO])), NULL, ([Measures].[Dem_DemandaComercial], [DimMercado].[MercadoId].[REGULADO]) / 1000000 )  
+MEMBER [Measures].[Demanda comercial max] AS Max([SetDaysLast], [Measures].[Demanda comercial])
+MEMBER [Measures].[FactorCeiling] AS 10 ^ (Len(Fix([Measures].[Demanda comercial max])) - 1)
+MEMBER [Measures].[Demanda comercial max ajustada] AS Fix(([Measures].[Demanda comercial max] / [Measures].[FactorCeiling]) + 1) * [Measures].[FactorCeiling]  
+SELECT NON EMPTY {[Measures].[Demanda comercial], [Measures].[Demanda comercial anterior], [Measures].[Demanda comercial porc_diferencia],
+  [Measures].[StatusIndicator], [Measures].[Demanda comercial_No Regulado], [Measures].[Demanda comercial_Regulado], [Measures].[Demanda comercial max], [Measures].[Demanda comercial max ajustada]} ON COLUMNS,
+NON EMPTY {TAIL(FILTER([DimFecha].[Fecha].MEMBERS, [Measures].[Demanda comercial])).item(0) } ON ROWS 
+FROM [Demanda];

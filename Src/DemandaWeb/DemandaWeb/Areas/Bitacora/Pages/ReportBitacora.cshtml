@@ -1,0 +1,36 @@
+﻿@page
+@model DemandaWeb.Areas.Bitacora.Pages.ReportBitacoraModel
+@using ReportViewerForCore;
+@{
+	ViewData["Title"] = "Bitacora";
+	if (string.IsNullOrWhiteSpace(Model.ReportViewModel.ControllerPath))
+	{
+		Model.ReportViewModel.ControllerPath = Model.ControllerPath;
+	}
+
+	string controllerPath;
+	controllerPath = Model.ControllerPath;
+}
+
+@*@Html.AntiForgeryToken()*@
+@section AdditionalHeadContent {
+	<link href="~/lib/ReportViewerForCore/css/ReportViewerForCore.css" rel="stylesheet" />
+	<link href="~/lib/ReportViewerForCore/css/select2.min.css" rel="stylesheet" />
+	<link href="~/lib/ReportViewerForCore/css/select2-bootstrap.min.css" rel="stylesheet" />
+}
+
+<div class="d-flex flex-column align-items-center">
+	<div class="mainTitle"><i class="fa fa-file-text"></i>&nbsp;@Model.ReportViewModel.Title</div>
+
+	<div class="embed-responsive embed-responsive-16by9 reportContentIFrame" id="divReport">
+		@*<iframe class="embed-responsive-item reportIFrame" src=@Model.ReportViewModel.GetPathRender() id="iframeReport" allowfullscreen></iframe>*@
+		@*@await Html.PartialAsync("/Pages/Shared/_ReportPartial.cshtml", Model.ReportViewModel)*@
+		@*<partial name="/Pages/Shared/_ReportPartial.cshtml" model="Model.ReportViewModel" />*@
+
+		@Html.RenderReportViewer(@Model.ReportViewModel)
+	</div>
+</div>
+
+@section Scripts {
+	@await Html.PartialAsync("/Pages/Shared/_ReportPartial.cshtml", Model.ReportViewModel)
+}

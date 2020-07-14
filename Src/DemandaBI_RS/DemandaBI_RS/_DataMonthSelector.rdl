@@ -1,0 +1,1179 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Report MustUnderstand="df" xmlns="http://schemas.microsoft.com/sqlserver/reporting/2016/01/reportdefinition" xmlns:rd="http://schemas.microsoft.com/SQLServer/reporting/reportdesigner" xmlns:df="http://schemas.microsoft.com/sqlserver/reporting/2016/01/reportdefinition/defaultfontfamily">
+  <df:DefaultFontFamily>Segoe UI</df:DefaultFontFamily>
+  <Author>Hugo González Olaya</Author>
+  <AutoRefresh>0</AutoRefresh>
+  <DataSources>
+    <DataSource Name="dsDemandaDW">
+      <DataSourceReference>dsDemandaDW</DataSourceReference>
+      <rd:SecurityType>DataBase</rd:SecurityType>
+      <rd:DataSourceID>c9298893-d3e5-4fa1-a0c9-2f7f08a4372b</rd:DataSourceID>
+    </DataSource>
+  </DataSources>
+  <DataSets>
+    <DataSet Name="dataSetYear_Cube">
+      <SharedDataSet>
+        <SharedDataSetReference>dataSetYear_Cube</SharedDataSetReference>
+      </SharedDataSet>
+      <Fields>
+        <Field Name="Año">
+          <DataField>Año</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="ParameterCaption">
+          <DataField>ParameterCaption</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+        <Field Name="ParameterValue">
+          <DataField>ParameterValue</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+        <Field Name="YearRowNumber">
+          <DataField>YearRowNumber</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+      </Fields>
+    </DataSet>
+    <DataSet Name="dataSetMonth_Cube">
+      <SharedDataSet>
+        <SharedDataSetReference>dataSetMonth_Cube</SharedDataSetReference>
+        <QueryParameters>
+          <QueryParameter Name="Año">
+            <Value>=Parameters!ReportingYear.Value</Value>
+          </QueryParameter>
+        </QueryParameters>
+      </SharedDataSet>
+      <Fields>
+        <Field Name="Mes_desc_corto">
+          <DataField>Mes_desc_corto</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="ParameterCaption">
+          <DataField>ParameterCaption</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+        <Field Name="ParameterValue">
+          <DataField>ParameterValue</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+      </Fields>
+    </DataSet>
+    <DataSet Name="dataSetCurrentYear">
+      <SharedDataSet>
+        <SharedDataSetReference>dataSetCurrentYear</SharedDataSetReference>
+      </SharedDataSet>
+      <Fields>
+        <Field Name="Año">
+          <DataField>Año</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="ParameterCaption">
+          <DataField>ParameterCaption</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+        <Field Name="ParameterValue">
+          <DataField>ParameterValue</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+      </Fields>
+    </DataSet>
+    <DataSet Name="dataSetCurrentMonth">
+      <SharedDataSet>
+        <SharedDataSetReference>dataSetCurrentMonth</SharedDataSetReference>
+      </SharedDataSet>
+      <Fields>
+        <Field Name="Mes_desc_corto">
+          <DataField>Mes_desc_corto</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="ParameterCaption">
+          <DataField>ParameterCaption</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+        <Field Name="ParameterValue">
+          <DataField>ParameterValue</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+      </Fields>
+    </DataSet>
+    <DataSet Name="dataSetDummy">
+      <Query>
+        <DataSourceName>dsDemandaDW</DataSourceName>
+        <CommandText>Select '' [Id]</CommandText>
+      </Query>
+      <Fields>
+        <Field Name="Id">
+          <DataField>Id</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+      </Fields>
+    </DataSet>
+    <DataSet Name="dataSetFullMonth">
+      <SharedDataSet>
+        <SharedDataSetReference>dataSetFullMonth</SharedDataSetReference>
+      </SharedDataSet>
+      <Fields>
+        <Field Name="MonthNumber">
+          <DataField>MonthNumber</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+        <Field Name="MonthName">
+          <DataField>MonthName</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="MonthNameShort">
+          <DataField>MonthNameShort</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+      </Fields>
+    </DataSet>
+  </DataSets>
+  <ReportSections>
+    <ReportSection>
+      <Body>
+        <ReportItems>
+          <Rectangle Name="Rectangle1">
+            <ReportItems>
+              <Textbox Name="txtAnoSelector">
+                <CanGrow>true</CanGrow>
+                <KeepTogether>true</KeepTogether>
+                <Paragraphs>
+                  <Paragraph>
+                    <TextRuns>
+                      <TextRun>
+                        <Value>="Año: " &amp; Lookup(Parameters!ReportingYear.Value, Fields!ParameterCaption.Value, Fields!ParameterCaption.Value, "dataSetYear_Cube")</Value>
+                        <Style>
+                          <FontFamily>Arial</FontFamily>
+                          <FontSize>8pt</FontSize>
+                          <FontWeight>Bold</FontWeight>
+                          <Color>White</Color>
+                        </Style>
+                      </TextRun>
+                    </TextRuns>
+                    <Style>
+                      <TextAlign>Center</TextAlign>
+                    </Style>
+                  </Paragraph>
+                </Paragraphs>
+                <Height>0.6cm</Height>
+                <Width>2.5775cm</Width>
+                <Style>
+                  <Border>
+                    <Color>LightGrey</Color>
+                    <Style>Solid</Style>
+                  </Border>
+                  <BackgroundColor>DodgerBlue</BackgroundColor>
+                  <PaddingLeft>2pt</PaddingLeft>
+                  <PaddingRight>2pt</PaddingRight>
+                  <PaddingTop>2pt</PaddingTop>
+                  <PaddingBottom>2pt</PaddingBottom>
+                </Style>
+              </Textbox>
+              <Tablix Name="Tablix1">
+                <TablixBody>
+                  <TablixColumns>
+                    <TablixColumn>
+                      <Width>2.5775cm</Width>
+                    </TablixColumn>
+                  </TablixColumns>
+                  <TablixRows>
+                    <TablixRow>
+                      <Height>0.6cm</Height>
+                      <TablixCells>
+                        <TablixCell>
+                          <CellContents>
+                            <Textbox Name="Año">
+                              <CanGrow>true</CanGrow>
+                              <KeepTogether>true</KeepTogether>
+                              <Paragraphs>
+                                <Paragraph>
+                                  <TextRuns>
+                                    <TextRun>
+                                      <Value>=Fields!Año.Value</Value>
+                                      <Style>
+                                        <FontFamily>Arial</FontFamily>
+                                        <FontSize>8pt</FontSize>
+                                        <TextDecoration>Underline</TextDecoration>
+                                        <Color>Blue</Color>
+                                      </Style>
+                                    </TextRun>
+                                  </TextRuns>
+                                  <Style>
+                                    <TextAlign>Center</TextAlign>
+                                  </Style>
+                                </Paragraph>
+                              </Paragraphs>
+                              <rd:DefaultName>Año</rd:DefaultName>
+                              <ActionInfo>
+                                <Actions>
+                                  <Action>
+                                    <Drillthrough>
+                                      <ReportName>=Globals!ReportName</ReportName>
+                                      <Parameters>
+                                        <Parameter Name="ReportingYear">
+                                          <Value>=Fields!ParameterCaption.Value</Value>
+                                        </Parameter>
+                                        <Parameter Name="ReportingMonth">
+                                          <Value>=Parameters!ReportingMonth.Value</Value>
+                                        </Parameter>
+                                      </Parameters>
+                                    </Drillthrough>
+                                  </Action>
+                                </Actions>
+                              </ActionInfo>
+                              <Style>
+                                <Border>
+                                  <Color>LightGrey</Color>
+                                  <Style>Solid</Style>
+                                </Border>
+                                <BackgroundColor>=IIF(RunningValue(Fields!Año.Value, CountDistinct, Nothing) Mod 2, "White", "Gainsboro")</BackgroundColor>
+                                <VerticalAlign>Middle</VerticalAlign>
+                                <PaddingLeft>2pt</PaddingLeft>
+                                <PaddingRight>2pt</PaddingRight>
+                                <PaddingTop>2pt</PaddingTop>
+                                <PaddingBottom>2pt</PaddingBottom>
+                              </Style>
+                            </Textbox>
+                          </CellContents>
+                        </TablixCell>
+                      </TablixCells>
+                    </TablixRow>
+                  </TablixRows>
+                </TablixBody>
+                <TablixColumnHierarchy>
+                  <TablixMembers>
+                    <TablixMember />
+                  </TablixMembers>
+                </TablixColumnHierarchy>
+                <TablixRowHierarchy>
+                  <TablixMembers>
+                    <TablixMember>
+                      <Group Name="Detalles" />
+                    </TablixMember>
+                  </TablixMembers>
+                </TablixRowHierarchy>
+                <DataSetName>dataSetYear_Cube</DataSetName>
+                <Top>0.67056cm</Top>
+                <Height>0.6cm</Height>
+                <Width>2.5775cm</Width>
+                <ZIndex>1</ZIndex>
+                <Visibility>
+                  <Hidden>true</Hidden>
+                  <ToggleItem>txtAnoSelector</ToggleItem>
+                </Visibility>
+                <Style>
+                  <Border>
+                    <Color>DodgerBlue</Color>
+                    <Style>None</Style>
+                  </Border>
+                </Style>
+              </Tablix>
+              <Tablix Name="Tablix2">
+                <TablixBody>
+                  <TablixColumns>
+                    <TablixColumn>
+                      <Width>1.08cm</Width>
+                    </TablixColumn>
+                    <TablixColumn>
+                      <Width>1.08cm</Width>
+                    </TablixColumn>
+                    <TablixColumn>
+                      <Width>1.08cm</Width>
+                    </TablixColumn>
+                    <TablixColumn>
+                      <Width>1.08cm</Width>
+                    </TablixColumn>
+                    <TablixColumn>
+                      <Width>1.08cm</Width>
+                    </TablixColumn>
+                    <TablixColumn>
+                      <Width>1.08cm</Width>
+                    </TablixColumn>
+                  </TablixColumns>
+                  <TablixRows>
+                    <TablixRow>
+                      <Height>0.6cm</Height>
+                      <TablixCells>
+                        <TablixCell>
+                          <CellContents>
+                            <Textbox Name="txtJan">
+                              <CanGrow>true</CanGrow>
+                              <KeepTogether>true</KeepTogether>
+                              <Paragraphs>
+                                <Paragraph>
+                                  <TextRuns>
+                                    <TextRun>
+                                      <Value EvaluationMode="Constant">Ene</Value>
+                                      <Style>
+                                        <FontFamily>Arial</FontFamily>
+                                        <FontSize>8pt</FontSize>
+                                        <FontWeight>=IIF(Parameters!ReportingMonth.Value=1,"Bold","Normal")</FontWeight>
+                                        <Color>=IIF(Parameters!ReportingMonth.Value=1,"White","Black")</Color>
+                                      </Style>
+                                    </TextRun>
+                                  </TextRuns>
+                                  <Style>
+                                    <TextAlign>Center</TextAlign>
+                                  </Style>
+                                </Paragraph>
+                              </Paragraphs>
+                              <ActionInfo>
+                                <Actions>
+                                  <Action>
+                                    <Drillthrough>
+                                      <ReportName>=Globals!ReportName</ReportName>
+                                      <Parameters>
+                                        <Parameter Name="ReportingMonth">
+                                          <Value>1</Value>
+                                        </Parameter>
+                                        <Parameter Name="ReportingYear">
+                                          <Value>=Parameters!ReportingYear.Value</Value>
+                                        </Parameter>
+                                      </Parameters>
+                                    </Drillthrough>
+                                  </Action>
+                                </Actions>
+                              </ActionInfo>
+                              <Style>
+                                <Border>
+                                  <Color>DodgerBlue</Color>
+                                  <Style>Solid</Style>
+                                </Border>
+                                <BackgroundColor>=IIF(Parameters!ReportingMonth.Value=1,"DodgerBlue","White")</BackgroundColor>
+                                <VerticalAlign>Middle</VerticalAlign>
+                                <PaddingLeft>2pt</PaddingLeft>
+                                <PaddingRight>2pt</PaddingRight>
+                                <PaddingTop>2pt</PaddingTop>
+                                <PaddingBottom>2pt</PaddingBottom>
+                              </Style>
+                            </Textbox>
+                          </CellContents>
+                        </TablixCell>
+                        <TablixCell>
+                          <CellContents>
+                            <Textbox Name="txtFeb">
+                              <CanGrow>true</CanGrow>
+                              <KeepTogether>true</KeepTogether>
+                              <Paragraphs>
+                                <Paragraph>
+                                  <TextRuns>
+                                    <TextRun>
+                                      <Value>Feb</Value>
+                                      <Style>
+                                        <FontFamily>Arial</FontFamily>
+                                        <FontSize>8pt</FontSize>
+                                        <FontWeight>=IIF(Parameters!ReportingMonth.Value = 2,"Bold","Normal")</FontWeight>
+                                        <Color>=IIF(Parameters!ReportingMonth.Value = 2,"White","Black")</Color>
+                                      </Style>
+                                    </TextRun>
+                                  </TextRuns>
+                                  <Style>
+                                    <TextAlign>Center</TextAlign>
+                                  </Style>
+                                </Paragraph>
+                              </Paragraphs>
+                              <ActionInfo>
+                                <Actions>
+                                  <Action>
+                                    <Drillthrough>
+                                      <ReportName>=Globals!ReportName</ReportName>
+                                      <Parameters>
+                                        <Parameter Name="ReportingMonth">
+                                          <Value>2</Value>
+                                        </Parameter>
+                                        <Parameter Name="ReportingYear">
+                                          <Value>=Parameters!ReportingYear.Value</Value>
+                                        </Parameter>
+                                      </Parameters>
+                                    </Drillthrough>
+                                  </Action>
+                                </Actions>
+                              </ActionInfo>
+                              <Style>
+                                <Border>
+                                  <Color>DodgerBlue</Color>
+                                  <Style>Solid</Style>
+                                </Border>
+                                <BackgroundColor>=IIF(Parameters!ReportingMonth.Value = 2,"DodgerBlue","White")</BackgroundColor>
+                                <VerticalAlign>Middle</VerticalAlign>
+                                <PaddingLeft>2pt</PaddingLeft>
+                                <PaddingRight>2pt</PaddingRight>
+                                <PaddingTop>2pt</PaddingTop>
+                                <PaddingBottom>2pt</PaddingBottom>
+                              </Style>
+                            </Textbox>
+                          </CellContents>
+                        </TablixCell>
+                        <TablixCell>
+                          <CellContents>
+                            <Textbox Name="txtMar">
+                              <CanGrow>true</CanGrow>
+                              <KeepTogether>true</KeepTogether>
+                              <Paragraphs>
+                                <Paragraph>
+                                  <TextRuns>
+                                    <TextRun>
+                                      <Value>Mar</Value>
+                                      <Style>
+                                        <FontFamily>Arial</FontFamily>
+                                        <FontSize>8pt</FontSize>
+                                        <FontWeight>=IIF(Parameters!ReportingMonth.Value = 3,"Bold","Normal")</FontWeight>
+                                        <Color>=IIF(Parameters!ReportingMonth.Value = 3,"White","Black")</Color>
+                                      </Style>
+                                    </TextRun>
+                                  </TextRuns>
+                                  <Style>
+                                    <TextAlign>Center</TextAlign>
+                                  </Style>
+                                </Paragraph>
+                              </Paragraphs>
+                              <ActionInfo>
+                                <Actions>
+                                  <Action>
+                                    <Drillthrough>
+                                      <ReportName>=Globals!ReportName</ReportName>
+                                      <Parameters>
+                                        <Parameter Name="ReportingMonth">
+                                          <Value>3</Value>
+                                        </Parameter>
+                                        <Parameter Name="ReportingYear">
+                                          <Value>=Parameters!ReportingYear.Value</Value>
+                                        </Parameter>
+                                      </Parameters>
+                                    </Drillthrough>
+                                  </Action>
+                                </Actions>
+                              </ActionInfo>
+                              <Style>
+                                <Border>
+                                  <Color>DodgerBlue</Color>
+                                  <Style>Solid</Style>
+                                </Border>
+                                <BackgroundColor>=IIF(Parameters!ReportingMonth.Value = 3,"DodgerBlue","White")</BackgroundColor>
+                                <VerticalAlign>Middle</VerticalAlign>
+                                <PaddingLeft>2pt</PaddingLeft>
+                                <PaddingRight>2pt</PaddingRight>
+                                <PaddingTop>2pt</PaddingTop>
+                                <PaddingBottom>2pt</PaddingBottom>
+                              </Style>
+                            </Textbox>
+                          </CellContents>
+                        </TablixCell>
+                        <TablixCell>
+                          <CellContents>
+                            <Textbox Name="txtApr">
+                              <CanGrow>true</CanGrow>
+                              <KeepTogether>true</KeepTogether>
+                              <Paragraphs>
+                                <Paragraph>
+                                  <TextRuns>
+                                    <TextRun>
+                                      <Value>Abr</Value>
+                                      <Style>
+                                        <FontFamily>Arial</FontFamily>
+                                        <FontSize>8pt</FontSize>
+                                        <FontWeight>=IIF(Parameters!ReportingMonth.Value = 4,"Bold","Normal")</FontWeight>
+                                        <Color>=IIF(Parameters!ReportingMonth.Value = 4,"White","Black")</Color>
+                                      </Style>
+                                    </TextRun>
+                                  </TextRuns>
+                                  <Style>
+                                    <TextAlign>Center</TextAlign>
+                                  </Style>
+                                </Paragraph>
+                              </Paragraphs>
+                              <ActionInfo>
+                                <Actions>
+                                  <Action>
+                                    <Drillthrough>
+                                      <ReportName>=Globals!ReportName</ReportName>
+                                      <Parameters>
+                                        <Parameter Name="ReportingMonth">
+                                          <Value>4</Value>
+                                        </Parameter>
+                                        <Parameter Name="ReportingYear">
+                                          <Value>=Parameters!ReportingYear.Value</Value>
+                                        </Parameter>
+                                      </Parameters>
+                                    </Drillthrough>
+                                  </Action>
+                                </Actions>
+                              </ActionInfo>
+                              <Style>
+                                <Border>
+                                  <Color>DodgerBlue</Color>
+                                  <Style>Solid</Style>
+                                </Border>
+                                <BackgroundColor>=IIF(Parameters!ReportingMonth.Value = 4,"DodgerBlue","White")</BackgroundColor>
+                                <VerticalAlign>Middle</VerticalAlign>
+                                <PaddingLeft>2pt</PaddingLeft>
+                                <PaddingRight>2pt</PaddingRight>
+                                <PaddingTop>2pt</PaddingTop>
+                                <PaddingBottom>2pt</PaddingBottom>
+                              </Style>
+                            </Textbox>
+                          </CellContents>
+                        </TablixCell>
+                        <TablixCell>
+                          <CellContents>
+                            <Textbox Name="txtMay">
+                              <CanGrow>true</CanGrow>
+                              <KeepTogether>true</KeepTogether>
+                              <Paragraphs>
+                                <Paragraph>
+                                  <TextRuns>
+                                    <TextRun>
+                                      <Value>May</Value>
+                                      <Style>
+                                        <FontFamily>Arial</FontFamily>
+                                        <FontSize>8pt</FontSize>
+                                        <FontWeight>=IIF(Parameters!ReportingMonth.Value = 5,"Bold","Normal")</FontWeight>
+                                        <Color>=IIF(Parameters!ReportingMonth.Value = 5,"White","Black")</Color>
+                                      </Style>
+                                    </TextRun>
+                                  </TextRuns>
+                                  <Style>
+                                    <TextAlign>Center</TextAlign>
+                                  </Style>
+                                </Paragraph>
+                              </Paragraphs>
+                              <ActionInfo>
+                                <Actions>
+                                  <Action>
+                                    <Drillthrough>
+                                      <ReportName>=Globals!ReportName</ReportName>
+                                      <Parameters>
+                                        <Parameter Name="ReportingMonth">
+                                          <Value>5</Value>
+                                        </Parameter>
+                                        <Parameter Name="ReportingYear">
+                                          <Value>=Parameters!ReportingYear.Value</Value>
+                                        </Parameter>
+                                      </Parameters>
+                                    </Drillthrough>
+                                  </Action>
+                                </Actions>
+                              </ActionInfo>
+                              <Style>
+                                <Border>
+                                  <Color>DodgerBlue</Color>
+                                  <Style>Solid</Style>
+                                </Border>
+                                <BackgroundColor>=IIF(Parameters!ReportingMonth.Value = 5,"DodgerBlue","White")</BackgroundColor>
+                                <VerticalAlign>Middle</VerticalAlign>
+                                <PaddingLeft>2pt</PaddingLeft>
+                                <PaddingRight>2pt</PaddingRight>
+                                <PaddingTop>2pt</PaddingTop>
+                                <PaddingBottom>2pt</PaddingBottom>
+                              </Style>
+                            </Textbox>
+                          </CellContents>
+                        </TablixCell>
+                        <TablixCell>
+                          <CellContents>
+                            <Textbox Name="txtJun">
+                              <CanGrow>true</CanGrow>
+                              <KeepTogether>true</KeepTogether>
+                              <Paragraphs>
+                                <Paragraph>
+                                  <TextRuns>
+                                    <TextRun>
+                                      <Value>Jun</Value>
+                                      <Style>
+                                        <FontFamily>Arial</FontFamily>
+                                        <FontSize>8pt</FontSize>
+                                        <FontWeight>=IIF(Parameters!ReportingMonth.Value = 6,"Bold","Normal")</FontWeight>
+                                        <Color>=IIF(Parameters!ReportingMonth.Value = 6,"White","Black")</Color>
+                                      </Style>
+                                    </TextRun>
+                                  </TextRuns>
+                                  <Style>
+                                    <TextAlign>Center</TextAlign>
+                                  </Style>
+                                </Paragraph>
+                              </Paragraphs>
+                              <ActionInfo>
+                                <Actions>
+                                  <Action>
+                                    <Drillthrough>
+                                      <ReportName>=Globals!ReportName</ReportName>
+                                      <Parameters>
+                                        <Parameter Name="ReportingMonth">
+                                          <Value>6</Value>
+                                        </Parameter>
+                                        <Parameter Name="ReportingYear">
+                                          <Value>=Parameters!ReportingYear.Value</Value>
+                                        </Parameter>
+                                      </Parameters>
+                                    </Drillthrough>
+                                  </Action>
+                                </Actions>
+                              </ActionInfo>
+                              <Style>
+                                <Border>
+                                  <Color>DodgerBlue</Color>
+                                  <Style>Solid</Style>
+                                </Border>
+                                <BackgroundColor>=IIF(Parameters!ReportingMonth.Value = 6,"DodgerBlue","White")</BackgroundColor>
+                                <VerticalAlign>Middle</VerticalAlign>
+                                <PaddingLeft>2pt</PaddingLeft>
+                                <PaddingRight>2pt</PaddingRight>
+                                <PaddingTop>2pt</PaddingTop>
+                                <PaddingBottom>2pt</PaddingBottom>
+                              </Style>
+                            </Textbox>
+                          </CellContents>
+                        </TablixCell>
+                      </TablixCells>
+                    </TablixRow>
+                    <TablixRow>
+                      <Height>0.6cm</Height>
+                      <TablixCells>
+                        <TablixCell>
+                          <CellContents>
+                            <Textbox Name="txtJul">
+                              <CanGrow>true</CanGrow>
+                              <KeepTogether>true</KeepTogether>
+                              <Paragraphs>
+                                <Paragraph>
+                                  <TextRuns>
+                                    <TextRun>
+                                      <Value>Jul</Value>
+                                      <Style>
+                                        <FontFamily>Arial</FontFamily>
+                                        <FontSize>8pt</FontSize>
+                                        <FontWeight>=IIF(Parameters!ReportingMonth.Value = 7,"Bold","Normal")</FontWeight>
+                                        <Color>=IIF(Parameters!ReportingMonth.Value = 7,"White","Black")</Color>
+                                      </Style>
+                                    </TextRun>
+                                  </TextRuns>
+                                  <Style>
+                                    <TextAlign>Center</TextAlign>
+                                  </Style>
+                                </Paragraph>
+                              </Paragraphs>
+                              <ActionInfo>
+                                <Actions>
+                                  <Action>
+                                    <Drillthrough>
+                                      <ReportName>=Globals!ReportName</ReportName>
+                                      <Parameters>
+                                        <Parameter Name="ReportingMonth">
+                                          <Value>7</Value>
+                                        </Parameter>
+                                        <Parameter Name="ReportingYear">
+                                          <Value>=Parameters!ReportingYear.Value</Value>
+                                        </Parameter>
+                                      </Parameters>
+                                    </Drillthrough>
+                                  </Action>
+                                </Actions>
+                              </ActionInfo>
+                              <Style>
+                                <Border>
+                                  <Color>DodgerBlue</Color>
+                                  <Style>Solid</Style>
+                                </Border>
+                                <BackgroundColor>=IIF(Parameters!ReportingMonth.Value = 7,"DodgerBlue","White")</BackgroundColor>
+                                <VerticalAlign>Middle</VerticalAlign>
+                                <PaddingLeft>2pt</PaddingLeft>
+                                <PaddingRight>2pt</PaddingRight>
+                                <PaddingTop>2pt</PaddingTop>
+                                <PaddingBottom>2pt</PaddingBottom>
+                              </Style>
+                            </Textbox>
+                          </CellContents>
+                        </TablixCell>
+                        <TablixCell>
+                          <CellContents>
+                            <Textbox Name="txtAug">
+                              <CanGrow>true</CanGrow>
+                              <KeepTogether>true</KeepTogether>
+                              <Paragraphs>
+                                <Paragraph>
+                                  <TextRuns>
+                                    <TextRun>
+                                      <Value>Ago</Value>
+                                      <Style>
+                                        <FontFamily>Arial</FontFamily>
+                                        <FontSize>8pt</FontSize>
+                                        <FontWeight>=IIF(Parameters!ReportingMonth.Value = 8,"Bold","Normal")</FontWeight>
+                                        <Color>=IIF(Parameters!ReportingMonth.Value = 8,"White","Black")</Color>
+                                      </Style>
+                                    </TextRun>
+                                  </TextRuns>
+                                  <Style>
+                                    <TextAlign>Center</TextAlign>
+                                  </Style>
+                                </Paragraph>
+                              </Paragraphs>
+                              <ActionInfo>
+                                <Actions>
+                                  <Action>
+                                    <Drillthrough>
+                                      <ReportName>=Globals!ReportName</ReportName>
+                                      <Parameters>
+                                        <Parameter Name="ReportingMonth">
+                                          <Value>8</Value>
+                                        </Parameter>
+                                        <Parameter Name="ReportingYear">
+                                          <Value>=Parameters!ReportingYear.Value</Value>
+                                        </Parameter>
+                                      </Parameters>
+                                    </Drillthrough>
+                                  </Action>
+                                </Actions>
+                              </ActionInfo>
+                              <Style>
+                                <Border>
+                                  <Color>DodgerBlue</Color>
+                                  <Style>Solid</Style>
+                                </Border>
+                                <BackgroundColor>=IIF(Parameters!ReportingMonth.Value = 8,"DodgerBlue","White")</BackgroundColor>
+                                <VerticalAlign>Middle</VerticalAlign>
+                                <PaddingLeft>2pt</PaddingLeft>
+                                <PaddingRight>2pt</PaddingRight>
+                                <PaddingTop>2pt</PaddingTop>
+                                <PaddingBottom>2pt</PaddingBottom>
+                              </Style>
+                            </Textbox>
+                          </CellContents>
+                        </TablixCell>
+                        <TablixCell>
+                          <CellContents>
+                            <Textbox Name="txtSep">
+                              <CanGrow>true</CanGrow>
+                              <KeepTogether>true</KeepTogether>
+                              <Paragraphs>
+                                <Paragraph>
+                                  <TextRuns>
+                                    <TextRun>
+                                      <Value>Sep</Value>
+                                      <Style>
+                                        <FontFamily>Arial</FontFamily>
+                                        <FontSize>8pt</FontSize>
+                                        <FontWeight>=IIF(Parameters!ReportingMonth.Value = 9,"Bold","Normal")</FontWeight>
+                                        <Color>=IIF(Parameters!ReportingMonth.Value = 9,"White","Black")</Color>
+                                      </Style>
+                                    </TextRun>
+                                  </TextRuns>
+                                  <Style>
+                                    <TextAlign>Center</TextAlign>
+                                  </Style>
+                                </Paragraph>
+                              </Paragraphs>
+                              <ActionInfo>
+                                <Actions>
+                                  <Action>
+                                    <Drillthrough>
+                                      <ReportName>=Globals!ReportName</ReportName>
+                                      <Parameters>
+                                        <Parameter Name="ReportingMonth">
+                                          <Value>9</Value>
+                                        </Parameter>
+                                        <Parameter Name="ReportingYear">
+                                          <Value>=Parameters!ReportingYear.Value</Value>
+                                        </Parameter>
+                                      </Parameters>
+                                    </Drillthrough>
+                                  </Action>
+                                </Actions>
+                              </ActionInfo>
+                              <Style>
+                                <Border>
+                                  <Color>DodgerBlue</Color>
+                                  <Style>Solid</Style>
+                                </Border>
+                                <BackgroundColor>=IIF(Parameters!ReportingMonth.Value = 9,"DodgerBlue","White")</BackgroundColor>
+                                <VerticalAlign>Middle</VerticalAlign>
+                                <PaddingLeft>2pt</PaddingLeft>
+                                <PaddingRight>2pt</PaddingRight>
+                                <PaddingTop>2pt</PaddingTop>
+                                <PaddingBottom>2pt</PaddingBottom>
+                              </Style>
+                            </Textbox>
+                          </CellContents>
+                        </TablixCell>
+                        <TablixCell>
+                          <CellContents>
+                            <Textbox Name="txtOct">
+                              <CanGrow>true</CanGrow>
+                              <KeepTogether>true</KeepTogether>
+                              <Paragraphs>
+                                <Paragraph>
+                                  <TextRuns>
+                                    <TextRun>
+                                      <Value>Oct</Value>
+                                      <Style>
+                                        <FontFamily>Arial</FontFamily>
+                                        <FontSize>8pt</FontSize>
+                                        <FontWeight>=IIF(Parameters!ReportingMonth.Value = 10,"Bold","Normal")</FontWeight>
+                                        <Color>=IIF(Parameters!ReportingMonth.Value = 10,"White","Black")</Color>
+                                      </Style>
+                                    </TextRun>
+                                  </TextRuns>
+                                  <Style>
+                                    <TextAlign>Center</TextAlign>
+                                  </Style>
+                                </Paragraph>
+                              </Paragraphs>
+                              <ActionInfo>
+                                <Actions>
+                                  <Action>
+                                    <Drillthrough>
+                                      <ReportName>=Globals!ReportName</ReportName>
+                                      <Parameters>
+                                        <Parameter Name="ReportingMonth">
+                                          <Value>10</Value>
+                                        </Parameter>
+                                        <Parameter Name="ReportingYear">
+                                          <Value>=Parameters!ReportingYear.Value</Value>
+                                        </Parameter>
+                                      </Parameters>
+                                    </Drillthrough>
+                                  </Action>
+                                </Actions>
+                              </ActionInfo>
+                              <Style>
+                                <Border>
+                                  <Color>DodgerBlue</Color>
+                                  <Style>Solid</Style>
+                                </Border>
+                                <BackgroundColor>=IIF(Parameters!ReportingMonth.Value = 10,"DodgerBlue","White")</BackgroundColor>
+                                <VerticalAlign>Middle</VerticalAlign>
+                                <PaddingLeft>2pt</PaddingLeft>
+                                <PaddingRight>2pt</PaddingRight>
+                                <PaddingTop>2pt</PaddingTop>
+                                <PaddingBottom>2pt</PaddingBottom>
+                              </Style>
+                            </Textbox>
+                          </CellContents>
+                        </TablixCell>
+                        <TablixCell>
+                          <CellContents>
+                            <Textbox Name="txtNov">
+                              <CanGrow>true</CanGrow>
+                              <KeepTogether>true</KeepTogether>
+                              <Paragraphs>
+                                <Paragraph>
+                                  <TextRuns>
+                                    <TextRun>
+                                      <Value>Nov</Value>
+                                      <Style>
+                                        <FontFamily>Arial</FontFamily>
+                                        <FontSize>8pt</FontSize>
+                                        <FontWeight>=IIF(Parameters!ReportingMonth.Value = 11,"Bold","Normal")</FontWeight>
+                                        <Color>=IIF(Parameters!ReportingMonth.Value = 11,"White","Black")</Color>
+                                      </Style>
+                                    </TextRun>
+                                  </TextRuns>
+                                  <Style>
+                                    <TextAlign>Center</TextAlign>
+                                  </Style>
+                                </Paragraph>
+                              </Paragraphs>
+                              <ActionInfo>
+                                <Actions>
+                                  <Action>
+                                    <Drillthrough>
+                                      <ReportName>=Globals!ReportName</ReportName>
+                                      <Parameters>
+                                        <Parameter Name="ReportingMonth">
+                                          <Value>11</Value>
+                                        </Parameter>
+                                        <Parameter Name="ReportingYear">
+                                          <Value>=Parameters!ReportingYear.Value</Value>
+                                        </Parameter>
+                                      </Parameters>
+                                    </Drillthrough>
+                                  </Action>
+                                </Actions>
+                              </ActionInfo>
+                              <Style>
+                                <Border>
+                                  <Color>DodgerBlue</Color>
+                                  <Style>Solid</Style>
+                                </Border>
+                                <BackgroundColor>=IIF(Parameters!ReportingMonth.Value = 11,"DodgerBlue","White")</BackgroundColor>
+                                <VerticalAlign>Middle</VerticalAlign>
+                                <PaddingLeft>2pt</PaddingLeft>
+                                <PaddingRight>2pt</PaddingRight>
+                                <PaddingTop>2pt</PaddingTop>
+                                <PaddingBottom>2pt</PaddingBottom>
+                              </Style>
+                            </Textbox>
+                          </CellContents>
+                        </TablixCell>
+                        <TablixCell>
+                          <CellContents>
+                            <Textbox Name="txtDec">
+                              <CanGrow>true</CanGrow>
+                              <KeepTogether>true</KeepTogether>
+                              <Paragraphs>
+                                <Paragraph>
+                                  <TextRuns>
+                                    <TextRun>
+                                      <Value>Dic</Value>
+                                      <Style>
+                                        <FontFamily>Arial</FontFamily>
+                                        <FontSize>8pt</FontSize>
+                                        <FontWeight>=IIF(Parameters!ReportingMonth.Value = 12,"Bold","Normal")</FontWeight>
+                                        <Color>=IIF(Parameters!ReportingMonth.Value = 12,"White","Black")</Color>
+                                      </Style>
+                                    </TextRun>
+                                  </TextRuns>
+                                  <Style>
+                                    <TextAlign>Center</TextAlign>
+                                  </Style>
+                                </Paragraph>
+                              </Paragraphs>
+                              <ActionInfo>
+                                <Actions>
+                                  <Action>
+                                    <Drillthrough>
+                                      <ReportName>=Globals!ReportName</ReportName>
+                                      <Parameters>
+                                        <Parameter Name="ReportingMonth">
+                                          <Value>12</Value>
+                                        </Parameter>
+                                        <Parameter Name="ReportingYear">
+                                          <Value>=Parameters!ReportingYear.Value</Value>
+                                        </Parameter>
+                                      </Parameters>
+                                    </Drillthrough>
+                                  </Action>
+                                </Actions>
+                              </ActionInfo>
+                              <Style>
+                                <Border>
+                                  <Color>DodgerBlue</Color>
+                                  <Style>Solid</Style>
+                                </Border>
+                                <BackgroundColor>=IIF(Parameters!ReportingMonth.Value = 12,"DodgerBlue","White")</BackgroundColor>
+                                <VerticalAlign>Middle</VerticalAlign>
+                                <PaddingLeft>2pt</PaddingLeft>
+                                <PaddingRight>2pt</PaddingRight>
+                                <PaddingTop>2pt</PaddingTop>
+                                <PaddingBottom>2pt</PaddingBottom>
+                              </Style>
+                            </Textbox>
+                          </CellContents>
+                        </TablixCell>
+                      </TablixCells>
+                    </TablixRow>
+                  </TablixRows>
+                </TablixBody>
+                <TablixColumnHierarchy>
+                  <TablixMembers>
+                    <TablixMember />
+                    <TablixMember />
+                    <TablixMember />
+                    <TablixMember />
+                    <TablixMember />
+                    <TablixMember />
+                  </TablixMembers>
+                </TablixColumnHierarchy>
+                <TablixRowHierarchy>
+                  <TablixMembers>
+                    <TablixMember />
+                    <TablixMember />
+                  </TablixMembers>
+                </TablixRowHierarchy>
+                <DataSetName>dataSetDummy</DataSetName>
+                <Top>0.05517cm</Top>
+                <Left>2.8cm</Left>
+                <Height>1.2cm</Height>
+                <Width>6.48cm</Width>
+                <ZIndex>2</ZIndex>
+                <Style>
+                  <Border>
+                    <Style>None</Style>
+                  </Border>
+                </Style>
+              </Tablix>
+            </ReportItems>
+            <KeepTogether>true</KeepTogether>
+            <Height>1.27056cm</Height>
+            <Width>9.28cm</Width>
+            <Style>
+              <Border>
+                <Style>None</Style>
+              </Border>
+            </Style>
+          </Rectangle>
+        </ReportItems>
+        <Height>2.74129cm</Height>
+        <Style />
+      </Body>
+      <Width>19.06482cm</Width>
+      <Page>
+        <PageHeader>
+          <Height>1.54517cm</Height>
+          <PrintOnFirstPage>true</PrintOnFirstPage>
+          <PrintOnLastPage>true</PrintOnLastPage>
+          <ReportItems>
+            <Image Name="Logo">
+              <Source>External</Source>
+              <Value>=IIF(Globals!ReportServerUrl Is Nothing, "LogoEnterprise.png", "Images/LogoEnterprise.png")</Value>
+              <Sizing>FitProportional</Sizing>
+              <Height>1.44cm</Height>
+              <Width>2.26cm</Width>
+              <ToolTip>Logo</ToolTip>
+              <Style>
+                <Border>
+                  <Style>None</Style>
+                </Border>
+              </Style>
+            </Image>
+            <Textbox Name="Textbox4">
+              <CanGrow>true</CanGrow>
+              <KeepTogether>true</KeepTogether>
+              <Paragraphs>
+                <Paragraph>
+                  <TextRuns>
+                    <TextRun>
+                      <Value>=Globals!PageNumber &amp; " / " &amp; Globals!TotalPages</Value>
+                      <Style>
+                        <FontSize>8pt</FontSize>
+                      </Style>
+                    </TextRun>
+                  </TextRuns>
+                  <Style>
+                    <TextAlign>Right</TextAlign>
+                  </Style>
+                </Paragraph>
+              </Paragraphs>
+              <rd:DefaultName>Textbox4</rd:DefaultName>
+              <Left>16.49518cm</Left>
+              <Height>0.49417cm</Height>
+              <Width>2.56963cm</Width>
+              <ZIndex>1</ZIndex>
+              <Style>
+                <Border>
+                  <Style>None</Style>
+                </Border>
+                <PaddingLeft>2pt</PaddingLeft>
+                <PaddingRight>2pt</PaddingRight>
+                <PaddingTop>2pt</PaddingTop>
+                <PaddingBottom>2pt</PaddingBottom>
+              </Style>
+            </Textbox>
+          </ReportItems>
+          <Style>
+            <Border>
+              <Style>None</Style>
+            </Border>
+          </Style>
+        </PageHeader>
+        <PageFooter>
+          <Height>0.67733cm</Height>
+          <PrintOnFirstPage>true</PrintOnFirstPage>
+          <PrintOnLastPage>true</PrintOnLastPage>
+          <ReportItems>
+            <Textbox Name="Textbox100">
+              <CanGrow>true</CanGrow>
+              <KeepTogether>true</KeepTogether>
+              <Paragraphs>
+                <Paragraph>
+                  <TextRuns>
+                    <TextRun>
+                      <Value>="Fecha de Ejecución: " &amp; CDate(Globals!ExecutionTime).ToString("yyyy-MM-dd HH:mm:ss")</Value>
+                      <Style>
+                        <FontSize>8pt</FontSize>
+                      </Style>
+                    </TextRun>
+                  </TextRuns>
+                  <Style />
+                </Paragraph>
+              </Paragraphs>
+              <Top>0.10583cm</Top>
+              <Height>0.52062cm</Height>
+              <Width>7.62cm</Width>
+              <Style>
+                <Border>
+                  <Style>None</Style>
+                </Border>
+                <PaddingLeft>2pt</PaddingLeft>
+                <PaddingRight>2pt</PaddingRight>
+                <PaddingTop>2pt</PaddingTop>
+                <PaddingBottom>2pt</PaddingBottom>
+              </Style>
+            </Textbox>
+          </ReportItems>
+          <Style>
+            <Border>
+              <Style>None</Style>
+            </Border>
+          </Style>
+        </PageFooter>
+        <PageHeight>27.94cm</PageHeight>
+        <PageWidth>21.59cm</PageWidth>
+        <LeftMargin>1cm</LeftMargin>
+        <RightMargin>1cm</RightMargin>
+        <TopMargin>1cm</TopMargin>
+        <BottomMargin>1cm</BottomMargin>
+        <ColumnSpacing>1.27cm</ColumnSpacing>
+        <Style />
+      </Page>
+    </ReportSection>
+  </ReportSections>
+  <ReportParameters>
+    <ReportParameter Name="ReportingYear">
+      <DataType>String</DataType>
+      <DefaultValue>
+        <DataSetReference>
+          <DataSetName>dataSetCurrentYear</DataSetName>
+          <ValueField>ParameterCaption</ValueField>
+        </DataSetReference>
+      </DefaultValue>
+      <Prompt>Año</Prompt>
+      <Hidden>true</Hidden>
+      <ValidValues>
+        <DataSetReference>
+          <DataSetName>dataSetYear_Cube</DataSetName>
+          <ValueField>ParameterCaption</ValueField>
+          <LabelField>ParameterCaption</LabelField>
+        </DataSetReference>
+      </ValidValues>
+    </ReportParameter>
+    <ReportParameter Name="ReportingMonth">
+      <DataType>Integer</DataType>
+      <DefaultValue>
+        <Values>
+          <Value>=Month(Today())</Value>
+        </Values>
+      </DefaultValue>
+      <Prompt>Mes</Prompt>
+      <Hidden>true</Hidden>
+      <ValidValues>
+        <DataSetReference>
+          <DataSetName>dataSetFullMonth</DataSetName>
+          <ValueField>MonthNumber</ValueField>
+          <LabelField>MonthName</LabelField>
+        </DataSetReference>
+      </ValidValues>
+    </ReportParameter>
+  </ReportParameters>
+  <ReportParametersLayout>
+    <GridLayoutDefinition>
+      <NumberOfColumns>4</NumberOfColumns>
+      <NumberOfRows>2</NumberOfRows>
+      <CellDefinitions>
+        <CellDefinition>
+          <ColumnIndex>0</ColumnIndex>
+          <RowIndex>0</RowIndex>
+          <ParameterName>ReportingYear</ParameterName>
+        </CellDefinition>
+        <CellDefinition>
+          <ColumnIndex>1</ColumnIndex>
+          <RowIndex>0</RowIndex>
+          <ParameterName>ReportingMonth</ParameterName>
+        </CellDefinition>
+      </CellDefinitions>
+    </GridLayoutDefinition>
+  </ReportParametersLayout>
+  <Language>es-ES</Language>
+  <ConsumeContainerWhitespace>true</ConsumeContainerWhitespace>
+  <rd:ReportUnitType>Cm</rd:ReportUnitType>
+  <rd:ReportID>a47828b8-1b14-4258-9783-82621c31053f</rd:ReportID>
+</Report>

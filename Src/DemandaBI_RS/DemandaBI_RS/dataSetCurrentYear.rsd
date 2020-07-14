@@ -1,0 +1,83 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<SharedDataSet xmlns="http://schemas.microsoft.com/sqlserver/reporting/2010/01/shareddatasetdefinition" xmlns:rd="http://schemas.microsoft.com/SQLServer/reporting/reportdesigner">
+  <DataSet Name="DataSet1">
+    <Query>
+      <DataSourceReference>dsDemanda_OLAP</DataSourceReference>
+      <CommandText>WITH 
+MEMBER [Measures].[ParameterCaption] AS [DimFecha].[Año].CURRENTMEMBER.MEMBER_CAPTION 
+MEMBER [Measures].[ParameterValue] AS [DimFecha].[Año].CURRENTMEMBER.UNIQUENAME 
+SELECT NON EMPTY {[Measures].[ParameterCaption], [Measures].[ParameterValue]} ON COLUMNS , 
+TAIL(FILTER([DimFecha].[Año].MEMBERS, [Measures].[Dem_Contar]), 1) ON ROWS
+FROM [Demanda];</CommandText>
+      <rd:DesignerState>
+        <QueryDefinition xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/AnalysisServices/QueryDefinition">
+          <CommandType>MDX</CommandType>
+          <Type>Query</Type>
+          <QuerySpecification xsi:type="MDXQuerySpecification">
+            <Select>
+              <Items>
+                <Item>
+                  <ID xsi:type="Level">
+                    <DimensionName>DimFecha</DimensionName>
+                    <HierarchyName>Año</HierarchyName>
+                    <HierarchyUniqueName>[DimFecha].[Año]</HierarchyUniqueName>
+                    <LevelName>Año</LevelName>
+                    <UniqueName>[DimFecha].[Año].[Año]</UniqueName>
+                  </ID>
+                  <ItemCaption>Año</ItemCaption>
+                </Item>
+                <Item>
+                  <ID xsi:type="Measure">
+                    <MeasureName>ParameterCaption</MeasureName>
+                    <UniqueName>[Measures].[ParameterCaption]</UniqueName>
+                  </ID>
+                  <ItemCaption>ParameterCaption</ItemCaption>
+                  <FormattedValue>true</FormattedValue>
+                </Item>
+                <Item>
+                  <ID xsi:type="Measure">
+                    <MeasureName>ParameterValue</MeasureName>
+                    <UniqueName>[Measures].[ParameterValue]</UniqueName>
+                  </ID>
+                  <ItemCaption>ParameterValue</ItemCaption>
+                  <FormattedValue>true</FormattedValue>
+                </Item>
+              </Items>
+            </Select>
+            <AutoExecute>false</AutoExecute>
+            <From>Demanda</From>
+            <Filter>
+              <FilterItems />
+            </Filter>
+            <Calculations />
+            <Aggregates />
+            <QueryProperties />
+          </QuerySpecification>
+          <Query>
+            <Statement>WITH 
+MEMBER [Measures].[ParameterCaption] AS [DimFecha].[Año].CURRENTMEMBER.MEMBER_CAPTION 
+MEMBER [Measures].[ParameterValue] AS [DimFecha].[Año].CURRENTMEMBER.UNIQUENAME 
+SELECT NON EMPTY {[Measures].[ParameterCaption], [Measures].[ParameterValue]} ON COLUMNS , 
+TAIL(FILTER([DimFecha].[Año].MEMBERS, [Measures].[Dem_Contar]), 1) ON ROWS
+FROM [Demanda];</Statement>
+            <ParameterDefinitions />
+          </Query>
+        </QueryDefinition>
+      </rd:DesignerState>
+    </Query>
+    <Fields>
+      <Field Name="Año">
+        <DataField>&lt;?xml version="1.0" encoding="utf-8"?&gt;&lt;Field xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xsi:type="Level" UniqueName="[DimFecha].[Año].[Año]" /&gt;</DataField>
+        <rd:TypeName>System.String</rd:TypeName>
+      </Field>
+      <Field Name="ParameterCaption">
+        <DataField>&lt;?xml version="1.0" encoding="utf-8"?&gt;&lt;Field xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xsi:type="Measure" UniqueName="[Measures].[ParameterCaption]" /&gt;</DataField>
+        <rd:TypeName>System.Int32</rd:TypeName>
+      </Field>
+      <Field Name="ParameterValue">
+        <DataField>&lt;?xml version="1.0" encoding="utf-8"?&gt;&lt;Field xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xsi:type="Measure" UniqueName="[Measures].[ParameterValue]" /&gt;</DataField>
+        <rd:TypeName>System.Int32</rd:TypeName>
+      </Field>
+    </Fields>
+  </DataSet>
+</SharedDataSet>

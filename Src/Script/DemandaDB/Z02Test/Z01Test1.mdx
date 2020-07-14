@@ -1,0 +1,39 @@
+/* =======================================================
+Consultas PBI
+
+Editar consultas
+A mano izquierda seleccionar consulta
+A mano derecha "Configuracion de la consulta" -  "Pasos aplicados" - Piñon
+======================================================= */
+
+/* ========================================================
+XMLA: Clear cache
+======================================================== */
+<ClearCache xmlns="http://schemas.microsoft.com/analysisservices/2003/engine">  
+  <Object>  
+    <DatabaseID>Demanda_OLAP</DatabaseID>
+  </Object>  
+</ClearCache>  
+
+<ClearCache xmlns="http://schemas.microsoft.com/analysisservices/2003/engine">  
+  <Object>  
+    <DatabaseID>Demanda_OLAP</DatabaseID>
+      <CubeID>Demanda</CubeID>
+  </Object>  
+</ClearCache>  
+
+<ClearCache xmlns="http://schemas.microsoft.com/analysisservices/2003/engine">  
+  <Object>  
+    <DatabaseID>Demanda_OLAP</DatabaseID>
+      <CubeID>Demanda</CubeID>
+        <MeasureGroupID>Frecuencia</MeasureGroupID>  
+  </Object>  
+</ClearCache>
+
+/* ========================================================
+Consulta dummy
+======================================================== */
+
+SELECT {} on COLUMNS, 
+TAIL(FILTER([DimFecha].[Mes desc corto].MEMBERS, [Measures].[Dem_Contar]), 1) ON ROWS
+FROM [Demanda];

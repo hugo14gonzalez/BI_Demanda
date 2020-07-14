@@ -1,0 +1,88 @@
+﻿/* Styles for custom ReportViewer */
+.reportToolbar {
+	border: 1px solid lightgray;
+	background-color: white;
+	padding: 0em;
+	margin: 0em;
+}
+
+.reportToolbarGroup {
+	border: 1px solid lightgray;
+	background-color: white;
+	padding: 0.5em;
+	margin: 0em;
+}
+
+.reportError { 
+	color: red; 
+	font-weight: bold; 
+	font-size: 120%; 
+	margin: 1em;
+	padding: 0.1em;
+}
+
+.reportInformation {
+	color: black;
+	font-size: 100%;
+	margin: 1em;
+	padding: 0.1em;
+}
+
+.reportContentContainer {
+	border: 1px solid lightgray;
+	padding: 0em;
+	margin: 0em;
+	/*display: inline-block;*/
+}
+
+.reportContent {
+	padding: 0.5em;
+	margin: 0em;
+}
+
+.parametersContainer {
+	border: 1px solid lightgray;
+	background-color: white;
+	margin: 0em !important;
+	padding: 0em !important;
+}
+
+.parameters {
+	border: none;
+	margin: 0em !important;
+	padding: 0em !important;
+}
+
+.parameter {
+	border: 1px solid lightgray !important;
+	margin: 0em !important;
+	padding: 0.5em !important;
+}
+
+/*.Parameter input, .Parameter select {
+	border: 1px solid lightgray;
+	margin-right: 2px;
+	padding: 0.5em;
+}*/
+
+.pagerNumbers .form-control {
+	width: 4em;
+	text-align: center;
+}
+
+.searchText {
+	width: 6em !important;
+}
+
+.pagerNumbers {
+	padding: 0em .5em;
+	/*display: inline-block;*/
+}
+
+span a[disabled=disabled] {
+	color: grey;
+}
+
+.loadingContainer i {
+    margin-right: .5em;
+}

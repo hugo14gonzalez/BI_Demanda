@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<DTS:ConnectionManager xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:ObjectName="dsDemanda_OLAP"
+  DTS:DTSID="{0302EABE-9575-4CD4-98B6-49BAB2EE5D0C}"
+  DTS:CreationName="MSOLAP100">
+  <DTS:PropertyExpression
+    DTS:Name="ConnectionString">@[$Project::dsDemanda_OLAP_ConnectionString]</DTS:PropertyExpression>
+  <DTS:ObjectData>
+    <DTS:ConnectionManager
+      DTS:ConnectionString="Data Source=HUGO\SQL2019;Initial Catalog=Demanda_OLAP;Provider=MSOLAP.8;Integrated Security=SSPI;Impersonation Level=Impersonate;" />
+  </DTS:ObjectData>
+</DTS:ConnectionManager>

@@ -1,0 +1,99 @@
+<?xml version="1.0"?>
+<SqlWorkbenchSqlProject xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Name="A02DemandaDW_DB">
+  <Items>
+    <LogicalFolder Name="Connections" Type="2" Sorted="true">
+      <Items />
+    </LogicalFolder>
+    <LogicalFolder Name="Queries" Type="0" Sorted="true">
+      <Items>
+        <FileNode Name="A01CreaDB.sql">
+          <AssociatedConnectionMoniker />
+          <AssociatedConnSrvName />
+          <AssociatedConnUserName />
+          <FullPath>A01CreaDB.sql</FullPath>
+        </FileNode>
+        <FileNode Name="A02Schema.sql">
+          <AssociatedConnectionMoniker />
+          <AssociatedConnSrvName />
+          <AssociatedConnUserName />
+          <FullPath>A02Schema.sql</FullPath>
+        </FileNode>
+        <FileNode Name="A03PartitonScheme.sql">
+          <AssociatedConnectionMoniker />
+          <AssociatedConnSrvName />
+          <AssociatedConnUserName />
+          <FullPath>A03PartitonScheme.sql</FullPath>
+        </FileNode>
+        <FileNode Name="A04BrokerCLR.sql">
+          <AssociatedConnectionMoniker />
+          <AssociatedConnSrvName />
+          <AssociatedConnUserName />
+          <FullPath>A04BrokerCLR.sql</FullPath>
+        </FileNode>
+        <FileNode Name="A05Table_Dim.sql">
+          <AssociatedConnectionMoniker />
+          <AssociatedConnSrvName />
+          <AssociatedConnUserName />
+          <FullPath>A05Table_Dim.sql</FullPath>
+        </FileNode>
+        <FileNode Name="A06Table_Fact.sql">
+          <AssociatedConnectionMoniker />
+          <AssociatedConnSrvName />
+          <AssociatedConnUserName />
+          <FullPath>A06Table_Fact.sql</FullPath>
+        </FileNode>
+        <FileNode Name="A07Table_Stg.sql">
+          <AssociatedConnectionMoniker />
+          <AssociatedConnSrvName />
+          <AssociatedConnUserName />
+          <FullPath>A07Table_Stg.sql</FullPath>
+        </FileNode>
+        <FileNode Name="A08FK_DW.sql">
+          <AssociatedConnectionMoniker />
+          <AssociatedConnSrvName />
+          <AssociatedConnUserName />
+          <FullPath>A08FK_DW.sql</FullPath>
+        </FileNode>
+        <FileNode Name="A09View.sql">
+          <AssociatedConnectionMoniker />
+          <AssociatedConnSrvName />
+          <AssociatedConnUserName />
+          <FullPath>A09View.sql</FullPath>
+        </FileNode>
+        <FileNode Name="A10SP_Stg.sql">
+          <AssociatedConnectionMoniker />
+          <AssociatedConnSrvName />
+          <AssociatedConnUserName />
+          <FullPath>A10SP_Stg.sql</FullPath>
+        </FileNode>
+        <FileNode Name="A11SP_DWInfe.sql">
+          <AssociatedConnectionMoniker />
+          <AssociatedConnSrvName />
+          <AssociatedConnUserName />
+          <FullPath>A11SP_DWInfe.sql</FullPath>
+        </FileNode>
+        <FileNode Name="A12SP_DW_Dim1.sql">
+          <AssociatedConnectionMoniker />
+          <AssociatedConnSrvName />
+          <AssociatedConnUserName />
+          <FullPath>A12SP_DW_Dim1.sql</FullPath>
+        </FileNode>
+        <FileNode Name="A13SP_DW_Dim2.sql">
+          <AssociatedConnectionMoniker />
+          <AssociatedConnSrvName />
+          <AssociatedConnUserName />
+          <FullPath>A13SP_DW_Dim2.sql</FullPath>
+        </FileNode>
+        <FileNode Name="A14SP_DW_Fact.sql">
+          <AssociatedConnectionMoniker />
+          <AssociatedConnSrvName />
+          <AssociatedConnUserName />
+          <FullPath>A14SP_DW_Fact.sql</FullPath>
+        </FileNode>
+      </Items>
+    </LogicalFolder>
+    <LogicalFolder Name="Miscellaneous" Type="3" Sorted="true">
+      <Items />
+    </LogicalFolder>
+  </Items>
+</SqlWorkbenchSqlProject>

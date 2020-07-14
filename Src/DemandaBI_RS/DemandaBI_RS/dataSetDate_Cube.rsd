@@ -1,0 +1,111 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<SharedDataSet xmlns="http://schemas.microsoft.com/sqlserver/reporting/2010/01/shareddatasetdefinition" xmlns:rd="http://schemas.microsoft.com/SQLServer/reporting/reportdesigner">
+  <DataSet Name="DataSet1">
+    <Query>
+      <DataSourceReference>dsDemanda_OLAP</DataSourceReference>
+      <CommandText>WITH 
+MEMBER [Measures].[ParameterCaption] AS [DimFecha].[Fecha].CURRENTMEMBER.MEMBER_CAPTION 
+MEMBER [Measures].[ParameterValue] AS [DimFecha].[Fecha].CURRENTMEMBER.UNIQUENAME 
+MEMBER [Measures].[ParameterLevel] AS [DimFecha].[Fecha].CURRENTMEMBER.LEVEL.ORDINAL 
+MEMBER [Measures].[ParameterCaptionIndented] AS Space(3 * [Measures].[ParameterLevel]) + [DimFecha].[Fecha].CURRENTMEMBER.MEMBER_CAPTION
+SELECT NON EMPTY {[Measures].[ParameterCaption], [Measures].[ParameterValue], [Measures].[ParameterLevel], [Measures].[ParameterCaptionIndented]} ON COLUMNS , 
+NON EMPTY ORDER( FILTER(Except([DimFecha].[Fecha].ALLMEMBERS, [DimFecha].[Fecha].[All]), [Measures].[Dem_Contar]), [DimFecha].[Fecha].CurrentMember.Member_Value, DESC ) ON ROWS 
+FROM [Demanda];</CommandText>
+      <rd:DesignerState>
+        <QueryDefinition xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/AnalysisServices/QueryDefinition">
+          <CommandType>MDX</CommandType>
+          <Type>Query</Type>
+          <QuerySpecification xsi:type="MDXQuerySpecification">
+            <Select>
+              <Items>
+                <Item>
+                  <ID xsi:type="Level">
+                    <DimensionName>DimFecha</DimensionName>
+                    <HierarchyName>Fecha</HierarchyName>
+                    <HierarchyUniqueName>[DimFecha].[Fecha]</HierarchyUniqueName>
+                    <LevelName>Fecha</LevelName>
+                    <UniqueName>[DimFecha].[Fecha].[Fecha]</UniqueName>
+                  </ID>
+                  <ItemCaption>Fecha</ItemCaption>
+                </Item>
+                <Item>
+                  <ID xsi:type="Measure">
+                    <MeasureName>ParameterCaption</MeasureName>
+                    <UniqueName>[Measures].[ParameterCaption]</UniqueName>
+                  </ID>
+                  <ItemCaption>ParameterCaption</ItemCaption>
+                  <FormattedValue>true</FormattedValue>
+                </Item>
+                <Item>
+                  <ID xsi:type="Measure">
+                    <MeasureName>ParameterValue</MeasureName>
+                    <UniqueName>[Measures].[ParameterValue]</UniqueName>
+                  </ID>
+                  <ItemCaption>ParameterValue</ItemCaption>
+                  <FormattedValue>true</FormattedValue>
+                </Item>
+                <Item>
+                  <ID xsi:type="Measure">
+                    <MeasureName>ParameterLevel</MeasureName>
+                    <UniqueName>[Measures].[ParameterLevel]</UniqueName>
+                  </ID>
+                  <ItemCaption>ParameterLevel</ItemCaption>
+                  <FormattedValue>true</FormattedValue>
+                </Item>
+                <Item>
+                  <ID xsi:type="Measure">
+                    <MeasureName>ParameterCaptionIndented</MeasureName>
+                    <UniqueName>[Measures].[ParameterCaptionIndented]</UniqueName>
+                  </ID>
+                  <ItemCaption>ParameterCaptionIndented</ItemCaption>
+                  <FormattedValue>true</FormattedValue>
+                </Item>
+              </Items>
+            </Select>
+            <AutoExecute>false</AutoExecute>
+            <From>Demanda</From>
+            <Filter>
+              <FilterItems />
+            </Filter>
+            <Calculations />
+            <Aggregates />
+            <QueryProperties />
+          </QuerySpecification>
+          <Query>
+            <Statement>WITH 
+MEMBER [Measures].[ParameterCaption] AS [DimFecha].[Fecha].CURRENTMEMBER.MEMBER_CAPTION 
+MEMBER [Measures].[ParameterValue] AS [DimFecha].[Fecha].CURRENTMEMBER.UNIQUENAME 
+MEMBER [Measures].[ParameterLevel] AS [DimFecha].[Fecha].CURRENTMEMBER.LEVEL.ORDINAL 
+MEMBER [Measures].[ParameterCaptionIndented] AS Space(3 * [Measures].[ParameterLevel]) + [DimFecha].[Fecha].CURRENTMEMBER.MEMBER_CAPTION
+SELECT NON EMPTY {[Measures].[ParameterCaption], [Measures].[ParameterValue], [Measures].[ParameterLevel], [Measures].[ParameterCaptionIndented]} ON COLUMNS , 
+NON EMPTY ORDER( FILTER(Except([DimFecha].[Fecha].ALLMEMBERS, [DimFecha].[Fecha].[All]), [Measures].[Dem_Contar]), [DimFecha].[Fecha].CurrentMember.Member_Value, DESC ) ON ROWS 
+FROM [Demanda];</Statement>
+            <ParameterDefinitions />
+          </Query>
+        </QueryDefinition>
+      </rd:DesignerState>
+    </Query>
+    <Fields>
+      <Field Name="Fecha">
+        <DataField>&lt;?xml version="1.0" encoding="utf-8"?&gt;&lt;Field xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xsi:type="Level" UniqueName="[DimFecha].[Fecha].[Fecha]" /&gt;</DataField>
+        <rd:TypeName>System.String</rd:TypeName>
+      </Field>
+      <Field Name="ParameterCaption">
+        <DataField>&lt;?xml version="1.0" encoding="utf-8"?&gt;&lt;Field xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xsi:type="Measure" UniqueName="[Measures].[ParameterCaption]" /&gt;</DataField>
+        <rd:TypeName>System.Int32</rd:TypeName>
+      </Field>
+      <Field Name="ParameterCaptionIndented">
+        <DataField>&lt;?xml version="1.0" encoding="utf-8"?&gt;&lt;Field xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xsi:type="Measure" UniqueName="[Measures].[ParameterCaptionIndented]" /&gt;</DataField>
+        <rd:TypeName>System.Int32</rd:TypeName>
+      </Field>
+      <Field Name="ParameterValue">
+        <DataField>&lt;?xml version="1.0" encoding="utf-8"?&gt;&lt;Field xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xsi:type="Measure" UniqueName="[Measures].[ParameterValue]" /&gt;</DataField>
+        <rd:TypeName>System.Int32</rd:TypeName>
+      </Field>
+      <Field Name="ParameterLevel">
+        <DataField>&lt;?xml version="1.0" encoding="utf-8"?&gt;&lt;Field xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xsi:type="Measure" UniqueName="[Measures].[ParameterLevel]" /&gt;</DataField>
+        <rd:TypeName>System.Int32</rd:TypeName>
+      </Field>
+    </Fields>
+  </DataSet>
+</SharedDataSet>
