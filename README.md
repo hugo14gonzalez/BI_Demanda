@@ -11,7 +11,11 @@ Creado por: Hugo de Jesus Gonzalez Olaya hugo14.gonzalez@gmail.com
 # Consulte el documento del proyecto
 [ProyectoGrado_DemandaBI.docx](Doc/Proyecto/ProyectoGrado_DemandaBI.docx)
 
-![Aplicacion DemandaWeb](DemandaWeb.png "Aplicacion DemandaWeb")
+* App Web
+![App Web](DemandaWeb.png "App Web")
+
+* ETL full to load Data Warehouse
+![ETL Full](ETL_Full.png "ETL Full")
 
 
 # RESUMEN
