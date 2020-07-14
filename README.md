@@ -1,9 +1,11 @@
 # BI_Demanda
 Business intelligence para analizar la demanda de energía eléctrica
+
 Business intelligence to analyze the demand for electrical energy
 
 Proyecto de grado para optar el título de Ingeniero de sistemas. 
 Universidad Uniremington - Colombia - Año 2020
+
 Creado por: Hugo de Jesus Gonzalez Olaya
 hugo14.gonzalez@gmail.com
 
