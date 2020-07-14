@@ -16,7 +16,7 @@ App Web
 ![App Web](DemandaWeb.png "App Web")
 
 
-ETL full to load Data Warehouse
+ETL full para cargar el Data Warehouse y procesar los cubos
 
 ![ETL Full](ETL_Full.png "ETL Full")
 
