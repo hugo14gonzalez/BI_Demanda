@@ -4,6 +4,11 @@ Business intelligence to analyze the demand for electrical energy
 
 Proyecto de grado para optar el título de Ingeniero de sistemas. 
 Universidad Uniremington - Colombia - Año 2020
+Creado por: Hugo de Jesus Gonzalez Olaya
+hugo14.gonzalez@gmail.com
+
+# Documento del proyecto
+/BI_Demanda/Doc/Proyecto/ProyectoGrado_DemandaBI.docx
 
 # RESUMEN
 La demanda y pérdidas de energía eléctrica son variables muy importantes para los agentes del mercado de energía eléctrica. Para enfrentar este problema fue creada una solución de Business intelligence (BI). La metodología fue basada en la “arquitectura bus” definida por Kimball, y fue construida una solución de software para analizar la información histórica de demanda y pérdidas de energía eléctrica.
@@ -24,3 +29,14 @@ The project takes a tour explaining the construction of each of the artifacts of
 
 # KEY WORDS
 Business intelligence, data warehouse, ETL, demand, electric energy.
+
+# TOOLS
+- SQL Server 2019
+- SQL Integation Services 2019
+- SQL Analysis Services 2019
+- SQL Reporting Services
+- Visual Studio .Net 2019
+- SSDT 2017
+- Bootstrap, JQuery, JavaScript
+
+
