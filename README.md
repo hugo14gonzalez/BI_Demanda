@@ -9,6 +9,8 @@ Universidad Uniremington - Colombia - Año 2020
 Creado por: Hugo de Jesus Gonzalez Olaya
 hugo14.gonzalez@gmail.com
 
+[Contribution guidelines for this project](DemandaWeb.png)
+
 # Documento del proyecto
 /BI_Demanda/Doc/Proyecto/ProyectoGrado_DemandaBI.docx
 
