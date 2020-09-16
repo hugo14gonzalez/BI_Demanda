@@ -53,8 +53,8 @@ EXECUTE [Utility].[spOLAP_QueryPartition] 0, NULL, 'pkgCubePartitionCreate', 'ET
 EXECUTE [Utility].[spOLAP_QueryProgramming] NULL, 'pkgCubePartitionProcess', 'ETL';
 EXECUTE [Utility].[spOLAP_QueryPartition] 1, NULL, 'pkgCubePartitionProcess', 'ETL';
 
-
-EXECUTE [Utility].[spGetQuerySQL] 'DW_TDemaP', '@dateStart=2017-01-01&@dateEnd=2017-02-01&@version=0&@versionId=0', @query OUTPUT, 1;
+Declare @query varchar(8000);
+EXECUTE [Utility].[spGetQuerySQL] 'DW_DemaP', '@dateStart=2017-01-01&@dateEnd=2017-02-01&@version=0&@versionId=0', @query OUTPUT, 1;
 Print @query;
 
 /* Agendar programacion, al inicio del paquete: pkgFull */
@@ -82,6 +82,11 @@ EXECUTE [Utility].[spModuleProgramming_Reload] 0, '2000-01-01', @dateEnd, 'DW_DD
 GO
 
 EXECUTE [Utility].[spModuleProgramming_Reload] 0, '2000-01-01', '2019-10-01', 'DW_DDemaP', 'DW_DFull', 0, 0;
+GO
+
+-- Recarga prueba 1 mes, 31 archivos en carpata log: \ETL_Log\DemandaBI\SinProcesar\2019\01
+EXECUTE [Utility].[spModuleProgramming_Reload] 0, '2019-01-01', '2019-02-01', 'DW_DDemaP', 'DW_DFull', 0, 0;
+Ejectuar job: JobDemandaBI_CargaDiaria
 GO
 
 /* ====================================================================================

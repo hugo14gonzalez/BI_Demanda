@@ -95,59 +95,17 @@ SELECT * FROM [Utility].[SpecialDate]
 /* ====================================================================================
 DATOS DIMENSIONES
 ==================================================================================== */
-SELECT * FROM [DW].[DimGeografia];
-SELECT * FROM [DW].[DimCausa] Order by CausaId;
 SELECT * FROM [DW].[DimAgente];
-SELECT * FROM [DW].[DimElementoSistema];
-SELECT * FROM [DW].[DimEmpresa];
-SELECT * FROM [DW].[DimEscalonEDAC];
-SELECT * FROM [DW].[DimEventoFlag];
-SELECT * FROM [DW].[DimMercado];
-SELECT * FROM [DW].[DimMercadoEntrada];
-SELECT * FROM [DW].[DimMercadoSalida];
+SELECT * FROM [DW].[DimCompania];
 SELECT * FROM [DW].[DimFecha];
-SELECT * FROM [DW].[DimFormaEjecucion];
-SELECT * FROM [DW].[DimFuente];
-SELECT * FROM [DW].[DimGeneracionFlag];
-SELECT * FROM [DW].[DimIndicador];
-SELECT * FROM [DW].[DimIndicadorEstado];
-SELECT * FROM [DW].[DimMantenimientoEstado];
-SELECT * FROM [DW].[DimMantenimientoFlag];
-SELECT * FROM [DW].[DimMantenimientoModo];
-SELECT * FROM [DW].[DimMantenimientoOrigen];
-SELECT * FROM [DW].[DimMantenimientoTipo];
-SELECT * FROM [DW].[DimNivelTension];
-SELECT * FROM [DW].[DimNodo];
-SELECT * FROM [DW].[DimOrdenMovimientoFlag];
-SELECT * FROM [DW].[DimOrdenMovimientoOrigen];
-SELECT * FROM [DW].[DimOrdenMovimientoTipo];
+SELECT * FROM [DW].[DimGeografia];
+SELECT * FROM [DW].[DimMercado];
 SELECT * FROM [DW].[DimPeriodo];
-SELECT * FROM [DW].[DimPersona];
-SELECT * FROM [DW].[DimProteccionEstado];
-SELECT * FROM [DW].[DimSalidaFlag];
-SELECT * FROM [DW].[DimSubestacion];
-SELECT * FROM [DW].[DimTiempo] ORDER BY [TiempoSKId];
-SELECT * FROM [DW].[DimZona];
 
 /* ====================================================================================
 DATOS FACT
 ==================================================================================== */
 SELECT * FROM [DW].[FactDemandaPerdida];
-SELECT * FROM [DW].[FactDemandaPerdidaElementoAfectado];
-SELECT * FROM [DW].[FactDemandaPerdidaGeneracion];
-SELECT * FROM [DW].[FactPerdida];
-SELECT * FROM [DW].[FactFrecuencia];
-SELECT * FROM [DW].[FactGeneracion];
-SELECT * FROM [DW].[FactIndicador];
-SELECT * FROM [DW].[FactMantenimiento];
-SELECT * FROM [DW].[FactOrdenMovimiento];
-SELECT * FROM [DW].[FactPGDDistribuidora];
-SELECT * FROM [DW].[FactPGDGeneracionMunicipio];
-SELECT * FROM [DW].[FactPotenciaActiva];
-SELECT * FROM [DW].[FactProteccion];
-SELECT * FROM [DW].[FactSalidaGeneracion];
-SELECT * FROM [DW].[FactSalidaTransmision];
-SELECT * FROM [DW].[FactTension];
 
 /* ====================================================================================
 DATOS AUDITORIA
