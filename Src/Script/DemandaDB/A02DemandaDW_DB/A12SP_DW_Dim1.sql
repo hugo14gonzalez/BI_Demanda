@@ -1,6 +1,6 @@
 ﻿/* ========================================================================== 
 Proyecto: DemandaBI
-Empresa: Asimatica 
+Empresa:  
 Desarrollador: Hugo Gonzalez Olaya 
 Fecha: 2020-07-15
 Fecha actualizacion: 2020-07-15
@@ -37,7 +37,7 @@ ALTER PROCEDURE [DW].[spLoadDimDate]
 As
 /* ============================================================================================
 Proposito: Inserta o actualiza los datos de tabla DimDate en el intervalo de fechas dado.
-Empresa: Asimatica 
+Empresa:  
 Desarrollador: Hugo Gonzalez Olaya
 Fecha: 2020-07-15
 Fecha actualizacion: 2020-07-15
@@ -152,7 +152,7 @@ Proposito: Inserta o actualiza los datos de tabla DimDate en el intervalo de fec
  No deja huecos entre la mínima y máxima fecha de la tabla y el intervalo dado.  
  Si la fecha final es nula o menor o igual a cero sale sin realizar cambios.
  Si la fecha inicial es nula o menor o igual a cero hace la fecha inicio igual a la fecha fin.
-Empresa: Asimatica 
+Empresa:  
 Desarrollador: Hugo Gonzalez Olaya
 Fecha: 2020-07-15
 Fecha actualizacion: 2020-07-15
@@ -219,7 +219,7 @@ ALTER PROCEDURE [DW].[spLoadDimPeriod]
 As
 /* ============================================================================================
 Proposito: Inserta o actualiza los datos de tabla DimTimeHour.
-Empresa: Asimatica 
+Empresa:  
 Desarrollador: Hugo Gonzalez Olaya
 Fecha: 2016-06-24
 Fecha actualizacion: 2016-06-24
@@ -269,7 +269,7 @@ ALTER PROCEDURE [DW].[spLoadDimGeografia]
 As
 /* ============================================================================================
 Proposito: Inserta o actualiza los datos de tabla DimGeografia utilizados los datos de la tabla temporal staging area.
-Empresa: Asimatica 
+Empresa:  
 Desarrollador: Hugo Gonzalez Olaya
 Fecha: 2020-07-15
 Fecha actualizacion: 2020-07-15

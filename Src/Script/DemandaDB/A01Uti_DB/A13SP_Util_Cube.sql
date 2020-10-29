@@ -1,6 +1,6 @@
 ﻿/* ========================================================================== 
 Proyecto: DemandaBI
-Empresa: Asimatica 
+Empresa:  
 Desarrollador: Hugo Gonzalez Olaya 
 Fecha: 2020-07-15
 Fecha actualizacion: 2020-07-15
@@ -34,7 +34,7 @@ ALTER PROCEDURE [Utility].[spOLAP_QueryPartition]
 As
 /* ============================================================================================
 Proposito: Retorna consulta con las particiones a ser creadas.
-Empresa: Asimatica 
+Empresa:  
 Desarrollador: Hugo Gonzalez Olaya
 Fecha: 2017-04-10
 Fecha actualizacion: 2020-07-15
@@ -140,7 +140,7 @@ ALTER PROCEDURE [Utility].[spOLAP_QueryProgramming]
 As
 /* ============================================================================================
 Proposito: Retorna consulta con la programación de carga, es similar al SP: [Utility].[spModuleProgramming_Query].
-Empresa: Asimatica 
+Empresa:  
 Desarrollador: Hugo Gonzalez Olaya
 Fecha: 2017-04-10
 Fecha actualizacion: 2020-07-15
@@ -204,7 +204,7 @@ ALTER PROCEDURE [Utility].[spOLAP_PartitionDefine]
 As
 /* ============================================================================================
 Proposito: Llena las tablas de metadatos con el diseño de particiones.
-Empresa: Asimatica 
+Empresa:  
 Desarrollador: Hugo Gonzalez Olaya
 Fecha: 2017-04-10
 Fecha actualizacion: 2020-07-15
@@ -583,7 +583,7 @@ ALTER PROCEDURE [Utility].[spOLAP_UpdatePartitionToCreated]
 As
 /* ============================================================================================
 Proposito: Actualiza partición como creada.
-Empresa: Asimatica 
+Empresa:  
 Desarrollador: Hugo Gonzalez Olaya
 Fecha: 2017-04-10
 Fecha actualizacion: 2020-07-15
@@ -637,7 +637,7 @@ ALTER PROCEDURE [Utility].[spOLAP_UpdatePartitionToProsessed]
 As
 /* ============================================================================================
 Proposito: Actualiza partición como procesada.
-Empresa: Asimatica 
+Empresa:  
 Desarrollador: Hugo Gonzalez Olaya
 Fecha: 2017-04-10
 Fecha actualizacion: 2020-07-15
@@ -688,7 +688,7 @@ ALTER PROCEDURE [Utility].[spOLAP_ScriptXMLAParttition]
 As
 /* ============================================================================================
 Proposito: Genera script XMLA para el manejo de particiones.
-Empresa: Asimatica 
+Empresa:  
 Desarrollador: Hugo Gonzalez Olaya
 Fecha: 2017-04-10
 Fecha actualizacion: 2020-07-15

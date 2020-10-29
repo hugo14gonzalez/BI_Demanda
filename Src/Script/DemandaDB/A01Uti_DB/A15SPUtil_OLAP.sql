@@ -1,6 +1,6 @@
 ﻿/* ========================================================================== 
 Proyecto: DemandaBI
-Empresa: Asimatica 
+Empresa:  
 Desarrollador: Hugo Gonzalez Olaya 
 Fecha: 2020-07-15
 Fecha actualizacion: 2020-07-15
@@ -41,7 +41,7 @@ WITH EXECUTE AS OWNER
 AS
 /* ============================================================================================
 Proposito: Retorna bases de datos OLAP de una instancia.
-Empresa: Asimatica 
+Empresa:  
 Desarrollador: Hugo Gonzalez Olaya
 Fecha: 2017-04-10
 Fecha actualizacion: 2020-07-15
@@ -84,7 +84,7 @@ WITH EXECUTE AS OWNER
 AS
 /* ============================================================================================
 Proposito: Retorna los cubos de una base de datos OLAP.
-Empresa: Asimatica 
+Empresa:  
 Desarrollador: Hugo Gonzalez Olaya
 Fecha: 2017-04-10
 Fecha actualizacion: 2020-07-15
@@ -139,7 +139,7 @@ WITH EXECUTE AS OWNER
 AS
 /* ============================================================================================
 Proposito: Retorna dimensiones en cubo de bases de datos OLAP.
-Empresa: Asimatica 
+Empresa:  
 Desarrollador: Hugo Gonzalez Olaya
 Fecha: 2017-04-10
 Fecha actualizacion: 2020-07-15
@@ -228,7 +228,7 @@ WITH EXECUTE AS OWNER
 AS
 /* ============================================================================================
 Proposito: Retorna atributos de dimensiones de bases de datos OLAP.
-Empresa: Asimatica 
+Empresa:  
 Desarrollador: Hugo Gonzalez Olaya
 Fecha: 2017-04-10
 Fecha actualizacion: 2020-07-15
@@ -287,7 +287,7 @@ WITH EXECUTE AS OWNER
 AS
 /* ============================================================================================
 Proposito: Retorna jerarquías de dimensiones de bases de datos OLAP.
-Empresa: Asimatica 
+Empresa:  
 Desarrollador: Hugo Gonzalez Olaya
 Fecha: 2017-04-10
 Fecha actualizacion: 2020-07-15
@@ -347,7 +347,7 @@ WITH EXECUTE AS OWNER
 AS
 /* ============================================================================================
 Proposito: Retorna atributos de jerarquías de dimensiones de bases de datos OLAP.
-Empresa: Asimatica 
+Empresa:  
 Desarrollador: Hugo Gonzalez Olaya
 Fecha: 2017-04-10
 Fecha actualizacion: 2020-07-15
@@ -408,7 +408,7 @@ WITH EXECUTE AS OWNER
 AS
 /* ============================================================================================
 Proposito: Retorna KPI de un cubo de bases de datos OLAP.
-Empresa: Asimatica 
+Empresa:  
 Desarrollador: Hugo Gonzalez Olaya
 Fecha: 2017-04-10
 Fecha actualizacion: 2020-07-15
@@ -479,7 +479,7 @@ WITH EXECUTE AS OWNER
 AS
 /* ============================================================================================
 Proposito: Retorna grupos de medidas de un cubo de bases de datos OLAP.
-Empresa: Asimatica 
+Empresa:  
 Desarrollador: Hugo Gonzalez Olaya
 Fecha: 2017-04-10
 Fecha actualizacion: 2020-07-15
@@ -547,7 +547,7 @@ WITH EXECUTE AS OWNER
 AS
 /* ============================================================================================
 Proposito: Retorna una matriz la cual será pivoteada en un reporte. Une cada dimension con su grupo de medida relacionada para bases de datos OLAP.
-Empresa: Asimatica 
+Empresa:  
 Desarrollador: Hugo Gonzalez Olaya
 Fecha: 2017-04-10
 Fecha actualizacion: 2020-07-15
@@ -629,7 +629,7 @@ AS
 /* ============================================================================================
 Proposito: Retorna dimensiones que son realacionadas a un grupo de medidas para bases de datos OLAP.
  Este es un reporte espacial en forma de estrella.
-Empresa: Asimatica 
+Empresa:  
 Desarrollador: Hugo Gonzalez Olaya
 Fecha: 2017-04-10
 Fecha actualizacion: 2020-07-15
@@ -762,7 +762,7 @@ WITH EXECUTE AS OWNER
 AS
 /* ============================================================================================
 Proposito: Retorna medidas de un grupo de medidas de bases de datos OLAP.
-Empresa: Asimatica 
+Empresa:  
 Desarrollador: Hugo Gonzalez Olaya
 Fecha: 2017-04-10
 Fecha actualizacion: 2020-07-15
@@ -856,7 +856,7 @@ WITH EXECUTE AS OWNER
 AS
 /* ============================================================================================
 Proposito: Retorna las perspectivas de cubos de una base de datos OLAP.
-Empresa: Asimatica 
+Empresa:  
 Desarrollador: Hugo Gonzalez Olaya
 Fecha: 2017-04-10
 Fecha actualizacion: 2020-07-15
@@ -907,7 +907,7 @@ WITH EXECUTE AS OWNER
 AS
 /* ============================================================================================
 Proposito: Busca un objeto (cube, measure group, measure, dimension, attribute, hierarchy, KPI, etc.) de bases de datos OLAP.
-Empresa: Asimatica 
+Empresa:  
 Desarrollador: Hugo Gonzalez Olaya
 Fecha: 2017-04-10
 Fecha actualizacion: 2020-07-15
@@ -1026,7 +1026,7 @@ WITH EXECUTE AS OWNER
 AS
 /* ============================================================================================
 Proposito: Retorna modelo de mineria de datos para bases de datos OLAP.
-Empresa: Asimatica 
+Empresa:  
 Desarrollador: Hugo Gonzalez Olaya
 Fecha: 2017-04-10
 Fecha actualizacion: 2020-07-15
@@ -1094,7 +1094,7 @@ WITH EXECUTE AS OWNER
 AS
 /* ============================================================================================
 Proposito: Retorna columnas de modelo de mineria de datos para bases de datos OLAP.
-Empresa: Asimatica 
+Empresa:  
 Desarrollador: Hugo Gonzalez Olaya
 Fecha: 2017-04-10
 Fecha actualizacion: 2020-07-15
@@ -1146,7 +1146,7 @@ WITH EXECUTE AS OWNER
 AS
 /* ============================================================================================
 Proposito: Retorna columnas de estructura de mineria de datos para bases de datos OLAP.
-Empresa: Asimatica 
+Empresa:  
 Desarrollador: Hugo Gonzalez Olaya
 Fecha: 2017-04-10
 Fecha actualizacion: 2020-07-15
@@ -1203,7 +1203,7 @@ WITH EXECUTE AS OWNER
 AS
 /* ============================================================================================
 Proposito: Retorna columnas de estructura de mineria de datos para bases de datos OLAP.
-Empresa: Asimatica 
+Empresa:  
 Desarrollador: Hugo Gonzalez Olaya
 Fecha: 2017-04-10
 Fecha actualizacion: 2020-07-15

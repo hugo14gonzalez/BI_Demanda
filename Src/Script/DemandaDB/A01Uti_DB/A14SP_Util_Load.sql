@@ -1,6 +1,6 @@
 ﻿/* ========================================================================== 
 Proyecto: DemandaBI
-Empresa: Asimatica 
+Empresa:  
 Desarrollador: Hugo Gonzalez Olaya 
 Fecha: 2020-07-15
 Fecha actualizacion: 2020-07-15
@@ -31,7 +31,7 @@ ALTER PROCEDURE [Utility].[spLoadModelVersion]
 As
 /* ============================================================================================
 Proposito: Inserta o actualiza los datos de tabla ModelVersion utilizados los datos de la base de dato de tabla temporal de la base de datos staging area.
-Empresa: Asimatica 
+Empresa:  
 Desarrollador: Hugo Gonzalez Olaya
 Fecha: 2017-04-10
 Fecha actualizacion: 2020-07-15

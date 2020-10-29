@@ -1,6 +1,6 @@
 ﻿/* ========================================================================== 
 Proyecto: DemandaBI
-Empresa: Asimatica 
+Empresa:  
 Desarrollador: Hugo Gonzalez Olaya 
 Fecha: 2020-07-15
 Fecha actualizacion: 2020-07-15
@@ -34,7 +34,7 @@ as
 /* ============================================================================================
 Proposito: Trunca una tabla, si está registrada en la lista de tablas permitidas.
  Este SP es invocado en ETLs para evietar errores por permisos al ejecutar la instrucción TRUNCATE TABLE.
-Empresa: Asimatica 
+Empresa:  
 Desarrollador: Hugo Gonzalez Olaya
 Fecha: 2020-07-15
 Fecha actualizacion: 2020-07-15

@@ -1,6 +1,6 @@
 ﻿/* ========================================================================== 
 Proyecto: DemandaBI
-Empresa: Asimatica 
+Empresa:  
 Desarrollador: Hugo Gonzalez Olaya 
 Fecha: 2020-07-15
 Fecha actualizacion: 2020-07-15
@@ -31,7 +31,7 @@ As
 /* ============================================================================================
 Proposito: Carga datos a la tabla FactDemandaPerdida utilizados los datos de la tabla temporal staging area.
 Los datos son borrados antes de insertar, en el rango de fechas de proceso.
-Empresa: Asimatica 
+Empresa:  
 Desarrollador: Hugo Gonzalez Olaya
 Fecha: 2020-07-15
 Fecha actualizacion: 2020-07-15

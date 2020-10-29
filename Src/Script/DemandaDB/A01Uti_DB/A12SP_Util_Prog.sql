@@ -1,6 +1,6 @@
 ﻿/* ========================================================================== 
 Proyecto: DemandaBI
-Empresa: Asimatica 
+Empresa:  
 Desarrollador: Hugo Gonzalez Olaya 
 Fecha: 2020-07-15
 Fecha actualizacion: 2020-07-15
@@ -37,7 +37,7 @@ WITH RETURNS NULL ON NULL INPUT
 AS
 /* ============================================================================================
 Proposito: Retorna la fecha de la siguiente ejecución diaria, para agendas con tipo de periodo = Dia.
-Empresa: Asimatica 
+Empresa:  
 Desarrollador: Hugo Gonzalez Olaya
 Fecha: 2016-04-01
 Fecha actualizacion: 2020-07-15
@@ -119,7 +119,7 @@ WITH RETURNS NULL ON NULL INPUT
 AS
 /* ============================================================================================
 Proposito: Retorna la fecha de la siguiente ejecución mensual, para agendas con tipo de periodo = Mes.
-Empresa: Asimatica 
+Empresa:  
 Desarrollador: Hugo Gonzalez Olaya
 Fecha: 2016-04-01
 Fecha actualizacion: 2020-07-15
@@ -378,7 +378,7 @@ WITH RETURNS NULL ON NULL INPUT
 AS
 /* ============================================================================================
 Proposito: Retorna la fecha de la siguiente ejecución semanal, para agendas con tipo de periodo = Semana.
-Empresa: Asimatica 
+Empresa:  
 Desarrollador: Hugo Gonzalez Olaya
 Fecha: 2016-04-01
 Fecha actualizacion: 2020-07-15
@@ -491,7 +491,7 @@ WITH RETURNS NULL ON NULL INPUT
 AS
 /* ============================================================================================
 Proposito: Retorna la fecha de la siguiente ejecución de un Codigo de agenda dado.
-Empresa: Asimatica 
+Empresa:  
 Desarrollador: Hugo Gonzalez Olaya
 Fecha: 2016-04-01
 Fecha actualizacion: 2020-07-15
@@ -717,7 +717,7 @@ Proposito: Al finalizar la ejecución de procesos actualiza la tabla: [Utility].
  - Reprogram ejecuciones con error: [StateId] = 1.
  - Borra ejecuciones con estado programado o reprogramado: [StateId] IN (20, 21), que probablemente no fueron ejecutadas, 
    pero solo para el Codigo de bitacora dado o filas en [Audit].[Bitacora], donde [ParentId] = @bitacoraId.  
-Empresa: Asimatica 
+Empresa:  
 Desarrollador: Hugo Gonzalez Olaya
 Fecha: 2017-04-10
 Fecha actualizacion: 2020-07-15
@@ -773,7 +773,7 @@ ALTER PROCEDURE [Utility].[spModuleProgramming_Query]
 As
 /* ============================================================================================
 Proposito: Retorna consulta con la programación de carga de una ETL.
-Empresa: Asimatica 
+Empresa:  
 Desarrollador: Hugo Gonzalez Olaya
 Fecha: 2017-04-10
 Fecha actualizacion: 2020-07-15
@@ -837,7 +837,7 @@ ALTER PROCEDURE [Utility].[spModuleProgramming_Reload]
 As
 /* ============================================================================================
 Proposito: Consulta o adiciona filas a la tabla: [Utility].[ModuleProgramming] utilizando los datos de la tabla: [Utility].[ModelLoad].
-Empresa: Asimatica 
+Empresa:  
 Desarrollador: Hugo Gonzalez Olaya
 Fecha: 2017-04-10
 Fecha actualizacion: 2020-07-15
@@ -1122,7 +1122,7 @@ ALTER PROCEDURE [Utility].[spModuleProgramming_Reload_Query]
 As
 /* ============================================================================================
 Proposito: Retorna consulta con la programación de recarga.
-Empresa: Asimatica 
+Empresa:  
 Desarrollador: Hugo Gonzalez Olaya
 Fecha: 2018-04-03
 Fecha actualizacion: 2018-04-03
@@ -1168,7 +1168,7 @@ ALTER PROCEDURE [Utility].[spModuleProgramming_Sheduling]
 As
 /* ============================================================================================
 Proposito: Llena la tabla: [Utility].[ModuleProgramming] con la agenda de ejecución de modulos para los modelos definidos en la tabla: [Utility].[ModelSchedule].
-Empresa: Asimatica 
+Empresa:  
 Desarrollador: Hugo Gonzalez Olaya
 Fecha: 2017-04-10
 Fecha actualizacion: 2020-07-15
@@ -1713,7 +1713,7 @@ ALTER PROCEDURE [Utility].[spModuleProgramming_UpdateState]
 As
 /* ============================================================================================
 Proposito: Actualiza estado de la programación de ejecución, en la tabla: [Utility].[ModuleProgramming].
-Empresa: Asimatica 
+Empresa:  
 Desarrollador: Hugo Gonzalez Olaya
 Fecha: 2017-04-10
 Fecha actualizacion: 2020-07-15
@@ -1784,7 +1784,7 @@ ALTER PROCEDURE [Utility].[spModuleProgramming_UpdateState_WithoutDate]
 As
 /* ============================================================================================
 Proposito: Actualiza estado de la programación de ejecucion de modelos que no utilizan feccha de proceso, en la tabla: [Utility].[ModuleProgramming].
-Empresa: Asimatica 
+Empresa:  
 Desarrollador: Hugo Gonzalez Olaya
 Fecha: 2017-04-10
 Fecha actualizacion: 2020-07-15
@@ -1881,7 +1881,7 @@ WITH EXECUTE AS OWNER
 AS
 /* ============================================================================================
 Proposito: Retorna parametros de programación de recarga de datos.
-Empresa: Asimatica 
+Empresa:  
 Desarrollador: Hugo Gonzalez Olaya
 Fecha: 2016-07-26
 Fecha actualizacion: 2020-07-15
@@ -2008,7 +2008,7 @@ ALTER PROCEDURE [Utility].[spGetQuerySQL]
 As
 /* ============================================================================================
 Proposito: Retorna consulta de seleccion de datos almacenada en la tabla: [Utility].[QuerySQL], remplazando los parametros.
-Empresa: Asimatica 
+Empresa:  
 Desarrollador: Hugo Gonzalez Olaya
 Fecha: 2017-06-01
 Fecha actualizacion: 2017-06-01

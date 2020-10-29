@@ -1,6 +1,6 @@
 ﻿/* ========================================================================== 
 Proyecto: DemandaBI
-Empresa: Asimatica 
+Empresa:  
 Desarrollador: Hugo Gonzalez Olaya 
 Fecha: 2020-07-15
 Fecha actualizacion: 2020-07-15
@@ -35,7 +35,7 @@ RETURNS nvarchar(max)
 AS
 /* ============================================================================================
 Proposito: Convierte caracteres UTF8 a ANSI
-Empresa: Asimatica 
+Empresa:  
 Desarrollador: Hugo Gonzalez Olaya
 Fecha: 2016-04-01
 Fecha actualizacion: 2020-07-15
@@ -135,7 +135,7 @@ RETURNS nvarchar(MAX)
 AS
 /* ============================================================================================
 Proposito: Convierte caracteres UTF8 a ANSI
-Empresa: Asimatica 
+Empresa:  
 Desarrollador: Hugo Gonzalez Olaya
 Fecha: 2016-04-01
 Fecha actualizacion: 2020-07-15
@@ -180,7 +180,7 @@ AS
 /* ============================================================================================
 Proposito: Imprime en pantalla textos nvarchar(max) o nvarchar(max). 
  Resuelve el problema de la presentación en pantalla que esta limitada a una longitud maxima.
-Empresa: Asimatica 
+Empresa:  
 Desarrollador: Hugo Gonzalez Olaya
 Fecha: 2015-05-01
 Fecha actualizacion: 2020-07-15
@@ -316,7 +316,7 @@ AS
 /* ============================================================================================
 Proposito: Retorna una cadena llenada con el caracter pad dado hasta la longitud dada.
  Si la longitud de la cadena es mayor a la longitud dada, entonces es retornada la misma cadena.
-Empresa: Asimatica 
+Empresa:  
 Desarrollador: Hugo Gonzalez Olaya
 Fecha: 2009-10-14
 Fecha actualizacion: 2020-07-15
@@ -372,7 +372,7 @@ RETURNS @Results table
 ) 
 /* ============================================================================================
 Proposito: Separa un texto por un delimitador y retorna una tabla con las partes.
-Empresa: Asimatica 
+Empresa:  
 Desarrollador: Hugo Gonzalez Olaya
 Fecha: 2016-09-12
 Fecha actualizacion: 2020-07-15
@@ -444,7 +444,7 @@ RETURNS @TableResult TABLE
 AS
 /* ============================================================================================
 Proposito: Retorna parametros de programación de recarga de datos.
-Empresa: Asimatica 
+Empresa:  
 Desarrollador: Hugo Gonzalez Olaya
 Fecha: 2016-07-26
 Fecha actualizacion: 2020-07-15
@@ -509,7 +509,7 @@ WITH EXECUTE AS OWNER
 AS
 /* ============================================================================================
 Proposito: Retorna el mensaje de error retornado por el sistema
-Empresa: Asimatica 
+Empresa:  
 Desarrollador: Hugo Gonzalez Olaya
 Fecha: 2011-01-31
 Fecha actualizacion: 2020-07-15
@@ -546,7 +546,7 @@ Alter PROCEDURE [Utility].[spSubscription]
 AS
 /* ============================================================================================
 Proposito: Retorna el listado filtrado de las supscripciones
-Empresa: Asimatica 
+Empresa:  
 Desarrollador: Werleman Tamayo Restrepo
 Fecha: 2018-09-15
 Fecha actualizacion: 2018-09-15

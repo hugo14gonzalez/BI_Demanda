@@ -1,6 +1,6 @@
 ﻿/* ========================================================================== 
 Proyecto: DemandaBI
-Empresa: Asimatica 
+Empresa:  
 Desarrollador: Hugo Gonzalez Olaya 
 Fecha: 2020-07-15
 Fecha actualizacion: 2020-07-15
@@ -36,7 +36,7 @@ WITH RETURNS NULL ON NULL INPUT
 AS
 /* ============================================================================================
 Proposito: Retorna la duración entre dos fechas.
-Empresa: Asimatica 
+Empresa:  
 Desarrollador: Hugo Gonzalez Olaya
 Fecha: 2018-01-09
 Fecha actualizacion: 2020-07-15
@@ -168,7 +168,7 @@ RETURNS numeric(18, 6)
 AS
 /* ============================================================================================
 Proposito: Retorna la duración entre dos fechas.
-Empresa: Asimatica 
+Empresa:  
 Desarrollador: Hugo Gonzalez Olaya
 Fecha: 2018-01-09
 Fecha actualizacion: 2020-07-15
@@ -318,7 +318,7 @@ RETURNS nvarchar(30)
 AS
 /* ============================================================================================
 Proposito: Retorna la duración entre dos fechas.
-Empresa: Asimatica 
+Empresa:  
 Desarrollador: Hugo Gonzalez Olaya
 Fecha: 2016-04-01
 Fecha actualizacion: 2020-07-15
@@ -379,7 +379,7 @@ RETURNS @returnDates TABLE
 AS
 /* ============================================================================================
 Proposito: Retorna lista de fechas secuenciales, desde fecha inicio hasta la fecha fin, aumentando el número de días dado por la frecuencia.
-Empresa: Asimatica 
+Empresa:  
 Desarrollador: Hugo Gonzalez Olaya
 Fecha: 2015-02-01
 Fecha actualizacion: 2020-07-15
@@ -447,7 +447,7 @@ RETURNS char(12)
 AS
 /* ============================================================================================
 Proposito: Retorna tiempo como texto de inicio o fin del día.
-Empresa: Asimatica 
+Empresa:  
 Desarrollador: Hugo Gonzalez Olaya
 Fecha: 2011-01-31
 Fecha actualizacion: 2020-07-15
@@ -497,7 +497,7 @@ WITH RETURNS NULL ON NULL INPUT
 AS
 /* ============================================================================================
 Proposito: Retorna la fecha del último día del semestre, del año dado.
-Empresa: Asimatica 
+Empresa:  
 Desarrollador: Hugo Gonzalez Olaya
 Fecha: 2011-01-31
 Fecha actualizacion: 2020-07-15
@@ -549,7 +549,7 @@ WITH RETURNS NULL ON NULL INPUT
 AS
 /* ============================================================================================
 Proposito: Retorna la fecha del primer día del semestre. del año dado.
-Empresa: Asimatica 
+Empresa:  
 Desarrollador: Hugo Gonzalez Olaya
 Fecha: 2011-01-31
 Fecha actualizacion: 2020-07-15
@@ -598,7 +598,7 @@ WITH RETURNS NULL ON NULL INPUT
 AS
 /* ============================================================================================
 Proposito: Retorna el número de semestre de un número de mes dado.
-Empresa: Asimatica 
+Empresa:  
 Desarrollador: Hugo Gonzalez Olaya
 Fecha: 2011-01-31
 Fecha actualizacion: 2020-07-15
@@ -647,7 +647,7 @@ WITH RETURNS NULL ON NULL INPUT
 AS
 /* ============================================================================================
 Proposito: Retorna la fecha del último día del bimestre, del año dado.
-Empresa: Asimatica 
+Empresa:  
 Desarrollador: Hugo Gonzalez Olaya
 Fecha: 2011-01-31
 Fecha actualizacion: 2020-07-15
@@ -704,7 +704,7 @@ WITH RETURNS NULL ON NULL INPUT
 AS
 /* ============================================================================================
 Proposito: Retorna la fecha del primer día del bimestre. del año dado.
-Empresa: Asimatica 
+Empresa:  
 Desarrollador: Hugo Gonzalez Olaya
 Fecha: 2011-01-31
 Fecha actualizacion: 2020-07-15
@@ -758,7 +758,7 @@ WITH RETURNS NULL ON NULL INPUT
 AS
 /* ============================================================================================
 Proposito: Retorna el número de bimestre de un número de mes dado.
-Empresa: Asimatica 
+Empresa:  
 Desarrollador: Hugo Gonzalez Olaya
 Fecha: 2011-01-31
 Fecha actualizacion: 2020-07-15
@@ -813,7 +813,7 @@ WITH RETURNS NULL ON NULL INPUT
 AS
 /* ============================================================================================
 Proposito: Retorna la fecha del último día del trimestre, del año dado.
-Empresa: Asimatica 
+Empresa:  
 Desarrollador: Hugo Gonzalez Olaya
 Fecha: 2011-01-31
 Fecha actualizacion: 2020-07-15
@@ -869,7 +869,7 @@ WITH RETURNS NULL ON NULL INPUT
 AS
 /* ============================================================================================
 Proposito: Retorna la fecha del primer día del trimestre. del año dado.
-Empresa: Asimatica 
+Empresa:  
 Desarrollador: Hugo Gonzalez Olaya
 Fecha: 2011-01-31
 Fecha actualizacion: 2020-07-15
@@ -921,7 +921,7 @@ WITH RETURNS NULL ON NULL INPUT
 AS
 /* ============================================================================================
 Proposito: Retorna el número de trimestre de un número de mes dado.
-Empresa: Asimatica 
+Empresa:  
 Desarrollador: Hugo Gonzalez Olaya
 Fecha: 2011-01-31
 Fecha actualizacion: 2020-07-15
@@ -974,7 +974,7 @@ WITH RETURNS NULL ON NULL INPUT
 AS
 /* ============================================================================================
 Proposito: Retorna la fecha del último día de semana.
-Empresa: Asimatica 
+Empresa:  
 Desarrollador: Hugo Gonzalez Olaya
 Fecha: 2011-01-31
 Fecha actualizacion: 2020-07-15
@@ -1017,7 +1017,7 @@ WITH RETURNS NULL ON NULL INPUT
 AS
 /* ============================================================================================
 Proposito: Retorna la fecha del primer día de semana.
-Empresa: Asimatica 
+Empresa:  
 Desarrollador: Hugo Gonzalez Olaya
 Fecha: 2011-01-31
 Fecha actualizacion: 2020-07-15
@@ -1058,7 +1058,7 @@ WITH RETURNS NULL ON NULL INPUT
 AS
 /* ============================================================================================
 Proposito: Retorna el número de días de un mes.
-Empresa: Asimatica 
+Empresa:  
 Desarrollador: Hugo Gonzalez Olaya
 Fecha: 2011-01-31
 Fecha actualizacion: 2020-07-15
@@ -1103,7 +1103,7 @@ WITH RETURNS NULL ON NULL INPUT
 AS
 /* ============================================================================================
 Proposito: Retorna la fecha del último día del mes.
-Empresa: Asimatica 
+Empresa:  
 Desarrollador: Hugo Gonzalez Olaya
 Fecha: 2011-01-31
 Fecha actualizacion: 2020-07-15
@@ -1149,7 +1149,7 @@ WITH RETURNS NULL ON NULL INPUT
 AS
 /* ============================================================================================
 Proposito: Retorna la fecha del primer día del mes.
-Empresa: Asimatica 
+Empresa:  
 Desarrollador: Hugo Gonzalez Olaya
 Fecha: 2011-01-31
 Fecha actualizacion: 2020-07-15
@@ -1192,7 +1192,7 @@ WITH RETURNS NULL ON NULL INPUT
 AS
 /* ============================================================================================
 Proposito: Retorna la fecha del último día del año.
-Empresa: Asimatica 
+Empresa:  
 Desarrollador: Hugo Gonzalez Olaya
 Fecha: 2011-01-31
 Fecha actualizacion: 2020-07-15
@@ -1231,7 +1231,7 @@ WITH RETURNS NULL ON NULL INPUT
 AS
 /* ============================================================================================
 Proposito: Retorna la fecha del primer día del año.
-Empresa: Asimatica 
+Empresa:  
 Desarrollador: Hugo Gonzalez Olaya
 Fecha: 2011-01-31
 Fecha actualizacion: 2020-07-15
@@ -1269,7 +1269,7 @@ WITH RETURNS NULL ON NULL INPUT
 AS
 /* ============================================================================================
 Proposito: Retorna la fecha dada con el tiempo 23:59:59.997.
-Empresa: Asimatica 
+Empresa:  
 Desarrollador: Hugo Gonzalez Olaya
 Fecha: 2011-01-31
 Fecha actualizacion: 2020-07-15
@@ -1303,7 +1303,7 @@ WITH RETURNS NULL ON NULL INPUT
 AS
 /* ============================================================================================
 Proposito: Retorna la fecha dada con el tiempo truncado 00:00:00.000.
-Empresa: Asimatica 
+Empresa:  
 Desarrollador: Hugo Gonzalez Olaya
 Fecha: 2011-01-31
 Fecha actualizacion: 2020-07-15
@@ -1341,7 +1341,7 @@ WITH RETURNS NULL ON NULL INPUT
 AS
 /* ============================================================================================
 Proposito: Retorna la fecha del último día, según el tipo de partición dada.
-Empresa: Asimatica 
+Empresa:  
 Desarrollador: Hugo Gonzalez Olaya
 Fecha: 2011-01-31
 Fecha actualizacion: 2020-07-15
@@ -1425,7 +1425,7 @@ WITH RETURNS NULL ON NULL INPUT
 AS
 /* ============================================================================================
 Proposito: Retorna la fecha del primer día, según el tipo de partición dada.
-Empresa: Asimatica 
+Empresa:  
 Desarrollador: Hugo Gonzalez Olaya
 Fecha: 2011-01-31
 Fecha actualizacion: 2020-07-15
@@ -1499,7 +1499,7 @@ WITH RETURNS NULL ON NULL INPUT
 AS
 /* ============================================================================================
 Proposito: Retorna fecha más un número de periódos de tiempo.
-Empresa: Asimatica 
+Empresa:  
 Desarrollador: Hugo Gonzalez Olaya
 Fecha: 2011-01-31
 Fecha actualizacion: 2020-07-15
@@ -1574,7 +1574,7 @@ WITH RETURNS NULL ON NULL INPUT
 AS
 /* ============================================================================================
 Proposito: Retorna el número de períodos de tiempo entre dos fechas.
-Empresa: Asimatica 
+Empresa:  
 Desarrollador: Hugo Gonzalez Olaya
 Fecha: 2011-01-31
 Fecha actualizacion: 2020-07-15
@@ -1654,7 +1654,7 @@ WITH RETURNS NULL ON NULL INPUT
 AS
 /* ============================================================================================
 Proposito: Extrae el periódo de tiempo de un texto.
-Empresa: Asimatica 
+Empresa:  
 Desarrollador: Hugo Gonzalez Olaya
 Fecha: 2011-01-31
 Fecha actualizacion: 2020-07-15
@@ -1736,7 +1736,7 @@ RETURNS @tableResult TABLE
 AS
 /* ============================================================================================
 Proposito: Extrae el periódo de tiempo de un texto.
-Empresa: Asimatica 
+Empresa:  
 Desarrollador: Hugo Gonzalez Olaya
 Fecha: 2011-01-31
 Fecha actualizacion: 2020-07-15
@@ -1798,7 +1798,7 @@ RETURNS @Age TABLE(Years int, Months int, Days int)
 AS
 /* ============================================================================================
 Proposito: Retorna una Table con la edad, comparando la fecha dada con la fecha actual.
-Empresa: Asimatica 
+Empresa:  
 Desarrollador: Hugo Gonzalez Olaya
 Fecha: 2011-01-31
 Fecha actualizacion: 2020-07-15
@@ -1844,7 +1844,7 @@ WITH RETURNS NULL ON NULL INPUT
 AS 
 /* ============================================================================================
 Proposito: Retorna el número de días laborables entre dos fechas - excluyendo sabado y domingo.
-Empresa: Asimatica 
+Empresa:  
 Desarrollador: Hugo Gonzalez Olaya
 Fecha: 2011-01-31
 Fecha actualizacion: 2020-07-15
@@ -1892,7 +1892,7 @@ WITH RETURNS NULL ON NULL INPUT
 AS 
 /* ============================================================================================
 Proposito: Retorna el número de días laborables entre dos fechas - excluyendo sabado y domingo.
-Empresa: Asimatica 
+Empresa:  
 Desarrollador: Hugo Gonzalez Olaya
 Fecha: 2011-01-31
 Fecha actualizacion: 2020-07-15
@@ -1978,7 +1978,7 @@ WITH RETURNS NULL ON NULL INPUT
 AS 
 /* ============================================================================================
 Proposito: Aplica formato a la fecha y la retorna como texto.
-Empresa: Asimatica 
+Empresa:  
 Desarrollador: Hugo Gonzalez Olaya
 Fecha: 2011-01-31
 Fecha actualizacion: 2020-07-15
@@ -2050,7 +2050,7 @@ WITH RETURNS NULL ON NULL INPUT
 AS
 /* ============================================================================================
 Proposito: Retorna la duración entre dos fechas en formato: # Dias # Horas # Minutos # Segundos.
-Empresa: Asimatica 
+Empresa:  
 Desarrollador: Hugo Gonzalez Olaya
 Fecha: 2011-01-31
 Fecha actualizacion: 2020-07-15
@@ -2113,7 +2113,7 @@ RETURNS @tableResult TABLE
 AS 
 /* ============================================================================================
 Proposito: Retorna las diferentes partes de una fecha.  Antes de ejecutar debe establecer el primer dia de la semana: SET DATEFIRST 1.
-Empresa: Asimatica 
+Empresa:  
 Desarrollador: Hugo Gonzalez Olaya
 Fecha: 2011-01-31
 Fecha actualizacion: 2020-07-15
@@ -2304,7 +2304,7 @@ AS
 /* ============================================================================================
 Proposito: Retorna las diferentes partes de las horas de un día.
  Con granularidad de segundos. Numero de miembros: 24 horas * 60 Minutos * 60 Segundos = 86400.
-Empresa: Asimatica 
+Empresa:  
 Desarrollador: Hugo Gonzalez Olaya
 Fecha: 2016-06-24
 Fecha actualizacion: 2016-06-24
@@ -2446,7 +2446,7 @@ AS
 /* ============================================================================================
 Proposito: Retorna las diferentes partes de las horas de un día.
  Con granularidad de horas. Numero de miembros: 24.
-Empresa: Asimatica 
+Empresa:  
 Desarrollador: Hugo Gonzalez Olaya
 Fecha: 2016-06-24
 Fecha actualizacion: 2016-06-24

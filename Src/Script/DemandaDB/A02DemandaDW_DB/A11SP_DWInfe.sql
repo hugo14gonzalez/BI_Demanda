@@ -1,6 +1,6 @@
 ﻿/* ========================================================================== 
 Proyecto: DemandaBI
-Empresa: Asimatica 
+Empresa:  
 Desarrollador: Hugo Gonzalez Olaya 
 Fecha: 2020-07-15
 Fecha actualizacion: 2020-07-15
@@ -38,7 +38,7 @@ as
 /* ============================================================================================
 Proposito: Busca la clave subrogada para una clave de negocio dada, si no la encuentra inserta una fila en la tabla de dimensiones
  con los valores comodines dados. Retorna la clave subrogada encontrada o insertada, e indica si fue necesario insertar una nueva fila.
-Empresa: Asimatica 
+Empresa:  
 Desarrollador: Hugo Gonzalez Olaya
 Fecha: 2020-07-15
 Fecha actualizacion: 2020-07-15
@@ -110,7 +110,7 @@ as
 Proposito: Busca la clave subrogada para una clave de negocio dada, si no la encuentra inserta una fila en la tabla de dimensiones
  con los valores comodines dados. Retorna la clave subrogada encontrada o insertada, e indica si fue necesario insertar una nueva fila.
  Por ser dimension tipo 2, tiene tratamiento especial para manejo de vigencias.
-Empresa: Asimatica 
+Empresa:  
 Desarrollador: Hugo Gonzalez Olaya
 Fecha: 2020-07-15
 Fecha actualizacion: 2020-07-15
@@ -241,7 +241,7 @@ as
 Proposito: Busca la clave subrogada para una clave de negocio dada, si no la encuentra inserta una fila en la tabla de dimensiones
  con los valores comodines dados. Retorna la clave subrogada encontrada o insertada, e indica si fue necesario insertar una nueva fila.
  Por ser dimension tipo 2, tiene tratamiento especial para manejo de vigencias.
-Empresa: Asimatica 
+Empresa:  
 Desarrollador: Hugo Gonzalez Olaya
 Fecha: 2020-07-15
 Fecha actualizacion: 2020-07-15

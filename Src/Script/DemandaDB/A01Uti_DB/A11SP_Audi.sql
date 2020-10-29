@@ -1,6 +1,6 @@
 ﻿/* ========================================================================== 
 Proyecto: DemandaBI
-Empresa: Asimatica 
+Empresa:  
 Desarrollador: Hugo Gonzalez Olaya 
 Fecha: 2020-07-15
 Fecha actualizacion: 2020-07-15
@@ -32,7 +32,7 @@ ALTER procedure [Audit].[spBitacora_Cancel]
 as
 /* ============================================================================================
 Proposito: Actualiza la tabla de auditoria de bitacora indicando que fue cancelado.
-Empresa: Asimatica 
+Empresa:  
 Desarrollador: Hugo Gonzalez Olaya
 Fecha: 2015-04-01
 Fecha actualizacion: 2020-07-15
@@ -74,7 +74,7 @@ ALTER procedure [Audit].[spBitacora_Error]
 as
 /* ============================================================================================
 Proposito: Registra un error en la tabla de auditoria de bitacora.
-Empresa: Asimatica 
+Empresa:  
 Desarrollador: Hugo Gonzalez Olaya
 Fecha: 2015-04-01
 Fecha actualizacion: 2020-07-15
@@ -131,7 +131,7 @@ as
 /* ============================================================================================
 Proposito: Actualiza la tabla de auditoria de bitacora. 
  Si el estado es cancelado o error no actualiza este estado, de lo contrario utiliza el estado establecido, por defecto es 0: Exitoso.
-Empresa: Asimatica 
+Empresa:  
 Desarrollador: Hugo Gonzalez Olaya
 Fecha: 2015-04-01
 Fecha actualizacion: 2020-07-15
@@ -195,7 +195,7 @@ ALTER procedure [Audit].[spBitacora_Start]
 as
 /* ============================================================================================
 Proposito: Registra el evento incio de ejecucion en la tabla de auditoria de bitacora.
-Empresa: Asimatica 
+Empresa:  
 Desarrollador: Hugo Gonzalez Olaya
 Fecha: 2015-04-01
 Fecha actualizacion: 2020-07-15
@@ -288,7 +288,7 @@ ALTER procedure [Audit].[spBitacoraFile_Cancel]
 as
 /* ============================================================================================
 Proposito: Actualiza la tabla de auditoria de bitacora de archivo indicando que fue cancelado.
-Empresa: Asimatica 
+Empresa:  
 Desarrollador: Hugo Gonzalez Olaya
 Fecha: 2015-04-01
 Fecha actualizacion: 2020-07-15
@@ -346,7 +346,7 @@ As
 Proposito: Actualiza en la tabla BitacoraFile el estado = Error.
  Los archivos son tomados de PathSource, pasan luego a PathTarget, si está cifrado pasa a PathEncrypted y el archivos descifrado pasa a PathWithoutProcessing, 
  si no esta cifrado pasa a PathWithoutProcessing, si el procesamiento es exitoso pasa a PathProcessed y opcionalmente a PathProcessed2, pero si falla pasa a PathError.
-Empresa: Asimatica 
+Empresa:  
 Desarrollador: Hugo Gonzalez Olaya
 Fecha: 2015-04-01
 Fecha actualizacion: 2020-07-15
@@ -451,7 +451,7 @@ As
 /* ============================================================================================
 Proposito: Actualiza la tabla de BitacoraFile.
  Si el estado es cancelado o error no actualiza este estado, de lo contrario utiliza el estado establecido, por defecto es 0: Exitoso.
-Empresa: Asimatica 
+Empresa:  
 Desarrollador: Hugo Gonzalez Olaya
 Fecha: 2015-04-01
 Fecha actualizacion: 2020-07-15
@@ -517,7 +517,7 @@ As
 Proposito: Registra el evento incio de procesamiento de archivo en la tabla BitacoraFile.
  Los archivos son tomados de PathSource, pasan luego a PathTarget, si está cifrado pasa a PathEncrypted y el archivos descifrado pasa a PathWithoutProcessing, 
  si no esta cifrado pasa a PathWithoutProcessing, si el procesamiento es exitoso pasa a PathProcessed y opcionalmente a PathProcessed2, pero si falla pasa a PathError.
-Empresa: Asimatica 
+Empresa:  
 Desarrollador: Hugo Gonzalez Olaya
 Fecha: 2015-04-01
 Fecha actualizacion: 2020-07-15
@@ -601,7 +601,7 @@ ALTER PROCEDURE [Audit].[spBitacoraFile_Validate]
 As
 /* ============================================================================================
 Proposito: Indica si un archivo fue procesado.
-Empresa: Asimatica 
+Empresa:  
 Desarrollador: Hugo Gonzalez Olaya
 Fecha: 2015-04-01
 Fecha actualizacion: 2020-07-15
@@ -651,7 +651,7 @@ ALTER PROCEDURE [Audit].[spBitacoraFile_GetFileId]
 As
 /* ============================================================================================
 Proposito: Retorna el código del archivo
-Empresa: Asimatica 
+Empresa:  
 Desarrollador: Hugo Gonzalez Olaya
 Fecha: 2015-04-01
 Fecha actualizacion: 2020-07-15
@@ -690,7 +690,7 @@ ALTER procedure [Audit].[spBitacoraFile_IsErrorCanceled]
 as
 /* ============================================================================================
 Proposito: Retorna un valor booleano que indica si el archivo fue: 1: 'Error', 3: 'Cancelado', 12: 'Eliminando'
-Empresa: Asimatica 
+Empresa:  
 Desarrollador: Hugo Gonzalez Olaya
 Fecha: 2015-04-01
 Fecha actualizacion: 2020-07-15
@@ -746,7 +746,7 @@ ALTER procedure [Audit].[spBitacoraDetail_Insert]
 as
 /* ============================================================================================
 Proposito: Adiciona filas a la taba detalle de bitacora.
-Empresa: Asimatica 
+Empresa:  
 Desarrollador: Hugo Gonzalez Olaya
 Fecha: 2015-04-01
 Fecha actualizacion: 2020-07-15
@@ -828,7 +828,7 @@ ALTER PROCEDURE [Audit].[spBitacoraStatistic_End]
 As
 /* ============================================================================================
 Proposito: Actualiza la tabla de BitacoraStatistic.
-Empresa: Asimatica 
+Empresa:  
 Desarrollador: Hugo Gonzalez Olaya
 Fecha: 2016-07-25
 Fecha actualizacion: 2016-07-25
@@ -903,7 +903,7 @@ ALTER PROCEDURE [Audit].[spBitacoraStatistic_Start]
 As
 /* ============================================================================================
 Proposito: Registra el evento incio en la tabla BitacoraStatistic.
-Empresa: Asimatica 
+Empresa:  
 Desarrollador: Hugo Gonzalez Olaya
 Fecha: 2016-07-25
 Fecha actualizacion: 2016-07-25
@@ -999,7 +999,7 @@ ALTER procedure [Audit].[spBitacoraTable_Insert]
 as
 /* ============================================================================================
 Proposito: Adiciona filas a la taba detalle de bitacora.
-Empresa: Asimatica 
+Empresa:  
 Desarrollador: Hugo Gonzalez Olaya
 Fecha: 2015-04-01
 Fecha actualizacion: 2020-07-15
@@ -1100,7 +1100,7 @@ WITH RETURNS NULL ON NULL INPUT
 AS
 /* ============================================================================================
 Proposito: Retorna el código raíz del arbol de ejecucion debajo del nodo especificado, en la tabla: [Audit].[Bitacora]. 
-Empresa: Asimatica 
+Empresa:  
 Desarrollador: Hugo Gonzalez Olaya
 Fecha: 2016-04-01
 Fecha actualizacion: 2016-06-24
@@ -1189,7 +1189,7 @@ As
 /* ============================================================================================
 Proposito: Retorna arbol de ejecucion debajo del nodo especificado: subarbol desde el nodo actual (nodo actual y sus hijos) o el arbol completo,
  de la tabla: [Audit].[BitacoraDetail].
-Empresa: Asimatica 
+Empresa:  
 Desarrollador: Hugo Gonzalez Olaya
 Fecha: 2016-04-01
 Fecha actualizacion: 2016-06-24
@@ -1285,7 +1285,7 @@ RETURNS @tableResult TABLE
 As
 /* ============================================================================================
 Proposito: Retorna arbol de ejecucion en un rango de fechas, de la tabla: [Audit].[BitacoraDetail].
-Empresa: Asimatica 
+Empresa:  
 Desarrollador: Hugo Gonzalez Olaya
 Fecha: 2016-04-01
 Fecha actualizacion: 2016-06-24
@@ -1412,7 +1412,7 @@ As
 /* ============================================================================================
 Proposito: Retorna arbol de ejecucion debajo del nodo especificado: subarbol desde el nodo actual (nodo actual y sus hijos) o el arbol completo,
  de la tabla: [Audit].[BitacoraFile].
-Empresa: Asimatica 
+Empresa:  
 Desarrollador: Hugo Gonzalez Olaya
 Fecha: 2016-04-01
 Fecha actualizacion: 2016-06-24
@@ -1525,7 +1525,7 @@ RETURNS @tableResult TABLE
 As
 /* ============================================================================================
 Proposito: Retorna arbol de ejecucion en un rango de fechas, de la tabla: [Audit].[BitacoraFile].
-Empresa: Asimatica 
+Empresa:  
 Desarrollador: Hugo Gonzalez Olaya
 Fecha: 2016-04-01
 Fecha actualizacion: 2016-06-24
@@ -1639,7 +1639,7 @@ As
 /* ============================================================================================
 Proposito: Retorna arbol de ejecucion debajo del nodo especificado: subarbol desde el nodo actual (nodo actual y sus hijos) o el arbol completo,
  de la tabla: [Audit].[BitacoraStatistic].
-Empresa: Asimatica 
+Empresa:  
 Desarrollador: Hugo Gonzalez Olaya
 Fecha: 2016-07-25
 Fecha actualizacion: 2016-07-25
@@ -1736,7 +1736,7 @@ RETURNS @tableResult TABLE
 As
 /* ============================================================================================
 Proposito: Retorna arbol de ejecucion en un rango de fechas, de la tabla: [Audit].[BitacoraStatistic].
-Empresa: Asimatica 
+Empresa:  
 Desarrollador: Hugo Gonzalez Olaya
 Fecha: 2016-07-25
 Fecha actualizacion: 2016-07-25
@@ -1878,7 +1878,7 @@ As
 /* ============================================================================================
 Proposito: Retorna arbol de ejecucion debajo del nodo especificado: subarbol desde el nodo actual (nodo actual y sus hijos) o el arbol completo,
  de la tabla: [Audit].[BitacoraTable].
-Empresa: Asimatica 
+Empresa:  
 Desarrollador: Hugo Gonzalez Olaya
 Fecha: 2016-04-01
 Fecha actualizacion: 2016-06-24
@@ -2012,7 +2012,7 @@ RETURNS @tableResult TABLE
 As
 /* ============================================================================================
 Proposito: Retorna arbol de ejecucion en un rango de fechas, de la tabla: [Audit].[BitacoraTable].
-Empresa: Asimatica 
+Empresa:  
 Desarrollador: Hugo Gonzalez Olaya
 Fecha: 2016-04-01
 Fecha actualizacion: 2016-06-24
@@ -2141,7 +2141,7 @@ As
 /* ============================================================================================
 Proposito: Retorna arbol de ejecucion debajo del nodo especificado: subarbol desde el nodo actual (nodo actual y sus hijos) o el arbol completo,
  de la tabla: [Audit].[Bitacora].
-Empresa: Asimatica 
+Empresa:  
 Desarrollador: Hugo Gonzalez Olaya
 Fecha: 2016-04-01
 Fecha actualizacion: 2016-06-24
@@ -2249,7 +2249,7 @@ RETURNS @tableResult TABLE
 AS
 /* ============================================================================================
 Proposito: Retorna arbol de ejecucion en un rango de fechas, de la tabla: [Audit].[Bitacora].
-Empresa: Asimatica 
+Empresa:  
 Desarrollador: Hugo Gonzalez Olaya
 Fecha: 2016-04-01
 Fecha actualizacion: 2016-06-24

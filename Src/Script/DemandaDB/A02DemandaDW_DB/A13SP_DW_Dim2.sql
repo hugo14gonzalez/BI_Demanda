@@ -1,6 +1,6 @@
 /* ========================================================================== 
 Proyecto: DemandaBI
-Empresa: Asimatica 
+Empresa:  
 Desarrollador: Hugo Gonzalez Olaya 
 Fecha: 2020-07-15
 Fecha actualizacion: 2020-07-15
@@ -38,7 +38,7 @@ Proposito: Inserta o actualiza los datos de tabla DimAgente utilizados los datos
 Esta es una dimension tipo 2, los campos para indicar si es tipo 1 o 2 son los siguientes:
 Tipo 1: [Nombre],[Actividad]
 Tipo 2: [AgenteId],[CompaniaSKId],[Activo]
-Empresa: Asimatica 
+Empresa:  
 Desarrollador: Hugo Gonzalez Olaya
 Fecha: 2020-07-15
 Fecha actualizacion: 2020-07-15
@@ -400,7 +400,7 @@ Proposito: Inserta o actualiza los datos de tabla DimCompania utilizados los dat
 Esta es una dimension tipo 2, los campos para indicar si es tipo 1 o 2 son los siguientes:
 Tipo 1: [Nombre],[Sigla],[Nit],[TipoPropiedad]
 Tipo 2: [Activa]
-Empresa: Asimatica 
+Empresa:  
 Desarrollador: Hugo Gonzalez Olaya
 Fecha: 2020-07-15
 Fecha actualizacion: 2020-07-15
